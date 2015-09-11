@@ -1,0 +1,59 @@
+{
+	"error_header": {
+		"th": "Eman dituzun datuak okerrak dira"
+	},
+	"user_pass_header": {
+		"th": "\u0E42\u0E1B\u0E23\u0E14\u0E01\u0E23\u0E2D\u0E01\u0E0A\u0E37\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E41\u0E25\u0E30\u0E23\u0E2B\u0E31\u0E2A"
+	},
+	"user_pass_text": {
+		"th": "\u0E23\u0E30\u0E1A\u0E1A\u0E02\u0E2D\u0E43\u0E2B\u0E49\u0E04\u0E38\u0E13\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E15\u0E31\u0E27\u0E40\u0E2D\u0E07 \u0E01\u0E23\u0E38\u0E13\u0E32\u0E01\u0E23\u0E2D\u0E01\u0E0A\u0E37\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E43\u0E0A\u0E49\u0E2D\u0E35\u0E40\u0E21\u0E25\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13 (\u0E44\u0E21\u0E48\u0E43\u0E2A\u0E48 @cmu.ac.th) \u0E41\u0E25\u0E30\u0E23\u0E2B\u0E31\u0E2A\u0E1C\u0E48\u0E32\u0E19\u0E14\u0E49\u0E32\u0E19\u0E25\u0E48\u0E32\u0E07"
+	},
+	"login_button": {
+		"th": "\u0E40\u0E02\u0E49\u0E32\u0E2A\u0E39\u0E48\u0E23\u0E30\u0E1A\u0E1A"
+	},
+	"username": {
+		"th": "\u0E0A\u0E37\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E43\u0E0A\u0E49"
+	},
+	"organization": {
+		"th": "Erakundea"
+	},
+	"password": {
+		"th": "\u0E23\u0E2B\u0E31\u0E2A\u0E1C\u0E48\u0E32\u0E19"
+	},
+	"help_header": {
+		"th": "Lagundu! Ez dut nire pasahitza gogoratzen."
+	},
+	"help_text": {
+		"th": "Zeinen txarto! - Zure erabiltziale-izena eta pasahitza gabe ezin zara identifikatu ezta zerbitzuan sartu ere. Agian bada norbait lagun diezazukeena. Jar zaitez harremanetan erakundeko laguntza zentroarekin!"
+	},
+	"error_nopassword": {
+		"th": "Sarrera orrira zerbait bidali duzu baina, arrazoiren bategatik, pasahitza ez da bidali.Saia zaitez berriro, mesedez."
+	},
+	"error_wrongpassword": {
+		"th": "Erabiltzaile-izena edo pasahitza okerra",
+	},
+	"contact_info": {
+		"th": "Harremanetarako informazioa:",
+	},
+	"select_home_org": {
+		"th": "Hautatu zure jatorrizko erakundea"
+	},
+	"change_home_org_title": {
+		"th": "Zure jatorrizko erakundea aldatu"
+	},
+	"change_home_org_text": {
+		"th": "<b>%HOMEORG%<\/b> hautatu duzu zure jatorrizko erakunde bezala. Informazio hau okerra bada beste bat hautatu dezakezu."
+	},
+	"change_home_org_button": {
+		"th": "Jatorrizko erakundea hautatu"
+	},
+	"help_desk_link": {
+		"th": "Laguntza teknikoaren orria "
+	},
+	"help_desk_email": {
+		"th": "Bidali posta laguntza teknikoari"
+	},
+	"next": {
+		"th": "Hurrengoa"
+	}
+}

@@ -1,0 +1,39 @@
+1:25AM 15Feb2015
+change /etc/apache2/sites-available/000-default.conf 
+-> DocumentRoot /var/www/html to Document /home/siwaphol/php
+change /etc/apache2/apache2.conf
+-> 
+<Directory /var/www/html/>
+Options Indexes FollowSymLinks
+AllowOverride None
+Require all granted
+</Directory>
+
+to
+
+<Directory /home/siwaphol/php>
+Options Indexes FollowSymLinks
+AllowOverride None
+Require all granted
+</Directory>
+
+12:44PM 15Feb2015
+add line /etc/apache2/sites-available/000-default.conf
+->Alias /simplesaml /home/siwaphol/simplesaml/www
+edit /home/siwaphol/simplesamlphp/config/config.php
+->'auth.adminpassword' => 'siwaphol01'
+-> 'secretsalt' => '8h3xzmghwig9vuc25cnw8ettgdwwweu1'
+->technicalcontact_email => 'siwaphol.boonpan@gmail.com'
+-> 'timezone => 'Asia/Bangkok'
+add another Directory tag in apache2.conf
+->
+<Directory /home/siwaphol/simplesamlphp>
+	Options FollowSymLinks Includes ExecCGI
+	AllowOverride All
+	Require all granted
+</Directory>
+remove Options 'Indexes' from <Directory /home/siwaphol/php> because if folder is called and there is no index.html then the system will list all files in that folder
+->
+edit simplesamlphp/config/config.php
+-> 'enable.saml20-idp' => false, to 'enable.saml20-idp' => true,
+'enable.shib13-idp' => false, to 'enable.shib13-idp' => true,

@@ -1,0 +1,5 @@
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\bin\Release\SSODB-New.dacpac
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\bin\Release\SSODB_New.dll
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\bin\Release\SSODB_New.pdb
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\obj\Release\SSODB_New.dll
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\obj\Release\SSODB_New.pdb

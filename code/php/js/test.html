@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="jquery-autocomplete/lib/jquery.js"></script>
+<script type="text/javascript" src="jquery-autocomplete/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="jquery-autocomplete/lib/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="jquery-autocomplete/lib/jquery.ajaxQueue.js"></script>
+<script type="text/javascript" src="jquery-autocomplete/lib/thickbox-compressed.js"></script>
+<link rel="stylesheet" href="jquery-autocomplete/lib/thickbox.css" />
+<link rel="stylesheet" href="jquery-autocomplete/jquery.autocomplete.css" />
+<title>Autocomplete jQuery Plugin</title>
+<script type="text/javascript">
+$(document).ready(function(){
+ 
+	var str_month = "มกราคม กุมภาพันธ์ มีนาคม เมษายน พฤษภาคม มิถุนายน กรกฎาคม สิงหาคม กันยายน ตุลาคม พฤศจิกายน ธันวาคม";
+	var arr_month = str_month.split(" ");
+ 
+	$("#month").autocomplete( arr_month , {
+		multiple: true, //ยอมให้ป้อนได้หลายค่า
+		mustMatch: true, //ป้อนได้เฉพาะค่าที่เตรียมไว้ให้
+		autoFill: true, //เติมคำอัตโนมัติ
+		matchContains: true //หาค่าที่ไม่ใช่ตัวเริ่มต้น
+	});
+ 
+})
+ 
+</script>
+</head>
+<body>
+<input name="month" id="month" type="text" />
+</body>
+</html>

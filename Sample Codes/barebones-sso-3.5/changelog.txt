@@ -1,0 +1,335 @@
+SSO Server/Client changelog
+
+3.5
+Server:
+  - [CHANGED] DNS Reverse Blacklists support a URL suitable for display.
+
+  - [NEW] Ability to specify an additional message that is displayed when
+          there are no available providers (e.g. a detected spammer IP).
+----------
+
+3.4
+Server:
+  - [BREAKING CHANGE] Fixed Mcrypt AES implementation.
+
+  - [BUG] Fixed potential infinite loop in IP address checking logic for IPv6
+          addresses.
+
+  - [BUG] Fixed LoginCheck() calls in the Rate Limit Generic Login module.
+  - [BUG] Fixed LoginCheck() calls in the reCAPTCHA Generic Login module.
+
+  - [BUG] Fixed GenerateSignup() call in the Password Requirements Generic
+          Login module.
+
+  - [BUG] Fixed Remember Me module bypass when using two-factor authentication.
+
+  - [NEW] Added LinkedIn provider.
+
+Client:
+  - [BREAKING CHANGE] Fixed Mcrypt AES implementation.
+
+  - [NEW] Added a nearly complete port of the client to ASP.NET.
+----------
+
+3.3
+Server:
+  - [BUG] Fixed minor DATE_ADD() bug in admin.php.
+
+  - [NEW] Standard configuration section in Remote Login.
+  - [NEW] Remote ID as a field mapping option in Remote Login.
+  - [NEW] PHP 5.5 password_hash() support in Generic Login.
+  - [NEW] LoginAddMap() in Generic Login modules to update user information.
+  - [NEW] CustomFrontend() in Generic Login modules.
+  - [NEW] "Remember Me" module in Generic Login.
+----------
+
+3.2.2
+Server:
+  - [NEW] PostgreSQL database support (via CSDB).
+
+  - [UPDATED] Latest CSDB.
+----------
+
+3.2.1
+Server:
+  - [BUG] Fixed table creation calls for the Generic Login and Remote Login
+          providers.
+  - [BUG] Fixed "STMP" vs. "SMTP" issue.
+  - [BUG] Fixed database table detection code.
+
+Client:
+  - [BUG] Fixed test link before installation.
+----------
+
+3.2 [Major changes]
+Server:
+  - [SECURITY] Latest CSPRNG integration.
+
+  - [BREAKING CHANGE] Database support now uses CSDB and thus requires PDO.
+
+  - [BUG] Fixed undefined index warning for two-factor e-mail module.
+  - [BUG] Fixed creation date/time bug with users who update their Generic
+          Login information.
+
+  - [NEW] Provider output can be modified via a hook before it is sent to the
+          web browser.
+
+  - [UPDATED] Latest Ultimate E-mail Toolkit.
+  - [UPDATED] Latest Web Scraper Toolkit.
+  - [UPDATED] Latest Admin Pack w/ Extras.  Latest jQuery and jQuery UI.
+  - [UPDATED] Latest CSPRNG.
+  - [UPDATED] Latest command-line interface.
+  - [UPDATED] Latest Geolocation IP database API.
+  - [UPDATED] Latest phpseclib.
+  - [UPDATED] Latest Facebook SDK.
+  - [UPDATED] Latest SMS/MMS gateways.
+
+Client:
+  - [SECURITY] Latest CSPRNG integration.
+
+  - [UPDATED] Latest Web Scraper Toolkit.
+  - [UPDATED] Latest CSPRNG.
+
+Third-party plugins:
+  - [UPDATED] MyBB plugin v2.2 supports latest features.
+----------
+
+3.1
+Server:
+  - [BUG] Fixed e-mail two factor authentication e-mail issue.
+  - [BUG] Fixed UTF-8 preg_replace() /e deprecation warning under PHP 5.5.
+  - [BUG] Fixed SSO_BASE_RAND_SEED9 server upgrade issue.
+----------
+
+3.0 [Major release]
+Server:
+  - [SECURITY] Fixed possible vulnerability with using too few seeds.
+
+  - [BREAKING CHANGE] Minimum supported version of PHP is 5.3.
+
+  - [BUG] Fixed two-factor authentication for new Generic Login users created
+          via the admin inteface.
+
+  - [CHANGED] Endpoint API version changed to 3.0.
+  - [CHANGED] Installer now generates 14 seeds to combat possible seed reuse
+              vulnerabilities.
+  - [CHANGED] Moved SSO_IsStrongPassword() and SSO_GetNISTNumBits() to the
+              Generic Login Password Requirements module and renamed the
+              functions to IsStrongPassword() and GetNISTNumBits().
+
+  - [NEW] Dual encryption support (two keys and two initialization vectors).
+  - [NEW] AES-256 cipher mode support.
+  - [NEW] Browser cookies (namespaces and anti-phishing) use dual Blowfish.
+
+  - [UPDATED] Latest CSPRNG.
+
+Client:
+  - [SECURITY] Fixed possible vulnerability with using too few seeds.
+
+  - [BREAKING CHANGE] Minimum supported version of PHP is 5.3.
+  - [BREAKING CHANGE] Client now uses a class with optional function fallback.
+
+  - [NEW] Dual encryption support (two keys and two initialization vectors).
+  - [NEW] AES-256 cipher mode support (requires 'mcrypt').
+  - [NEW] The client can now be configured to always check with the SSO server
+          regardless of timeout value if the user is claiming to be a site
+          admin and the client supports site admins.
+
+  - [CHANGED] Installer now generates 16 seeds to combat possible seed reuse
+              vulnerabilities.
+
+  - [UPDATED] Latest CSPRNG.
+
+Third-party plugins:
+  - [UPDATED] Barebones CMS plugin v2.0 supports latest features.
+  - [UPDATED] MyBB plugin v2.0 supports latest features.
+----------
+
+2.9
+Server:
+  - [BUG] Fixed bug when username or e-mail address changed without changing
+          the password in the Generic Login provider.
+  - [BUG] Fixed bug where the browser's 'autocomplete' feature would fill in
+          fields.
+
+  - [NEW] Two-factor authentication for the Generic Login provider.  Basic
+          logic follows IETF RFC 6238 (Time-based One-Time Password).
+  - [NEW] Google Authenticator compatible two-factor authentication module for
+          the Generic Login provider.
+  - [NEW] E-mail Two-Factor Authentication module for the Generic Login
+          provider.
+  - [NEW] Two-factor authentication rate limiting option in the Rate Limiting
+          module for the Generic Login provider.
+
+  - [CHANGED] Generic Login provider Javascript now sends hidden variables
+              when AJAX requests are made.
+----------
+
+2.8.1
+Server:
+  - [BUG] Fixed session cookie removal issue when validating the user.
+  - [BUG] Fixed autoload issue with isolated Net::DNS2.
+  - [BUG] Fixed reset(array_keys()) calls which weren't 'strict' compliant.
+----------
+
+2.8
+Server:
+  - [SECURITY] Fixed the same-origin XSS/XSRF vulnerability in
+               SSO_ExternalRedirect() that allowed an iframe to be used to
+               extract sign in session information.
+
+  - [NEW] Attempt to detect and redirect users to a failure page when a sign
+          in is conducted within an iframe.
+
+  - [BUG] Fixed Google Voice SMS gateway issue in the Generic Login SMS
+          Recovery module.
+
+  - [UPDATED] Latest Ultimate E-mail Toolkit.
+  - [UPDATED] Latest SMS gateway carrier list.
+
+Applications:
+  - [NEW] API and native application sign in examples.
+  - [NEW] Example native Android application.
+  - [NEW] Example native iOS application.
+  - [NEW] Example native Windows Phone 8 application.
+  - [NEW] Example wxWidgets application (Windows, Mac, and Linux).
+----------
+
+2.7
+Server:
+  - [SECURITY] Fixed the installer define() PHP injection bug that allowed PHP
+               to be remotely injected upon successful installation.
+
+  - [BUG] Fixed hyphenated e-mail address domain issue via upstream library.
+----------
+
+2.6
+Server:
+  - [CHANGED] The error message returned when a session ID is not supplied has
+              been changed to include tips so the user isn't completely left
+              in the dark.
+
+  - [NEW] Added a new option in the Generic Login provider to control session
+          ID exposure in the URLs that are sent via e-mail.
+----------
+
+2.5
+Server:
+  - [UPDATED] Core HTTP library with important bugfixes.
+  - [UPDATED] Facebook SDK to use the latest GitHub repo.
+
+Client:
+  - [UPDATED] Core HTTP library with important bugfixes.
+----------
+
+2.4
+Server:
+  - [BUG] Fixed the installer second seed generation location so namespace
+          settings are correctly set up.
+
+Client:
+  - [BUG] Fixed the installer and client for issues regarding the previous
+          version.
+----------
+
+2.3
+Server:
+  - [BUG] No cache headers for every server page and important client pages
+          where cookies are sent.  Fixes the potential issue where badly
+          behaving proxy servers and clients could keep cached cookie data to
+          reuse for future unrelated GET requests.
+
+  - [CHANGED] Facebook and Google providers now use SSO_ExternalRedirect().
+  - [CHANGED] Namespace cookie is now encrypted.
+
+  - [NEW] Clock drift can now be configured in both the global server
+          configuration and API keys.  Was hardcoded to a five minute
+          variance.
+  - [NEW] Global configuration option to reset the namespace key and IV.
+
+Client:
+  - [BUG] Fixed the issue where the value of SSO_SERVER_SESSION_TIMEOUT is
+          greater than SSO_COOKIE_TIMEOUT.
+
+  - [CHANGED] Changed the installer to assign a value to the
+              SSO_SERVER_SESSION_TIMEOUT define to be in relation to
+              SSO_COOKIE_TIMEOUT.
+
+Third-party plugins:
+  - [UPDATED] Barebones CMS plugin v1.1 supports latest features.
+  - [UPDATED] MyBB plugin v1.1 supports latest features.
+----------
+
+2.2
+Server:
+  - [SECURITY] Fixed the issue with return browser URLs containing important
+               sign in information that could be used in XSS/XSRF and session
+               fixation attacks.
+
+  - [CHANGED] Second session ID is never sent to the browser unencrypted.
+  - [CHANGED] External redirects now call SSO_ExternalRedirect() to reset
+              browser redirection counts to zero.
+
+Client:
+  - [SECURITY] Fixed the issue with return browser URLs containing important
+               sign in information that could be used in XSS/XSRF and session
+               fixation attacks.
+
+  - [BUG] Fixed a minor issue with remote sign ins not working.
+
+  - [NEW] Specifying a $sso_removekeys array before including 'index.php'
+          results in the SSO client removing those extra keys from the browser
+          URL whenever they appear in a signed in session.
+----------
+
+2.1
+Server:
+  - [BUG] Fixed the Generic Login provider so that the verification and
+          account recovery e-mail include the session ID.
+
+  - [NEW] User impersonation support.  One-click sign in.
+
+  - [CHANGED] Non-fields are encrypted in the database when written.
+  - [CHANGED] Reserved the 'sso__' prefix for fields.
+----------
+
+2.0 [Major release]
+Server:
+  - [BUG] Fixed the issue where locking one account locked out all accounts.
+  - [BUG] Fixed the null SSO client redirect issue where logging in and being
+          kicked back immediately to the SSO server resulted in a failed
+          redirect upon a second successful sign in and validation.
+  - [BUG] Fixed the SSO client installer dropdowns to correctly set values in
+          the config.
+  - [BUG] Fixed the Generic Login provider's broken Username only
+          implementation.
+
+  - [NEW] Namespace support.
+  - [NEW] Remoting support.
+  - [NEW] Google account sign in provider.
+  - [NEW] Custom API key support.
+  - [NEW] Generic Login provider account creation in the admin.
+  - [NEW] Generic Login provider account activation in the admin.
+  - [NEW] Generic Login provider 'Update Information' checkbox when no
+          required recovery options are available (e.g. username only).
+
+  - [CHANGED] Made editing user field data more usable.
+  - [CHANGED] Allow user fields to contain more than one line of information.
+  - [CHANGED] Provider configuration layout improvements (accordion
+              integration).
+  - [CHANGED] Generic Login provider password reset dropdown in the admin has
+              more options.
+
+Client:
+  - [NEW] Remoting support.
+  - [NEW] Ability to detect 'from_sso_server'.
+  - [NEW] Client option to check the user's IP address against the encrypted
+          IP address and declare the user not signed in if they don't match.
+
+Third-party plugins:
+  - [NEW] Barebones CMS plugin now available.
+  - [NEW] MyBB plugin now available.
+----------
+
+1.0
+  - Initial Release.  Lots of nice features.

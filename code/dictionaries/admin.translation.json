@@ -1,0 +1,155 @@
+{
+	"cfg_check_header": {
+		"th": "Verificarea configura\u021biei"
+	},
+	"cfg_check_select_file": {
+		"th": "Verificarea configura\u021biei"
+	},
+	"cfg_check_missing": {
+		"th": "Konfigurazio fitxategian falta diren aukerak"
+	},
+	"cfg_check_superfluous": {
+		"th": "Konfigurazio fitxategian soberan dauden aukerak"
+	},
+	"cfg_check_noerrors": {
+		"th": "\u041e\u0448\u0438\u0431\u043e\u043a \u043d\u0435 \u043e\u0431\u043d\u0430\u0440\u0443\u0436\u0435\u043d\u043e."
+	},
+	"cfg_check_back": {
+		"th": "\u0412\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u043a \u0441\u043f\u0438\u0441\u043a\u0443 \u0444\u0430\u0439\u043b\u043e\u0432"
+	},
+	"metaover_header": {
+		"th": "Ikusi metadatuak"
+	},
+	"metaover_intro": {
+		"th": "SAML entitate baten xehetasunak ikusteko, klikatu entitatearen goibutha."
+	},
+	"metaover_errorentry": {
+		"th": "Metadatu sarrera honetan  errorea"
+	},
+	"metaover_required_found": {
+		"th": "Derrigorrezko eremuak"
+	},
+	"metaover_required_not_found": {
+		"th": "Derrigorrezko datu hauek ez dira aurkitu"
+	},
+	"metaover_optional_found": {
+		"th": "Hautazko datuak"
+	},
+	"metaover_optional_not_found": {
+		"th": "Hautazko datu hauek ez dira aurkitu"
+	},
+	"metaover_unknown_found": {
+		"th": "Datu hauek ez dira antzeman"
+	},
+	"metadata_metadata": {
+		"th": "Metadatuak"
+	},
+	"metadata_xmlformat": {
+		"th": "SAML 2.0 metadatuetako xml formatuan:"
+	},
+	"debug_sending_message_text_link": {
+		"th": "\u0412\u044b \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442\u0435\u0441\u044c \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435. \u041a\u043b\u0438\u043a\u043d\u0438\u0442\u0435 \u0441\u0441\u044b\u043b\u043a\u0443 \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u0438 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0435\u043d\u0438\u044f."
+	},
+	"debug_sending_message_send": {
+		"th": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435"
+	},
+	"debug_sending_message_msg_title": {
+		"th": "Mezua"
+	},
+	"debug_sending_message_msg_text": {
+		"th": "Arazketa moduan egonez gero, bidaltzera zoazen mezuaren edukia ikusiko duzu:"
+	},
+	"metaover_group_metadata.saml20-sp-remote": {
+		"th": "SAML 2.0 Zerbitzu hornitzailea (Urthnekoa)"
+	},
+	"metaover_group_metadata.saml20-idp-hosted": {
+		"th": "SAML 2.0 Identitate hornitzailea (Anfitrioia)"
+	},
+	"metaover_group_metadata.saml20-idp-remote": {
+		"th": "SAML 2.0 Identitate hornitzailea (Urthnekoa)"
+	},
+	"metaover_group_metadata.shib13-sp-hosted": {
+		"th": "Shib 1.3 Zerbitzu hornitzailea (Anfitrioia)"
+	},
+	"metaover_group_metadata.shib13-sp-remote": {
+		"th": "Shib 1.3 Zerbitzu hornitzailea (Urthnekoa)"
+	},
+	"metaover_group_metadata.shib13-idp-hosted": {
+		"th": "Shib 1.3 Identitate hornitzailea (Anfitrioia)"
+	},
+	"metaover_group_metadata.shib13-idp-remote": {
+		"th": "Shib 1.3 Identitate hornitzailea (Urthnekoa)"
+	},
+    "metaover_group_metadata.adfs-sp-remote": {
+        "th": "\u0421\u0435\u0440\u0432\u0438\u0441 \u043f\u0440\u043e\u0432\u0430\u0439\u0434\u0435\u0440 ADFS (\u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0435 \u0440\u0430\u0437\u043c\u0435\u0449\u0435\u043d\u0438\u0435)"
+    },
+    "metaover_group_metadata.adfs-idp-hosted": {
+        "th": "\u041f\u0440\u043e\u0432\u0430\u0439\u0434\u0435\u0440 \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438 ADFS (\u043b\u043e\u043a\u0430\u043b\u044c\u043d\u043e\u0435 \u0440\u0430\u0437\u043c\u0435\u0449\u0435\u043d\u0438\u0435)"
+    },
+	"metaover_group_metadata.wsfed-sp-hosted": {
+		"th": "WS-Federation Zerbitzu hornitzailea (Anfitrioia)"
+	},
+	"metaover_group_metadata.wsfed-idp-remote": {
+		"th": "WS-Federation Identitate hornitzailea (Urthnekoa)"
+	},
+	"metaconv_title": {
+		"th": "Metadatuak aztertu"
+	},
+	"metaconv_xmlmetadata": {
+		"th": "XML metadatuak"
+	},
+	"metaconv_parse": {
+		"th": "Aztertu"
+	},
+	"metaconv_converted": {
+		"th": "Bihurtutako metadatuak"
+	},
+	"metadata_saml20-sp": {
+		"th": "SAML 2.0 SP Metadatuak"
+	},
+	"metadata_saml20-idp": {
+		"th": "SAML 2.0 IdP Metadatuak"
+	},
+	"metadata_shib13-sp": {
+		"th": "Shib 1.3 SP Metadatuak"
+	},
+	"metadata_shib13-idp": {
+		"th": "Shib 1.3 IdP Metadatuak"
+	},
+    "metadata_adfs-sp": {
+        "th": "\u041c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435 ADFS SP"
+    },
+    "metadata_adfs-idp": {
+        "th": "\u041c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435 ADFS IdP"
+    },
+    "metadata_intro": {
+		"th": "Hona hemen simpleSAMLphp-ak zuretzat sortu dituen metadatuak. Metadatuen dokumentu hau konfidantzazko zure kideei bidal diezaiekezu federazio bat konfiguratzeko."
+	},
+	"metadata_xmlurl": {
+		"th": "<a href=\"%METAURL%\">xml metadatuekin URL bat<\/a> eskura dezakezu:"
+	},
+	"metadata_simplesamlformat": {
+		"th": "simpleSAMLphp formatuko fitxategi batean - beste muturrean simpleSAMLphp entitate bat erabiltzen ariz gero, erabil ezazu aukera hau:"
+	},
+	"debug_sending_message_title": {
+		"th": "\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f"
+	},
+	"debug_sending_message_text_button": {
+		"th": "\u0412\u044b \u0441\u043e\u0431\u0438\u0440\u0430\u0435\u0442\u0435\u0441\u044c \u043e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435. \u041a\u043b\u0438\u043a\u043d\u0438\u0442\u0435 \u043a\u043b\u0430\u0432\u0438\u0448\u0443 \u043e\u0442\u043f\u0440\u0430\u0432\u043a\u0438 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0435\u043d\u0438\u044f."
+	},
+	"debug_disable_debug_mode": {
+		"th": "Arazketa modua desaktibatu daiteke simpleSAMLphp <tt>config\/config.php<\/tt> konfigurazio orokorreko fitxategian."
+	},
+	"metaover_group_metadata.saml20-sp-hosted": {
+		"th": "SAML 2.0 Zerbitzu hornitzailea (Anfitrioia)"
+	},
+	"cfg_check_notices": {
+		"th": "Oharrak"
+	},
+	"metadata_cert": {
+		"th": "Ziurtagiriak"
+	},
+	"metadata_cert_intro": {
+		"th": "X509 ziurtagiriak PEM formatuan deskargatu."
+	}
+}

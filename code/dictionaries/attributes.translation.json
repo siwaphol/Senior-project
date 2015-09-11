@@ -1,0 +1,140 @@
+{
+	"attribute_edupersonaffiliation": {
+		"th": "Afiliazioa"
+	},
+	"attribute_title": {
+		"th": "Afiliazioa"
+	},
+	"attribute_uid": {
+		"th": "Afiliazioa"
+	},
+	"attribute_sn": {
+		"th": "Afiliazioa"
+	},
+	"attribute_givenname": {
+		"th": "Afiliazioa"
+	},
+	"attribute_cn": {
+		"th": "Afiliazioa"
+	},
+	"attribute_mail": {
+		"th": "Afiliazioa"
+	},
+	"attribute_mobile": {
+		"th": "Afiliazioa"
+	},
+	"attribute_preferredlanguage": {
+		"th": "Hizkuntza lehenetsia"
+	},
+	"attribute_noredupersonnin": {
+		"th": "Gizarte-segurantzako zenbakia"
+	},
+	"attribute_schachomeorganization": {
+		"th": "Jatorrizko erakundearen domeinu izena"
+	},
+	"attribute_organisationname": {
+		"th": "Erakundearen izena",
+	},
+	"attribute_edupersonentitlement": {
+		"th": "Zerbitzuari dagokion eskubidea"
+	},
+	"attribute_edupersonscopedaffiliation": {
+		"th": "Afiliazioa jatorrizko erakundean"
+	},
+	"attribute_edupersontargetedid": {
+		"th": "Goitizen ID etengabea"
+	},
+	"attribute_edupersonprincipalname": {
+		"th": "Jatorrizko erakundean pertsonak duen izen nagusia"
+	},
+	"attribute_o": {
+		"th": "Erakundearen izena",
+	},
+	"attribute_dc": {
+		"th": "Domeinuaren osagaia (DC)"
+	},
+	"attribute_displayname": {
+		"th": "Bistaratzeko izena"
+	},
+	"attribute_facsimiletelephonenumber": {
+		"th": "Fax-zenbakia",
+	},
+	"attribute_homephone": {
+		"th": "Etxeko telefonoa",
+	},
+	"attribute_homepostaladdress": {
+		"th": "Etxeko helbidea"
+	},
+	"attribute_jpegphoto": {
+		"th": "JPEG argazkia",
+	},
+	"attribute_l": {
+		"th": "Herria"
+	},
+	"attribute_labeleduri": {
+		"th": "URI etiketatua"
+	},
+	"attribute_ou": {
+		"th": "Antolamendu-unitatea"
+	},
+	"attribute_postaladdress": {
+		"th": "Posta-helbidea",
+	},
+	"attribute_postalcode": {
+		"th": "Posta-kodea",
+	},
+	"attribute_postofficebox": {
+		"th": "Posta-bulegoko ontzia",
+	},
+	"attribute_street": {
+		"th": "Kalea",
+	},
+	"attribute_telephonenumber": {
+		"th": "Telefono zenbakia",
+	},
+	"attribute_eduorghomepagthri": {
+		"th": "Erakundearen hasiera-orria"
+	},
+	"attribute_eduorglegalname": {
+		"th": "Erakundearen izen legala"
+	},
+	"attribute_edupersonnickname": {
+		"th": "Ezizena",
+	},
+	"attribute_edupersonorgdn": {
+		"th": "Pertsonaren jatorrizko erakundearen izen osatua (DN)"
+	},
+	"attribute_edupersonorgunitdn": {
+		"th": "Pertsonaren jatorrizko erakundeko antolamendu-unitatearen izen osatua (DN)"
+	},
+	"attribute_edupersonprimaryaffiliation": {
+		"th": "Lehen afiliazioa"
+	},
+	"attribute_noreduorgnin": {
+		"th": "Erakundearen zenbakia"
+	},
+	"attribute_noredupersonbirthdate": {
+		"th": "Jaioteguna",
+	},
+	"attribute_noredupersonlin": {
+		"th": "Tokiko zenbaki identifikatzailea"
+	},
+	"attribute_manager": {
+		"th": "Kudeatzailea"
+	},
+	"attribute_userpassword": {
+		"th": "Erabiltzailearen pasahitzaren hash-a"
+	},
+	"attribute_edupersonprimaryorgunitdn": {
+		"th": "Pertsonaren antolamendu-unitatearen izen osatua (DN)"
+	},
+	"attribute_schacuserprivateattribute": {
+		"th": "Informazio pribatuaren elementuak"
+	},
+	"attribute_noredupersonlegalname": {
+		"th": "Izen legala"
+	},
+	"attribute_edupersonassurance": {
+		"th": "Bermearen profilaren identifikatzailea"
+	}
+}

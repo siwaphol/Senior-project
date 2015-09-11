@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%;"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link href="http://www.slideshare.net/guest648519/authentication-and-single-sing-on" rel="canonical">
+
+    <!-- SL:begin:notranslate -->
+    <title>Authentication and Single Sing on</title>
+    <!-- SL:end:notranslate -->
+    <!--[if IE]><style>.slidesContainer img { border: none } </style><![endif]-->
+    <script src="536862_data/beacon.js" async="" type="text/javascript"></script><script src="536862_data/ga.js" async="" type="text/javascript"></script><script type="text/javascript" src="536862_data/jquery.js"></script>
+
+    <script type="text/javascript">
+      var slideshare_object = {
+        user: {"is_fbuser":true,"is_pro":false,"loggedin":true,"su":false,"fb_access_token":"CAAAAAJRtxBIBAL3bzjMYbIhwZCcsMtViOs6HgdCWFbEUtJPnHHZAZAFCqeglcZBQuvUpJdbaJmqVvP06LRZAaKJSxZA7LZBv5t3BE1qYH6xxEli7Pl3HtGdlSYQKiJtYmgkkZAhtiNeFP8NNWxx6bMOl3EMbqZC0nqGZAiuXzJqv4ThTCOZA0dqgEMCcBO35NM1V70ZD","name":"Siwaphol Boonpan","opengraph_permissions":{"view":true,"upload":false,"favorite":false,"comment":false,"follow":false,"download":false},"fb_userid":"100000513455389","show_li_connect_cta":null,"has_privacy_enabled":true,"is_opengraph_user":true,"is_li_connected":false,"login":"siwapholboonpan","id":56412830,"has_uploads":false,"userGroup":"member"},
+        timer: { start: (new Date()).getTime(), end: '', execTime: '' },
+        top_nav: { get_url: "/top_nav"},
+        li_bar: {get_url: "/li_bar"},
+        dev: false,
+        fb_app_name: 'slideshare',
+        init: [],
+        feature_flag: []
+      };
+    </script>
+
+    <script src="536862_data/global.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+        var _jspl = {}
+        _jspl.pageInitTime = (new Date()).getTime();
+        window._gaq = [];
+        _gaq.push(['_setAccount','UA-2330466-1']);
+        _gaq.push(['_setDomainName', '.slideshare.net']);
+        _gaq.push(['_addIgnoredRef', 'slideshare.net']);
+        _gaq.push(['_setCustomVar', 2, 'document_referrer', document.referrer]);
+        _gaq.push(['_trackPageview', '/embedPlayerView']);
+        (function(){
+          // google analytics
+          var ga = document.createElement('script'); 
+          ga.type = 'text/javascript'; 
+          ga.async = true;
+          ga.src = ('https:' == document.location.protocol ?
+            'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(ga, s);
+          
+          //comscore
+          _comscore = window._comscore || [];
+          _comscore.push({ c1: "7", c2: "6402952", c3: "1" });
+          var ca = document.createElement("script");
+          ca.type = 'text/javascript';
+          s = document.getElementsByTagName("script")[0]; 
+          ca.async = true;
+          ca.src = (document.location.protocol == "https:" ?
+            "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+          s.parentNode.insertBefore(ca, s); 
+          
+        })();
+      </script>
+    <link href="536862_data/combined_presentation.css" media="screen" rel="stylesheet" type="text/css">
+
+      <script src="536862_data/combined_presentation.js" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+      config = {"start_slide":1,"twitter_share_text":"Authentication and Single Sing on #authentication #freeswmaster","video_slides_count":0,"timestamp":1217519376,"author_id":7670165,"ppt_location":"intsession-1217526848891194-9","page":null,"player_bgcolor":"jsplBgColorBigfoot","player_type":"presentation","spinner_url_fullscreen":"//public.slidesharecdn.com/b/images/ssplayer/loading_white.gif","container":"player","lastscreen":{"url":"http://www.slideshare.net/guest648519/authentication-and-single-sing-on","related":[{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/ssoofdrupalandidm-140220201313-phpapp01-thumbnail.jpg?cb=1392953726","title":"SSO IN/With Drupal and Identitiy Ma...","url":"https://public.slidesharecdn.com/b/manishharsh/sso-of-drupal-and-idm-31461537","author":"Manish Harsh","author_login":"manishharsh","views":2120},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/openid-authentication490-thumbnail.jpg?cb=1181502960","title":"OpenID Authentication","url":"https://public.slidesharecdn.com/b/keepthebyte/openid-authentication","author":"C\u00e9dric H\u00fcsler","author_login":"keepthebyte","views":13538},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/ts-4604-100131100259-phpapp01-thumbnail.jpg?cb=1264953801","title":"Fast and Free SSO: A Survey of Open...","url":"https://public.slidesharecdn.com/b/adorepump/fast-and-free-sso-a-survey-of-opensource-solutions-to-single-signon-3040665","author":"elliando dias","author_login":"adorepump","views":6009},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/fast-and-free-sso-a-survey-of-open-source-solutions-to-single-sign-on-723-thumbnail.jpg?cb=1247009277","title":"Fast and Free SSO: A Survey of Open...","url":"https://public.slidesharecdn.com/b/craigsdickson/fast-and-free-sso-a-survey-of-open-source-solutions-to-single-sign-on","author":"Craig Dickson","author_login":"craigsdickson","views":52547},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/iam200-100324152924-phpapp02-thumbnail.jpg?cb=1269462742","title":"Exploring Advanced Authentication M...","url":"https://public.slidesharecdn.com/b/NOVL/exploring-advanced-authentication-methods-in-novell-access-manager","author":"Novell","author_login":"NOVL","views":8909},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/openidandrails-091224211414-phpapp02-thumbnail.jpg?cb=1261710900","title":"Implementing OpenID for Your Social...","url":"https://public.slidesharecdn.com/b/dkeener/implementing-openid-for-your-social-networking-site","author":"David Keener","author_login":"dkeener","views":4077},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/singlesignonthebasics-140608073424-phpapp02-thumbnail.jpg?cb=1402231000","title":"Single Sign On - The Basics","url":"https://public.slidesharecdn.com/b/ishanaba/single-sign-on-thebasics","author":"Ishan A B Ambanwela","author_login":"ishanaba","views":199},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/authenticationmodels-090511074454-phpapp02-thumbnail.jpg?cb=1242045922","title":"Authentication Models","url":"https://public.slidesharecdn.com/b/rajchanchal/authentication-models","author":"rajchanchal","author_login":"rajchanchal","views":4452},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/portalguardsamlsso-140730091533-phpapp01-thumbnail.jpg?cb=1406729828","title":"Leveraging SAML for Federated Singl...","url":"https://public.slidesharecdn.com/b/TechGuys603/portal-guard-samlsso","author":"PistolStar, Inc. ...","author_login":"TechGuys603","views":71},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/ssohighereducationtechbrief-140730082045-phpapp01-thumbnail.jpg?cb=1406729052","title":"SAML Single Sign-on for Higher Educ...","url":"https://public.slidesharecdn.com/b/TechGuys603/saml-single-signon-for-higher-education","author":"PistolStar, Inc. ...","author_login":"TechGuys603","views":176},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/expansion-plan-security-guidelines3814-thumbnail.jpg?cb=1273139738","title":"Expansion Plan Security Guidelines","url":"https://public.slidesharecdn.com/b/Zubin67/expansion-plan-security-guidelines","author":"Zubin67","author_login":"Zubin67","views":683},{"thumbnail":"//cdn.slidesharecdn.com/ss_thumbnails/y04704152156-140909021753-phpapp01-thumbnail.jpg?cb=1410247303","title":"Efficient and Secure Single Sign on...","url":"https://public.slidesharecdn.com/b/ijeraeditor/y04704152156","author":"IJERA Editor","author_login":"ijeraeditor","views":12}]},"slide_error_template":"\u003Cstyle type=\"text/css\"\u003E\n  .jsplayer-slide-error {\n    background-color: #000;\n    padding: 20% 0 13% !important;\n  }\n  .jsplayer-slide-error div {\n    text-align: center;\n  }\n  .jsplayer-slide-error img {\n    height: 79px !important;\n    margin: 0 0 10px;\n    width: 80px !important;\n  }\n  .jsplayer-slide-error .slide-error-body {\n    color: #eee;\n    font-family: 'Lucida Grande',Verdana, Arial, Helvetica, sans-serif;\n    padding: 0 !important;\n  }\n  .jsplayer-slide-error .slide-error-body p {\n    font-size: 0.8em;\n    line-height: 1.1em;\n    margin: 7px 0 11px;\n  }\n  .jsplayer-slide-error .slide-error-body input[type=button] {\n    margin: 7px 0 0;\n    padding: 7px 14px;\n  }\n\u003C/style\u003E\n\u003Cdiv class=\"jsplayer-slide-error\"\u003E\n  \u003Cdiv style=\"position:relative;\"\u003E\n    \u003Cimg src='https://public.slidesharecdn.com/b/images/ssplayer/error_dudes-80x79.png' height=\"79\" width=\"80\" /\u003E\n    \u003Cdiv class=\"slide-error-body\"\u003E\n      \u003Cp\u003EWe were unable to load the slide.\u003C/p\u003E\n      \u003Cinput class=\"btn btn-large\" type=\"button\" value=\"Reload slide\" /\u003E\n    \u003C/div\u003E\n  \u003C/div\u003E\n\u003C/div\u003E\n","render_links":"default","replayscreen":{"html":"\u003Ca href=\"#\" class=\"replayScreenReplay\" \u003EView again\u003C/a\u003E"},"slideview_url":"/guest648519/authentication-and-single-sing-on?ref=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/","html_ttffont_url_suffix":".js","fullscreen_bgcolor":"jsplBgColorWhite","pin_image_url":"http://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-1-728.jpg?cb=1217519376","has_video":false,"iframe_code":"\u003Ciframe src=\"{iframe_url}\" width=\"{width}\" height=\"{height}\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" style=\"border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;\" allowfullscreen\u003E \u003C/iframe\u003E \u003Cdiv style=\"margin-bottom:5px\"\u003E \u003Cstrong\u003E \u003Ca href=\"https://www.slideshare.net/guest648519/authentication-and-single-sing-on\" title=\"Authentication and Single Sing on\" target=\"_blank\"\u003EAuthentication and Single Sing on\u003C/a\u003E \u003C/strong\u003E from \u003Cstrong\u003E\u003Ca href=\"http://www.slideshare.net/guest648519\" target=\"_blank\"\u003Eguest648519\u003C/a\u003E\u003C/strong\u003E \u003C/div\u003E","autoplayOnEmbed":false,"is_only_private":false,"spinner_url":"https://public.slidesharecdn.com/b/images/ssplayer/loading.gif","share_text":"Authentication and Single Sing on by guest648519 via slideshare","show_related_content":"1","disable_share":false,"image_bucket_location":"https://image.slidesharecdn.com/intsession-1217526848891194-9","share_cta":{"html":"\u003Cdiv class=\"action-btns-container persistent\"\u003E\n    \u003Ca rel=\"nofollow\" title=\"Like this SlideShare\" href = \"/login\" target=\"_blank\" class=\"action-btn favorite j-favorite ss-action\" data-ssid=\"536862\" data-ss-url=\"http://www.slideshare.net/guest648519/authentication-and-single-sing-on\"\u003E\n      \u003Cspan class=\"action-btn-icon\"\u003E\u003C/span\u003E\n      \u003Cspan class=\"action-btn-text\"\u003ELike\u003C/span\u003E\n    \u003C/a\u003E\n\n  \u003Ca rel=\"nofollow\" href=\"#\" title=\"Share this SlideShare\" class=\"action-btn share j-share\" data-ssid=\"536862\"\u003E\n    \u003Cspan class=\"action-btn-icon\"\u003E\u003C/span\u003E\n    \u003Cspan class=\"action-btn-text\"\u003EShare\u003C/span\u003E\n  \u003C/a\u003E\n\n    \u003Ca rel=\"nofollow\" href=\"/siwapholboonpan/savedfiles?s_title=authentication-and-single-sing-on\u0026amp;user_login=guest648519\" target=\"_blank\" title=\"Save this SlideShare\" data-mobile-save-url=\"/login?from_source=mobile/guest648519/authentication-and-single-sing-on\" class=\"action-btn save j-save ss-action\" data-target=\"#login_modal\"\u003E\n      \u003Cspan class=\"save action-btn-icon\"\u003E\u003C/span\u003E\n      \u003Cspan class=\"action-btn-text\"\u003ESave\u003C/span\u003E\n    \u003C/a\u003E\n\u003C/div\u003E\n"},"show_image_player":true,"slideshow_real_total_slides_count":39,"slide_count":39,"slideshow_slideshow_type":0,"image_ready":true,"embed_code":"\u003Ciframe src=\"https://www.slideshare.net/slideshow/embed_code/536862\" width=\"427\" height=\"356\" frameborder=\"0\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" style=\"border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;\" allowfullscreen\u003E \u003C/iframe\u003E \u003Cdiv style=\"margin-bottom:5px\"\u003E \u003Cstrong\u003E \u003Ca href=\"https://www.slideshare.net/guest648519/authentication-and-single-sing-on\" title=\"Authentication and Single Sing on\" target=\"_blank\"\u003EAuthentication and Single Sing on\u003C/a\u003E \u003C/strong\u003E from \u003Cstrong\u003E\u003Ca href=\"http://www.slideshare.net/guest648519\" target=\"_blank\"\u003Eguest648519\u003C/a\u003E\u003C/strong\u003E \u003C/div\u003E","disable_eagerload":true,"mode":"image","disable_lastscreen":false,"iframe_url":"https://www.slideshare.net/slideshow/embed_code/536862","use_ssl":true,"wp_code":"[slideshare id=536862\u0026doc=intsession-1217526848891194-9]","hosted_in":"embed","toolbar_html":"\u003C!--[if IE 7]\u003E\n  \u003Cstyle\u003E\n    .toolbar .navActions { position: relative; top: -28px; }\n    div.toolbar .nav {margin-left : 37%; }\n  \u003C/style\u003E\n\u003C![endif]--\u003E\n  \u003Ca href=\"#\" class=\"sprite btnViewOnSS\" title=\"View on SlideShare\"\u003E\u0026nbsp;\u003C/a\u003E\u003C!-- view on SS --\u003E\n  \u003Cdiv class=\"nav\"\u003E\n    \u003Cbutton id=\"btnFirst\" class=\"btnFirst\" title=\"First Slide\"\u003E\u0026laquo;\u003C/button\u003E\n    \u003Cbutton id=\"btnPrevious\" class=\"btnPrevious\" title=\"Previous Slide\"\u003E\u0026lsaquo;\u003C/button\u003E\n    \u003Cbutton id=\"btnNext\" class=\"btnNext\" title=\"Next Slide\"\u003E\u0026rsaquo;\u003C/button\u003E\n    \u003Cbutton id=\"btnLast\" class=\"btnLast\" title=\"Last Slide\"\u003E\u0026raquo;\u003C/button\u003E\n  \u003C/div\u003E\n  \u003Cdiv class=\"navActions\"\u003E\n    \u003Cbutton id=\"btnFullScreen\" class=\"btnFullScreen\" title=\"View Fullscreen\"\u003E\u0026nbsp;\u003C/button\u003E\n    \u003Cbutton id=\"btnLeaveFullScreen\" class=\"btnLeaveFullScreen\" title=\"Exit Fullscreen\"\u003E\u0026nbsp;\u003C/button\u003E\n    \u003Clabel class=\"goToSlideLabel\"\u003E\u003Cinput type=\"text\" name=\"goToSlide\" value=\"1\" /\u003E\u003Cspan\u003E/123\u003C/span\u003E\u003C/label\u003E\n  \u003C/div\u003E\n","id":536862,"is_private":false,"sharescreen":{"title":"Authentication and Single Sin...","url":"http://www.slideshare.net/guest648519/authentication-and-single-sing-on","html":"\u003Cdiv class=\"shareScreen\"\u003E\n  \u003Ca href=\"#\" class=\"close\"\u003E\u0026times;\u003C/a\u003E\n  \u003Cul class=\"shareMethods\"\u003E\n    \u003Cli class=\"embed\"\u003E\n      \u003Clabel for=\"embed-code\"\u003EEmbed\u003C/label\u003E\n      \u003Cinput type='text' class=\"shareScreenEmbedCode\" value=\"code\" name=\"embed-code\" /\u003E\n    \u003C/li\u003E\n    \u003Cli class=\"url last\"\u003E\n      \u003Clabel for=\"embed-url\"\u003EURL\u003C/label\u003E\n      \u003Cinput type='text' class=\"shareScreenSSUrl\" value=\"code\" name=\"embed-url\" /\u003E\n\t\u003C/li\u003E\n  \u003C/ul\u003E\n  \u003Cform class=\"emailShare\"\u003E\n    \u003Cfieldset\u003E\n      \u003Clegend\u003EEmail this\u003C/legend\u003E\n      \u003Cinput type=\"hidden\" class=\"shareDefaultMessage\" value=\"I think you will find this useful.\" /\u003E\n      \u003Cul\u003E\n        \u003Cli\u003E\n          \u003Clabel for=\"name\"\u003EYour name\u003C/label\u003E\n          \u003Cinput class='shareScreenFromName' type=\"text\" value=\"\" /\u003E\n        \u003C/li\u003E\n        \u003Cli\u003E\n          \u003Clabel for=\"mailID\"\u003EEmail to\u003C/label\u003E\n          \u003Cinput class=\"shareScreenMailID\" type=\"text\" value=\"\" /\u003E\n        \u003C/li\u003E\n        \u003Cli class=\"submit\"\u003E\n          \u003Clabel\u003E\u0026nbsp;\u003C/label\u003E\n          \u003Cinput class=\"shareSprite\" type=\"submit\" value=\"\" /\u003E\n        \u003C/li\u003E        \n      \u003C/ul\u003E\n      \u003C/fieldset\u003E\n  \u003C/form\u003E\n\u003C/div\u003E\u003C!-- shareScreen ends here --\u003E","slideshow_id":536862,"user_name":"Siwaphol Boonpan"},"meta_error_template":"\u003Cstyle type=\"text/css\"\u003E\n  .jsplayer-slide-error {\n    background-color: #000;\n    padding: 20% 0 13% !important;\n  }\n  .jsplayer-slide-error div {\n    text-align: center;\n  }\n  .jsplayer-slide-error img {\n    height: 79px !important;\n    margin: 0 0 10px;\n    width: 80px !important;\n  }\n  .jsplayer-slide-error .slide-error-body {\n    color: #eee;\n    font-family: 'Lucida Grande',Verdana, Arial, Helvetica, sans-serif;\n    padding: 0 !important;\n  }\n  .jsplayer-slide-error .slide-error-body p {\n    font-size: 0.8em;\n    line-height: 1.1em;\n    margin: 8px 0;\n  }   \n  .jsplayer-slide-error .slide-error-body input[type=button] {\n    margin: 7px 0 0;\n    padding: 7px 14px;\n  }\n\u003C/style\u003E\n\u003Cdiv class=\"jsplayer-slide-error\"\u003E\n  \u003Cdiv style=\"position:relative;\"\u003E\n    \u003Cimg src='https://public.slidesharecdn.com/b/images/ssplayer/error_dudes-80x79.png' height=\"79\" width=\"80\" /\u003E\n    \u003Cdiv class=\"slide-error-body\"\u003E\n      \u003Cp\u003EWe have encountered an error.\u003C/p\u003E\n      \u003Cp\u003EPlease refresh the page.\u003C/p\u003E\n    \u003C/div\u003E\n  \u003C/div\u003E\n\u003C/div\u003E\n","video_slides":[],"embed_sizes":{"config":{"defaultPreset":"preset2"},"presets":{"preset4":{"displaySize":{"height":53,"width":70},"size":{"height":485,"width":595}},"preset3":{"displaySize":{"height":45,"width":60},"size":{"height":420,"width":510}},"preset2":{"displaySize":{"height":38,"width":50},"size":{"height":355,"width":425}},"preset1":{"displaySize":{"height":30,"width":40},"size":{"height":290,"width":340}}}},"referer":"http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/","html_eotfont_url_suffix":"-eot.js","shareoptions":{"facebook_like_button":"\u003Ciframe class=\"fb-like\" src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.slideshare.net%2Fguest648519%2Fauthentication-and-single-sing-on\u0026amp;width=50\u0026amp;height=21\u0026amp;colorscheme=light\u0026amp;layout=button_count\u0026amp;action=like\u0026amp;show_faces=false\u0026amp;send=false\u0026amp;appId=2490221586\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:50px; height:25px;\" allowTransparency=\"true\"\u003E\u003C/iframe\u003E","facebook_share":"https://www.slideshare.net/share/facebook/536862/Check%20out%20this%20SlideShare%20presentation%20:%20Authentication%20and%20Single%20Sing%20on","html":"\u003C!-- \u003Cscript\u003E\n(function(){  var FBInitParams = {\n    appId  : '2490221586',\n    status : true, // check login status\n    cookie : true, // enable cookies to allow the server to access the session\n    xfbml  : true, // parse XFBML\n    oauth  : true,  // to enable OAuth 2.0\n    channelUrl  : '//public.slidesharecdn.com/b/channel.html'\n  };\n  if(typeof(FB) === \"object\"){\n    window.setTimeout(function(){\n      FB.XFBML.parse();\n      FB.Event.subscribe('edge.create',fbLike);\n    },50);\n  }else{\n    window.fbAsyncInit = function() {\n      FB.init(FBInitParams);\n      FB.Event.subscribe('edge.create',fbLike);\n    }\n  }\n})();\n\u003C/script\u003E --\u003E\n\n\u003Cdiv class=\"shareoptions\"\u003E\n  \u003Cul class=\"thirdPartyShare\"\u003E\n  \t\u003Cli\u003E\u003Ca href=\"#\" class=\"shareSprite Twitter\"\u003E\u0026nbsp; \u003C/a\u003E\u003C/li\u003E\n    \u003Cli\u003E\u003Ca href=\"#\" class=\"shareSprite Linkedin\"\u003E\u0026nbsp; \u003C/a\u003E\u003C/li\u003E\n    \u003Cli\u003E\u003Ca href=\"#\" class=\"fb-like\"/\u003E\u003C/li\u003E\n  \u003C/ul\u003E\n\u003C/div\u003E\n","twitter_share":"https://www.slideshare.net/share/tweet/536862/Authentication%20and%20Single%20Sing%20on%20%23authentication%20%23freeswmaster","linkedin_share":"https://www.slideshare.net/share/linkedin/536862/SlideShare:%20Authentication%20and%20Single%20Sing%20on"},"toolbar_partial":"slideshow/jsplayer_toolbar_presentation","is_ssl":true,"track_slide_enable":1,"fullscreen_url":"/fullscreen/guest648519/authentication-and-single-sing-on","has_lead":false,"twitter_recommended_users":null,"bucket_location":"https://html.slidesharecdn.com/intsession-1217526848891194-9/","stripped_title":"authentication-and-single-sing-on","enable_viewSS":true,"beacon_url":"stats.slideshare.net/1.gif"};
+
+      $(function(){
+        jsplayer = new SSPlayer(config);
+        window.bindJsAPI && bindJsAPI(jsplayer);
+        $(jsplayer).bind('slidechanged', function(e){
+          $('.current_slide_number').text(e.ssData.index);
+        });
+      });
+      
+    </script>
+  <style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fbpluginrecommendationsbarleft,.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}.fbpluginrecommendationsbarleft{left:10px}.fbpluginrecommendationsbarright{right:10px}</style></head>
+  <body style="border:0;margin:0;padding:0;width:100%;height:100%;">
+    <div class=" fb_reset" id="fb-root"><script async="" id="facebook-jssdk" src="536862_data/all.js"></script><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="536862_data/ZEbdHPQfV3x.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="536862_data/ping.xht" style="display: none;" scrolling="no" allowtransparency="true" name="f4e4df1cd89742" frameborder="0"></iframe></div></div></div>
+      <div style="overflow: hidden;" class="player embed_player   lightPlayer fluidImage fluidLayout presentation_player hide_like_player" id="player">
+        <div style="height: 310px; max-height: 310px; line-height: 310px;" id="stage" class="stage">
+          <a class="exit-fullscreen j-exit-fullscreen"></a>
+          <div class="slide_container tall_img jsplBgColorBigfoot">
+                  <div slidenumber="1" data-index="1" class="slide show">
+                    <img id="img_slide_image" class="slide_image" src="536862_data/authentication-and-single-sing-on-1-728.jpg" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-1-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-1-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-1-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="2" data-index="2" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-2-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-2-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-2-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="3" data-index="3" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-3-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-3-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-3-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="4" data-index="4" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-4-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-4-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-4-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="5" data-index="5" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-5-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-5-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-5-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="6" data-index="6" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-6-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-6-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-6-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="7" data-index="7" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-7-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-7-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-7-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="8" data-index="8" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-8-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-8-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-8-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="9" data-index="9" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-9-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-9-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-9-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="10" data-index="10" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-10-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-10-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-10-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="11" data-index="11" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-11-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-11-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-11-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="12" data-index="12" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-12-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-12-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-12-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="13" data-index="13" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-13-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-13-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-13-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="14" data-index="14" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-14-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-14-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-14-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="15" data-index="15" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-15-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-15-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-15-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="16" data-index="16" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-16-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-16-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-16-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="17" data-index="17" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-17-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-17-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-17-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="18" data-index="18" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-18-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-18-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-18-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="19" data-index="19" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-19-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-19-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-19-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="20" data-index="20" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-20-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-20-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-20-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="21" data-index="21" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-21-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-21-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-21-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="22" data-index="22" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-22-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-22-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-22-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="23" data-index="23" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-23-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-23-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-23-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="24" data-index="24" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-24-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-24-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-24-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="25" data-index="25" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-25-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-25-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-25-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="26" data-index="26" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-26-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-26-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-26-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="27" data-index="27" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-27-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-27-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-27-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="28" data-index="28" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-28-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-28-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-28-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="29" data-index="29" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-29-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-29-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-29-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="30" data-index="30" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-30-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-30-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-30-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="31" data-index="31" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-31-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-31-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-31-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="32" data-index="32" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-32-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-32-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-32-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="33" data-index="33" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-33-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-33-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-33-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="34" data-index="34" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-34-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-34-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-34-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="35" data-index="35" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-35-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-35-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-35-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="36" data-index="36" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-36-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-36-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-36-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="37" data-index="37" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-37-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-37-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-37-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="38" data-index="38" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-38-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-38-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-38-320.jpg?cb=1217519376">
+                  </div>
+                  <div slidenumber="39" data-index="39" class="slide">
+                    <img class="slide_image" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" data-normal="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-39-728.jpg?cb=1217519376" data-full="https://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-39-1024.jpg?cb=1217519376" data-small="https://image.slidesharecdn.com/intsession-1217526848891194-9/85/authentication-and-single-sing-on-39-320.jpg?cb=1217519376">
+                  </div>
+          </div>
+        </div><div class="leftpoint pointly"></div><div class="rightpoint pointly"></div> <!-- end stage -->
+        <div class="toolbar_wrapper">
+          <div class="toolbar normal">
+            <!--[if IE 7]>
+  <style>
+    .toolbar .navActions { position: relative; top: -28px; }
+    div.toolbar .nav {margin-left : 37%; }
+  </style>
+<![endif]-->
+  <a style="display: inline;" href="#" class="sprite btnViewOnSS" title="View on SlideShare">&nbsp;</a><!-- view on SS -->
+  <div class="nav">
+    <button id="btnFirst" class="btnFirst" title="First Slide">«</button>
+    <button id="btnPrevious" class="btnPrevious" title="Previous Slide">‹</button>
+    <button id="btnNext" class="btnNext" title="Next Slide">›</button>
+    <button id="btnLast" class="btnLast" title="Last Slide">»</button>
+  </div>
+  <div class="navActions">
+    <button id="btnFullScreen" class="btnFullScreen" title="View Fullscreen">&nbsp;</button>
+    <button style="display: none;" id="btnLeaveFullScreen" class="btnLeaveFullScreen" title="Exit Fullscreen">&nbsp;</button>
+    <label class="goToSlideLabel"><input name="goToSlide" value="1" type="text"><span>/39</span></label>
+  </div>
+
+          </div>
+        </div> <!-- end toolbar -->
+        <div id="lastScreen" class="hide">
+          <div class="lastScreen">
+  <div class="jsplLastScreenOverlay j-last-screen-overlay"></div>
+  <div class="pro-overlay j-lastscreen">
+    <div class="proSharingText">Like this ? Why not share!</div>
+    <ul class="lastActions j-last-screen-actions">
+      <li class="share-cta j-share-cta lastscreen-share-cta"><a class="share-btn"><span class="lastScreen-sprite"></span>Share</a></li>
+      <li class="email-cta j-email-cta"><a class="email-btn"><span class="lastScreen-sprite"></span>Email</a></li>
+      <li class="replay last">
+        <a class="replay-btn lastScreenReplay j-tooltip j-last-screen-replay" data-original-title="View again" title="View again">
+          <span class="lastScreen-sprite">&nbsp;</span>
+        </a>
+      </li>
+      <li class="close-btn lastScreen-sprite j-lastscreen-close">
+        <a>&nbsp;</a>
+      </li>
+    </ul>
+    <div class="related-presentations j-lastscreen-related">
+      <ul class="presentation-list">
+        <li>
+         <a href="https://public.slidesharecdn.com/b/manishharsh/sso-of-drupal-and-idm-31461537" title="SSO IN/With Drupal and Identitiy Ma..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/ssoofdrupalandidm-140220201313-phpapp01-thumbnail.jpg?cb=1392953726" alt="SSO IN/With Drupal and Identitiy Ma...">
+           <span class="presentation-meta">
+             <span class="title">SSO IN/With Drupal and Identitiy Ma...</span>
+             <span class="author">by&nbsp;Manish Harsh</span>
+             <span class="view-count">2120&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/keepthebyte/openid-authentication" title="OpenID Authentication" target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/openid-authentication490-thumbnail.jpg?cb=1181502960" alt="OpenID Authentication">
+           <span class="presentation-meta">
+             <span class="title">OpenID Authentication</span>
+             <span class="author">by&nbsp;Cédric Hüsler</span>
+             <span class="view-count">13538&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/adorepump/fast-and-free-sso-a-survey-of-opensource-solutions-to-single-signon-3040665" title="Fast and Free SSO: A Survey of Open..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/ts-4604-100131100259-phpapp01-thumbnail.jpg?cb=1264953801" alt="Fast and Free SSO: A Survey of Open...">
+           <span class="presentation-meta">
+             <span class="title">Fast and Free SSO: A Survey of Open...</span>
+             <span class="author">by&nbsp;elliando dias</span>
+             <span class="view-count">6009&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/craigsdickson/fast-and-free-sso-a-survey-of-open-source-solutions-to-single-sign-on" title="Fast and Free SSO: A Survey of Open..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/fast-and-free-sso-a-survey-of-open-source-solutions-to-single-sign-on-723-thumbnail.jpg?cb=1247009277" alt="Fast and Free SSO: A Survey of Open...">
+           <span class="presentation-meta">
+             <span class="title">Fast and Free SSO: A Survey of Open...</span>
+             <span class="author">by&nbsp;Craig Dickson</span>
+             <span class="view-count">52547&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/NOVL/exploring-advanced-authentication-methods-in-novell-access-manager" title="Exploring Advanced Authentication M..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/iam200-100324152924-phpapp02-thumbnail.jpg?cb=1269462742" alt="Exploring Advanced Authentication M...">
+           <span class="presentation-meta">
+             <span class="title">Exploring Advanced Authentication M...</span>
+             <span class="author">by&nbsp;Novell</span>
+             <span class="view-count">8909&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/dkeener/implementing-openid-for-your-social-networking-site" title="Implementing OpenID for Your Social..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/openidandrails-091224211414-phpapp02-thumbnail.jpg?cb=1261710900" alt="Implementing OpenID for Your Social...">
+           <span class="presentation-meta">
+             <span class="title">Implementing OpenID for Your Social...</span>
+             <span class="author">by&nbsp;David Keener</span>
+             <span class="view-count">4077&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/ishanaba/single-sign-on-thebasics" title="Single Sign On - The Basics" target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/singlesignonthebasics-140608073424-phpapp02-thumbnail.jpg?cb=1402231000" alt="Single Sign On - The Basics">
+           <span class="presentation-meta">
+             <span class="title">Single Sign On - The Basics</span>
+             <span class="author">by&nbsp;Ishan A B Ambanwela</span>
+             <span class="view-count">199&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/rajchanchal/authentication-models" title="Authentication Models" target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/authenticationmodels-090511074454-phpapp02-thumbnail.jpg?cb=1242045922" alt="Authentication Models">
+           <span class="presentation-meta">
+             <span class="title">Authentication Models</span>
+             <span class="author">by&nbsp;rajchanchal</span>
+             <span class="view-count">4452&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/TechGuys603/portal-guard-samlsso" title="Leveraging SAML for Federated Singl..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/portalguardsamlsso-140730091533-phpapp01-thumbnail.jpg?cb=1406729828" alt="Leveraging SAML for Federated Singl...">
+           <span class="presentation-meta">
+             <span class="title">Leveraging SAML for Federated Singl...</span>
+             <span class="author">by&nbsp;PistolStar, Inc. ...</span>
+             <span class="view-count">71&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/TechGuys603/saml-single-signon-for-higher-education" title="SAML Single Sign-on for Higher Educ..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/ssohighereducationtechbrief-140730082045-phpapp01-thumbnail.jpg?cb=1406729052" alt="SAML Single Sign-on for Higher Educ...">
+           <span class="presentation-meta">
+             <span class="title">SAML Single Sign-on for Higher Educ...</span>
+             <span class="author">by&nbsp;PistolStar, Inc. ...</span>
+             <span class="view-count">176&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/Zubin67/expansion-plan-security-guidelines" title="Expansion Plan Security Guidelines" target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/expansion-plan-security-guidelines3814-thumbnail.jpg?cb=1273139738" alt="Expansion Plan Security Guidelines">
+           <span class="presentation-meta">
+             <span class="title">Expansion Plan Security Guidelines</span>
+             <span class="author">by&nbsp;Zubin67</span>
+             <span class="view-count">683&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+        <li>
+         <a href="https://public.slidesharecdn.com/b/ijeraeditor/y04704152156" title="Efficient and Secure Single Sign on..." target="_blank">
+           <img class="j-thumbnail" original="//cdn.slidesharecdn.com/ss_thumbnails/y04704152156-140909021753-phpapp01-thumbnail.jpg?cb=1410247303" alt="Efficient and Secure Single Sign on...">
+           <span class="presentation-meta">
+             <span class="title">Efficient and Secure Single Sign on...</span>
+             <span class="author">by&nbsp;IJERA Editor</span>
+             <span class="view-count">12&nbsp;views</span>
+           </span>
+         </a>
+        </li>
+      </ul>
+    </div>
+
+  </div> <!-- end of div class pro-overlay -->
+  <div class="j-modal-share modal-share mobile-hide" style="display: none;" id="last-screen-modal-share" data-ga-track-category="" data-ga-track-action="">
+  <div class="j-modal-popup modal-popup">
+    <div class="j-modal-close modal-close"></div>
+    <div class="modal-content-wrapper">
+      <div class="j-modal-content modal-content" id="modal-content" data-slideshowid="">
+        <header class="j-tabs tabs">
+          <a id="button-share-tab" class="selected j-button-share-tab">Share SlideShare</a>
+          <hr class="divider">
+        </header>
+
+        <div class="j-share-tab share-tab">
+
+          <div>
+            <ul class="j-share-social-list share-social-list" data-canonical-url="http://www.slideshare.net/guest648519/authentication-and-single-sing-on?ref=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/">
+              <li class="j-exp-toolbar facebook" data-action="facebook_click" data-network="facebook">
+                <div class="social-hover">
+                  <a class="share-link" rel="nofollow" data-url="http://www.slideshare.net/guest648519/authentication-and-single-sing-on?ref=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" title="Share on Facebook">Facebook</a>
+                </div>
+              </li>
+              <li class="j-exp-toolbar twitter" data-action="twitter_click" data-network="twitter">
+                <div class="social-hover">
+                  <a class="share-link" rel="nofollow" data-url="http://www.slideshare.net/guest648519/authentication-and-single-sing-on?ref=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" data-text="Authentication and Single Sing on #authentication #freeswmaster" data-related="" data-via="SlideShare" title="Tweet on Twitter">Twitter</a>
+                </div>
+              </li>
+              <li class="j-exp-toolbar linkedin" data-action="linkedin_click" data-network="linkedin">
+                <div class="social-hover">
+                  <a class="share-link" rel="nofollow" data-url="http://www.slideshare.net/guest648519/authentication-and-single-sing-on?ref=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" data-text="Authentication and Single Sing on by guest648519 via slideshare" title="Share on LinkedIn">LinkedIn</a>
+                </div>
+              </li>
+              <li class="j-exp-toolbar pinterest" data-action="pinterest_click" data-network="pinterest">
+                <div class="social-hover">
+                  <a class="share-link" rel="nofollow" data-url="http://www.slideshare.net/guest648519/authentication-and-single-sing-on?ref=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" data-media="http://image.slidesharecdn.com/intsession-1217526848891194-9/95/authentication-and-single-sing-on-1-728.jpg?cb=1217519376" data-description="Authentication and Single Sing on by guest648519 via slideshare" data-pin-do="buttonPin" data-pin-config="above" title="Share on Pinterest">Pinterest</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <section class="section share-email">
+            <header>
+              <h3>Email</h3>
+            </header>
+            <form id="share-email-form" class="j-share-email-form">
+              <input id="share-email-to" data-ga="to" class="j-share-email-to j-email-clear j-share-expand-trigger" name="recipients" placeholder="Enter email addresses">
+              <div class="share-email-expand j-share-expand">
+                <input id="share-email-name" data-ga="name" class="j-share-email-name j-email-clear" name="name" placeholder="from..." type="text">
+                <textarea id="share-email-msg" data-ga="msg" class="j-share-email-msg j-email-clear" name="msg" placeholder="add a message..."></textarea>
+                <span class="j-email-flash email-flash"></span>
+                <input id="share-email-send" data-ga="send" class="j-exp-toolbar j-share-email-send button btn btn-inverse" value="Send" data-action="new_send_email_click" type="submit">
+                <div style="clear:both"></div>
+              </div>
+            </form>
+            <div id="email-sent" class="j-email-sent section"><div>
+              <span class="success-text">Email sent successfully!</span></div>
+            </div>
+          </section>
+          <section class="j-share-embed section share-embed">
+            <header>
+              <h3>Embed</h3>
+            </header>
+            <textarea id="share-embed-link" class="j-exp-toolbar j-share-embed-link j-share-expand-trigger" readonly="readonly" data-ga="link" data-action="new_embed_code_click"></textarea>
+            <div class="share-embed-options j-share-expand">
+              <div class="embed-size">
+                <span class="title">Size (px)</span>
+                <select class="j-embed-size-picker embed-size-picker j-update-embed" id="embed-size-picker" data-ga="size-picker"></select>
+              </div>
+              <div class="embed-start">
+                <span class="title">Start on</span>
+                <select class="j-embed-start-picker embed-start-picker j-update-embed" id="embed-start-picker" data-ga="start-picker"></select>
+              </div>
+              <div class="embed-show-related" style="display:none">
+                <input name="related-content" checked="checked" class="j-embed-related-cbox embed-related-cbox j-update-embed" data-ga="related" type="checkbox">
+                <span>Show related SlideShares at end</span>
+              </div>
+            </div>
+          </section>
+          <section class="wordpress-container section">
+            <header>
+              <h3>WordPress Shortcode</h3>
+            </header>
+            <input name="embed-code" id="share-embed-wp" readonly="readonly" class="j-exp-toolbar j-share-embed-wp text quiet h-wpembedcode j-share-expand-trigger" data-ga="wp-link" data-action="wordpress_click" type="text">
+          </section>
+          <section class="share-link-container section">
+            <header>
+              <h3>Link</h3>
+            </header>
+            <input class="j-exp-toolbar j-share-link-url j-share-expand-trigger" id="share-link-url" data-ga="link" data-action="link_click" readonly="readonly" type="input">
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- share modal -->
+
+</div><!-- last screen ends here -->
+
+        </div>
+        <div class="image_maps"></div>
+      <div class="action-btns-container persistent hover">
+    <a rel="nofollow" title="Like this SlideShare" href="https://www.slideshare.net/login" target="_blank" class="action-btn favorite j-favorite ss-action" data-ssid="536862" data-ss-url="http://www.slideshare.net/guest648519/authentication-and-single-sing-on">
+      <span class="action-btn-icon"></span>
+      <span class="action-btn-text">Like</span>
+    </a>
+
+  <a rel="nofollow" href="#" title="Share this SlideShare" class="action-btn share j-share" data-ssid="536862">
+    <span class="action-btn-icon"></span>
+    <span class="action-btn-text">Share</span>
+  </a>
+
+    <a rel="nofollow" href="https://www.slideshare.net/siwapholboonpan/savedfiles?s_title=authentication-and-single-sing-on&amp;user_login=guest648519&amp;embed=external" target="_blank" title="Save this SlideShare" data-mobile-save-url="/login?from_source=mobile/guest648519/authentication-and-single-sing-on" class="action-btn save j-save ss-action" data-target="#login_modal">
+      <span class="save action-btn-icon"></span>
+      <span class="action-btn-text">Save</span>
+    </a>
+</div></div><!-- end player -->
+    <script>
+      $.ajax({
+        url : 'https://www.slideshare.net/pingback/embed_or_homepageplayerhits/536862',
+        type : 'GET',
+        data : {
+          ref : 'http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/'
+        },
+        cache : false
+      });
+    </script>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId  : '2490221586',
+            oauth  : true,
+            status : true, // check login status
+            xfbml  : true  // parse XFBML
+          });
+        };
+        var e = document.createElement('script');
+        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+        e.id = 'facebook-jssdk';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+        slideshare_object && slideshare_object.setup_fbconnect_interaction && slideshare_object.setup_fbconnect_interaction();
+      });
+    </script>
+
+  
+
+</body></html>

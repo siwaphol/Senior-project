@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+                    <title>CAS Threat Modeling - Central Authentication Service - Jasig Wiki</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://wiki.jasig.org">
+
+<meta id="atlassian-token" name="atlassian-token" content="8a9553c0b2acea1c40845c6a286ac7e8323c049d">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="CAS">
+<script src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+        var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_002.css" media="print">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/70/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/70/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/70/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_005.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/58dd2cb5ea8571ed915e195f3e291002/_/download/contextbatch/css/page/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_004.css" media="all">
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_003.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/209214a06e70cc3de23b64eea586bc39/_/download/contextbatch/css/viewcontent,atl.general,main/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/confluence.css" media="all">
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/org.css" media="all">
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/6.3.8/_/download/batch/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar/com.atlassian.confluence.plugins.confluence-space-ia:spacesidebar.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com_002.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/1.3/_/download/batch/com.atlassian.confluence.plugins.confluence-highlight-actions:highlighting-experiment-resources/com.atlassian.confluence.plugins.confluence-highlight-actions:highlighting-experiment-resources.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/confluence_002.css" media="all">
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/colors.css" media="all">
+<link type="text/css" rel="stylesheet" href="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/default-theme.css" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1411120794504">
+        
+    
+        
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="2039b347595f4417e68b9614b5e9febc">
+            <meta name="gliffy-license-type" content="OPEN_SOURCE">
+<meta name="gliffy-license-quantity" content="-1">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="57575934">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="CAS Threat Modeling">
+            <meta name="ajs-parent-page-title" content="CAS AppSec Working Group">
+            <meta name="ajs-parent-page-id" content="57050242">
+            <meta name="ajs-space-key" content="CAS">
+            <meta name="ajs-space-name" content="Central Authentication Service">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-editor.loader.comment.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/2e20a076163b97b6387fca7771332682/_/download/contextbatch/css/comment-editor/batch.css&quot; media=&quot;all&quot;&gt;
+">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="https://wiki.jasig.org">
+            <meta name="ajs-version-number" content="5.4.3">
+            <meta name="ajs-build-number" content="4732">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/s/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="104857600">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="sync.event">
+            <meta name="ajs-atl-token" content="8a9553c0b2acea1c40845c6a286ac7e8323c049d">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-editor.loader.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/90bf40c0aac51dc3adb0a19241c5091d/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/90bf40c0aac51dc3adb0a19241c5091d/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.css?media=%28max-width%3A+1450px%29&quot; media=&quot;(max-width: 1450px)&quot;&gt;
+&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/90bf40c0aac51dc3adb0a19241c5091d/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/90bf40c0aac51dc3adb0a19241c5091d/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.js&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="https://wiki.jasig.org/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://wiki.jasig.org/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.jasig.org/opensearch/osd.action" title="Jasig Wiki">
+    
+                    
+            <meta name="ajs-jira-metadata-show-discovery" content="false">
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+    <!-- include system javascript resources -->
+    <script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_003.js"></script><style type="text/css"></style>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4732/f543bd9a3bbc12daed85f6f5e5cba84282599932.15/70/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_002.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/batch_004.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com_003.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com_002.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com_005.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com.js"></script>
+<script type="text/javascript" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/com_004.js"></script>
+
+    
+
+        
+    <!-- end system javascript resources -->
+
+        
+        
+
+    
+                <link rel="canonical" href="https://wiki.jasig.org/display/CAS/CAS+Threat+Modeling">
+        <link rel="shortlink" href="https://wiki.jasig.org/x/-oluAw">
+    <meta name="wikilink" content="[CAS:CAS Threat Modeling]">
+    <meta name="page-version" content="33">
+
+</head>
+
+<body data-aui-version="5.1.3" onload="placeFocus()" id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="#title-heading">Skip to content</a></li>
+    <li><a href="#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="#navigation">Skip to action menu</a></li>
+    <li><a href="#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav data-aui-responsive="true" class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class="aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-haspopup="true" tabindex="0"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul class="nav-links"><li class="nav-link"><a href="https://issues.jasig.org/" class="aui-dropdown2-radio interactive" title="https://issues.jasig.org/"><span class="nav-link-label">JASIG Issue Tracker</span></a></li><li class="nav-link nav-link-local"><a href="https://wiki.jasig.org/" class="aui-dropdown2-radio interactive checked" title="https://wiki.jasig.org/"><span class="nav-link-label">Jasig Wiki</span></a></li><li class="nav-link"><a href="https://developer.jasig.org/bamboo/" class="aui-dropdown2-radio interactive" title="https://developer.jasig.org/bamboo/"><span class="nav-link-label">Jasig Continuous Integration Server</span></a></li></ul></div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://wiki.jasig.org/"><img data-aui-responsive-header-index="0" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/confluence-logo.png" alt="Jasig Wiki"></a></h1><ul style="width: auto;" class="aui-nav">
+                            <li>
+            
+        
+        
+<a id="space-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="space-menu-link-content" title="Spaces"><span class="browse">Spaces</span><span class="aui-icon-dropdown"></span></a><div id="space-menu-link-content" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header" aria-hidden="false"></div>
+        </li>
+                        <li style="display: none;"><a id="aui-responsive-header-dropdown-trigger-0" class="aui-dropdown2-trigger" aria-owns="aui-responsive-header-dropdown-content-0" aria-haspopup="true" href="#">More<span class="icon aui-icon-dropdown"></span></a><div id="aui-responsive-header-dropdown-content-0" class="aui-dropdown2 aui-style-default"><div class="aui-dropdown2-section"><ul id="aui-responsive-header-dropdown-list-0"></ul></div></div></li></ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                <li>
+<form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="/dosearchsite.action" method="get">
+    <fieldset>
+                        <label for="quick-search-query" class="assistive">Quick Search</label>
+        <input id="quick-search-query" class="text app-search search quick-search-query" accesskey="q" autocomplete="off" name="queryString" title="Quick Search (/or g , g)" placeholder="Search" type="text">
+        <input id="quick-search-submit" class="quick-search-submit" value="Search" type="submit">
+
+        <div class="aui-dd-parent quick-nav-drop-down"></div>
+    </fieldset>
+    <div class="hidden parameters">
+                    <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                </div>
+</form>
+</li>
+    <li>    
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+            
+<a id="confluence-help-link" href="http://docs.atlassian.com/confluence/docs-54/Getting+Help+And+Support" class="interactive" title="Visit the Confluence documentation home" target="_blank">
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+                
+<a id="keyboard-shortcuts-link" href="#" class="interactive" title="View available keyboard shortcuts (?)">
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="feed-builder-link" href="https://wiki.jasig.org/dashboard/configurerssfeed.action" class="interactive" title="Create your custom RSS feed.">
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-54/whatsnew/iframe" class="interactive" title="">
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+                
+<a id="gadget-directory-link" href="#" class="user-item administration-link  interactive" title="Browse gadgets provided by Confluence">
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a id="confluence-about-link" href="https://wiki.jasig.org/aboutconfluencepage.action" class="interactive" title="Get more information about Confluence">
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    </li>
+    <li>    
+    </li>
+                <li>                                    </li><li>
+    
+            
+<a id="login-link" href="https://wiki.jasig.org/login.action?os_destination=%2Fdisplay%2FCAS%2FCAS%2BThreat%2BModeling" class="   user-item login-link " title="">
+        Log in
+</a>
+</li>
+                        
+</ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div style="width: 285px; visibility: visible; top: 0px; left: 0px;" class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="CAS" data-name="Central Authentication Service" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://wiki.jasig.org/display/CAS?src=sidebar" title="Central Authentication Service"><img class="avatar-img" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/global.png" alt="Central Authentication Service"></a></div></div></div></div><div class="name"><a href="https://wiki.jasig.org/display/CAS?src=sidebar" title="Central Authentication Service">Central Authentication Service</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item" data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://wiki.jasig.org/collector/pages.action?key=CAS&amp;src=sidebar" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog" data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://wiki.jasig.org/pages/viewrecentblogposts.action?key=CAS&amp;src=sidebar" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div data-collapsed-tooltip="Child pages" class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="https://wiki.jasig.org/display/CAS/CAS+AppSec+Working+Group?src=contextnavchildmode" title="CAS AppSec Working Group"><span class="icon"></span><span class="label">CAS AppSec Working Group</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">CAS Threat Modeling</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"><ul class="children"><li class="child-item" data-page-id="61571436"><span class="icon"></span><a href="https://wiki.jasig.org/display/CAS/Proposals+to+mitigate+security+risks?src=contextnavchildmode" title="Proposals to mitigate security risks"><span class="label">Proposals to mitigate security risks</span></a></li></ul></div></div></div></div><div class="hidden"><a title=" (g , s)" href="https://wiki.jasig.org/collector/pages.action?key=CAS&amp;src=sidebar" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space details</h2><form id="crop-photo-form" class="aui" method="post" action="#"><div id="sidebar-logo-messages"></div><fieldset><div class="field-group"><label for="spaceName">Name</label><input autocomplete="off" name="spaceName" id="spaceName" class="text" maxlength="255" value="{spaceName}"><input type="hidden" name="spaceKey" id="spaceKey" value="CAS"><input type="hidden" name="offsetX" id="avatar-offsetX" value="-1"><input type="hidden" name="offsetY" id="avatar-offsetY" value="-1"><input type="hidden" name="width" id="avatar-width" value="-1"><input type="hidden" name="logoType" id="logoType" value="default" data-last-value="default"></div></fieldset></form><form id="upload-logo-form" class="aui" method="POST" action="#" enctype="multipart/form-data"><fieldset class="group"><legend><span>Logo</span></legend><div class="field-group"><input class="upload" type="file" id="upload-logo-input" name="upload-logo-input"></div><small class="hidden"><a href="#" id="reset-logo">Reset to default logo</a></small><div id="image-holder" /></fieldset></form><div id="space-details-actions" class="buttons-container"><div class="buttons"><button class="aui-button save">Save</button><a href="#" class="aui-button aui-button-link cancel">Cancel</a></div></div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/pages/reorderpages.action?key=CAS">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a data-collapsed-tooltip="Space tools" id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a original-title="" data-tooltip="Collapse sidebar ( [ )" class="expand-collapse-trigger"></a></div>
+    
+    			<div original-title=" ([)" data-tooltip="Collapse sidebar ( [ )" class="ia-splitter-handle tipsy-enabled"><div class="ia-splitter-handle-highlight"></div></div></div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div style="margin-left: 285px;" id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                    
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation"><span><span>Tools</span></span></a>         <div id="action-menu" class="aui-dropdown2 aui-style-default most-right-menu-item">
+                            <ul id="action-menu-primary" class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                            
+    
+    
+    <a id="view-attachments-link" href="https://wiki.jasig.org/pages/viewpageattachments.action?pageId=57575934" rel="nofollow" class="action-view-attachments" accesskey="t" title="View Attachments (t)">
+                <span>A<u>t</u>tachments (16)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-view-history-link" href="https://wiki.jasig.org/pages/viewpreviousversions.action?pageId=57575934" rel="nofollow" class="action-view-history" title="">
+                <span>Page History</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-page-permissions-link" href="https://wiki.jasig.org/pages/viewinfo.action?pageId=57575934" rel="nofollow" class="action-page-permissions" title="Edit restrictions">
+                <span>Restrictions</span>    </a>
+</li>
+                                </ul>
+                            <ul id="action-menu-secondary" class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                            
+    
+    
+    <a id="view-page-info-link" href="https://wiki.jasig.org/pages/viewinfo.action?pageId=57575934" rel="nofollow" class="action-view-info" title="">
+                <span>Page Information</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="link-to-page-link" href="https://wiki.jasig.org/pages/viewinfo.action?pageId=57575934" rel="nofollow" class="" title="Link to this Page (k)">
+                <span>Link to this Page…</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="view-in-hierarchy-link" href="https://wiki.jasig.org/pages/reorderpages.action?key=CAS&amp;openId=57575934#selectedPageInHierarchy" rel="nofollow" class="" title="">
+                <span>View in Hierarchy</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-view-source-link" href="https://wiki.jasig.org/plugins/viewsource/viewpagesrc.action?pageId=57575934" rel="nofollow" class="action-view-source popup-link" title="">
+                <span>View Source</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-export-pdf-link" href="https://wiki.jasig.org/spaces/flyingpdf/pdfpageexport.action?pageId=57575934" rel="nofollow" class="" title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                            
+    
+    
+    <a id="action-export-word-link" href="https://wiki.jasig.org/exportword?pageId=57575934" rel="nofollow" class="action-export-word" title="">
+                <span>Export to Word</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                    
+                
+        <li class="first">
+                
+
+                    <span class=""><a href="https://wiki.jasig.org/collector/pages.action?key=CAS&amp;src=breadcrumbs-collector">Pages</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="https://wiki.jasig.org/display/CAS/Home?src=breadcrumbs">Home</a></span>
+                            
+                
+        </li><li>
+                
+
+                    <span class=""><a href="https://wiki.jasig.org/display/CAS/CAS+AppSec+Working+Group?src=breadcrumbs-parent">CAS AppSec Working Group</a></span>
+                </li></ol>
+
+
+                    </div>
+                
+                
+        <a href="#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div style="visibility: visible;" id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/red_padlock.png" style="height: 16px; width: 16px;"></a><a href="https://wiki.jasig.org/pages/viewpageattachments.action?pageId=57575934&amp;metadataLink=true" title="16 attachments" id="content-metadata-attachments"><img class="page-banner-item-icon" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/grey_attach.png" style="height: 16px; width: 16px;"></a></li><li class="page-metadata-item noprint" id="content-metadata-jira-wrapper"><a href="" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/icon-jira-link.png" style="height: 16px; width: 16px;"><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="https://wiki.jasig.org/display/CAS/CAS+Threat+Modeling">CAS Threat Modeling</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class="author">     <a href="https://wiki.jasig.org/display/%7Edavid.ohsie" class="url fn">David Ohsie</a></span>, last modified by <span class="editor">     <a href="https://wiki.jasig.org/display/%7Edavidohsie" class="url fn">David Ohsie</a></span> on <a original-title="Apr 01, 2014 13:28" class="last-modified" href="https://wiki.jasig.org/pages/diffpagesbyversion.action?pageId=57575934&amp;selectedPageVersions=32&amp;selectedPageVersions=33">Apr 01, 2014</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                
+        <div id="main-content" class="wiki-content">
+                           
+            <div class="aui-message problem shadowed information-macro">
+                            <span class="aui-icon icon-problem">Icon</span>
+                <div class="message-content">
+                            <p>Be aware that this document is a DRAFT !</p>
+                    </div>
+    </div>
+<p>&nbsp;</p><p><style type="text/css">/*<![CDATA[*/
+div.rbtoc1411120794572 {padding: 0px;}
+div.rbtoc1411120794572 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1411120794572 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style></p><div class="toc-macro rbtoc1411120794572">
+<ul class="toc-indentation">
+<li><span class="TOCOutline">1</span> <a href="#CASThreatModeling-GlobalDFDofCASinteractions">Global DFD of CAS interactions</a></li>
+<li><span class="TOCOutline">2</span> <a href="#CASThreatModeling-DFDofCASprotocol">DFD of CAS protocol</a></li>
+<li><span class="TOCOutline">3</span> <a href="#CASThreatModeling-Threatson%22serviceValidate/samlValidate/proxyValidate%22attacksurface">Threats on "serviceValidate/samlValidate/proxyValidate" attack surface</a></li>
+<li><span class="TOCOutline">4</span> <a href="#CASThreatModeling-Threatson%22proxycallbacks%22attacksurface">&nbsp;Threats on "proxy callbacks" attack surface</a></li>
+<li><span class="TOCOutline">5</span> <a href="#CASThreatModeling-Threatson%22/proxy%22attacksurface">Threats on "/proxy" attack surface</a></li>
+<li><span class="TOCOutline">6</span> <a href="#CASThreatModeling-DFDofCASticketsstorage">DFD of CAS tickets storage</a></li>
+<li><span class="TOCOutline">7</span> <a href="#CASThreatModeling-Threatsonstorage">Threats on storage</a></li>
+<li><span class="TOCOutline">8</span> <a href="#CASThreatModeling-ThreatsonCASinteractionwithauthenticationsources%28e.g.LDAPorusername/passwordDB%29">Threats on CAS interaction with authentication sources (e.g. LDAP or username/password DB)</a></li>
+</ul>
+</div><p></p><p>"<span>Threat modeling is an approach for analyzing the security of an application" (see&nbsp;<a href="https://www.owasp.org/index.php/Application_Threat_Modeling" class="external-link" rel="nofollow">https://www.owasp.org/index.php/Application_Threat_Modeling</a>).
+ &nbsp; One step in the threat modeling is the creation of a dataflow 
+diagram (DFD) of the system so that all attack surfaces can be 
+identified.</span></p><p><span>Here are some&nbsp;<a href="https://wiki.jasig.org/display/CAS/Proposals+to+mitigate+security+risks">Proposals to mitigate security risks</a>.<br></span></p><h2 id="CASThreatModeling-GlobalDFDofCASinteractions"><span>Global DFD of CAS interactions</span></h2><ul><li>Visio Source File:&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/CAS%20DFD.vsd?version=1&amp;modificationDate=1363727092633&amp;api=v2">CAS DFD.vsd</a></li><li>Visio File in VDX format:&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/CAS%20DFD.vdx?version=1&amp;modificationDate=1364992298304&amp;api=v2">CAS DFD.vdx</a></li></ul><p>&nbsp;</p><p><img class="confluence-embedded-image" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/CAS%2520DFD.png" data-image-src="/download/attachments/57575934/CAS%20DFD.png?version=1&amp;modificationDate=1363727092612&amp;api=v2"></p><p>&nbsp;</p><h2 id="CASThreatModeling-DFDofCASprotocol">DFD of CAS protocol</h2><ul><li>DIA format :&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/cassecurity_protocol.dia?version=2&amp;modificationDate=1365676329335&amp;api=v2">cassecurity_protocol.dia</a></li><li>VDX format :&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/cassecurity_protocol.vdx?version=2&amp;modificationDate=1365676358770&amp;api=v2">cassecurity_protocol.vdx</a></li></ul><p><img class="confluence-embedded-image" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/cassecurity_protocol.png" data-image-src="/download/attachments/57575934/cassecurity_protocol.png?version=2&amp;modificationDate=1365676384513&amp;api=v2" width="500"></p><ul><li>DIA format :&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/cassecurity_protocol_proxy.dia?version=2&amp;modificationDate=1365676450204&amp;api=v2">cassecurity_protocol_proxy.dia</a></li><li>VDX format :&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/cassecurity_protocol_proxy.vdx?version=2&amp;modificationDate=1365676466260&amp;api=v2">cassecurity_protocol_proxy.vdx</a></li></ul><p>&nbsp;</p><h2 id="CASThreatModeling-Threatson&quot;serviceValidate/samlValidate/proxyValidate&quot;attacksurface">Threats on "serviceValidate/samlValidate<span style="color: rgb(0,0,0);">/proxyValidate</span>" attack surface</h2><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Identifier</div></th><th data-column="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Type</div></th><th data-column="2" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Threat</div></th><th data-column="3" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Mitigation</div></th></tr></thead><tbody><tr><td colspan="1" style="text-align: center;" class="confluenceTd">SV_1</td><td class="confluenceTd"><p>Information <span style="line-height: 1.4285715;">Disclosure</span></p></td><td class="confluenceTd"><p>An
+ ST sent over http may be intercepted by an attacker and then sent to 
+CAS to retrieve the attributes for that user as well as the PGTIOU and 
+the proxies.</p></td><td class="confluenceTd"><p>Hardening guide to include dangers of including http services in service manager uri patterns.</p><p>Change Service Manager default configuration to not generate and ST for a http based service. The current default has <a rel="nofollow">http://*</a> in the list of valid services.</p><p>Validate
+ server identity using a client Cert sent in the serviceValidate call. 
+Or make it an option in the services manager to require a client cert. 
+Other methods could be used such as basic auth (using a shared secret) 
+or else IP filtering. This is less secure but easier to set up.</p><p>Warning in the service manager that http is dangerous. Perhaps warning in the log file.</p><p>Tool to look for more misconfigurations.</p><p>&nbsp;</p></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_2</span></td><td colspan="1" class="confluenceTd">Spoofing</td><td colspan="1" class="confluenceTd"><p><span>An ST sent over http may be intercepted by an attacker and then sent to a service to spoof the client.</span></p></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">Should look at the later. It is a different attack surface.</span></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_3</span></td><td class="confluenceTd">Information Disclosure</td><td class="confluenceTd"><p>An
+ attacker may probe for a misconfigured CAS server by asking for service
+ ticket for various services at /login or at /serviceValidate until it 
+finds a URI that should not be able to get tickets, but can if it can 
+take over that URI.</p><p>&nbsp;</p></td><td class="confluenceTd"><p>At 
+/serviceValidate, ensure that if the ticket is not valid, then the 
+response is always the same and does not reveal anything about the 
+service registry.</p><p>At the login URI, only disallow the call for an 
+"invalid" service, once a user supplies a password, so that at least 
+only authenticated users can do this probing. Or lock down an account 
+that makes too many login calls with an invalid "service".</p><p>It maybe that this cannot be mitigated because you have to support gateway access: <a href="https://secure.example.com/cas/login?gateway=true&amp;service=https://myfishing" class="external-link" rel="nofollow">https://secure.example.com/cas/login?gateway=true&amp;service=https://myfishing</a></p></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_4</span></td><td colspan="1" class="confluenceTd">Information Disclosure</td><td colspan="1" class="confluenceTd"><p>It is easy to write bad patterns in the services registry when using ant patterns (<span style="color: rgb(255,0,0);">this info needs validation<span style="color: rgb(0,0,0);">).</span></span></p><p><span style="color: rgb(255,0,0);"><span style="color: rgb(0,0,0);">Here is a possible example :</span></span></p><p><span style="color: rgb(255,0,0);"><span style="color: rgb(0,0,0);">If you define the following service : </span></span><a href="http://example.*/myService" style="line-height: 1.4285715;" class="external-link" rel="nofollow">http://example.*/myService</a><span style="color: rgb(0,128,0);line-height: 1.4285715;"><span style="color: rgb(0,0,0);"> to match</span> </span><a href="http://example.%2a/myService" style="line-height: 1.4285715;" class="external-link" rel="nofollow">http://example.com/myService</a><span style="color: rgb(0,128,0);line-height: 1.4285715;"><span style="color: rgb(0,0,0);"> and</span> </span><a href="http://example.%2a/myService" style="line-height: 1.4285715;" class="external-link" rel="nofollow">http://example.fr/myService</a>, it's a bad idea as it can be tricked by <a href="http://example.*/myService" style="line-height: 1.4285715;" class="external-link" rel="nofollow">http://example.hostattacker.com/myService</a>.</p><p>&nbsp;</p></td><td colspan="1" class="confluenceTd"><p>Default to using regexp or other pattern matching that is not prone to failure.</p><p>Document the pitfalls of ant matching in the security guide.</p></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_5</span></td><td colspan="1" class="confluenceTd">Information Disclosure</td><td colspan="1" class="confluenceTd"><p>An attacker could construct a odd, but legal URI to trick the services pattern matching. See <a href="http://static.springsource.org/spring-security/site/docs/3.2.x/reference/springsecurity-single.html#request-matching" class="external-link" rel="nofollow">http://static.springsource.org/spring-security/site/docs/3.2.x/reference/springsecurity-single.html#request-matching</a> for what spring security does. Here is an example of an odd, but legal path in a uri: <strong>/secure;hack=1/somefile.html;hack=2</strong></p></td><td colspan="1" class="confluenceTd">Ensure in the matching code that paths are normalized before matching against the service registry as spring security does.</td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_6</span></td><td class="confluenceTd">Spoofing</td><td class="confluenceTd">There is a <a href="https://wiki.jasig.org/display/CASC/CASFilter">well-known threat</a>
+ to CAS clients where an unauthorized proxy may be possible if the CAS 
+client trusts the HOST header in the request. A recently written CAS 
+client is known to have this problem and there are probably others.</td><td class="confluenceTd"><p>Write
+ a security/hardening guide for CAS clients which contains all the 
+needed advice for writing a secure CAS client in one place.</p><p>&nbsp;</p></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_7</span></td><td colspan="1" class="confluenceTd">Spoofing</td><td colspan="1" class="confluenceTd">An
+ attacker could try to fool a cas client with a cleverly constructed 
+service ticket like ticket=ST-12345%26service%3Dhttps%3A%2F%2Fbadguy.com
+ which decodes to: ST-12345&amp;service=<a href="https://badguy.com/" class="external-link" rel="nofollow">https://badguy.com</a>.
+ If a naive client pasted this in during serviceValidate in the ticket 
+parameter, he could be validating a ticket intended for somone else. 
+This behavior is not observed in mod_auth_cas or the java cas client.</td><td colspan="1" class="confluenceTd"><span>Ensure
+ that all outside inputs are properly decoded and encoded when used 
+calls to CAS or other services. Write a security/hardening guide for CAS
+ clients which contains all the needed advice for writing a secure CAS 
+client in one place.</span></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>SV_8</span></td><td colspan="1" class="confluenceTd">DoS</td><td colspan="1" class="confluenceTd">An
+ overly large ticket might cause a denial-of-service or otherwise 
+compromise the system. (However URI's are limited in length by most 
+implementations).</td><td colspan="1" class="confluenceTd">Ensure that input is validated and that overly large inputs are discarded. <span>Write
+ a security/hardening guide for CAS clients which contains all the 
+needed advice for writing a secure CAS client in one place.</span></td></tr></tbody></table></div><p>&nbsp;</p><p>&nbsp;</p><p><img class="confluence-embedded-image" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/cassecurity_protocol_proxy.png" data-image-src="/download/attachments/57575934/cassecurity_protocol_proxy.png?version=2&amp;modificationDate=1365676418510&amp;api=v2" width="500"></p><p><span style="color: rgb(0,0,0);">&nbsp;</span></p><h2 id="CASThreatModeling-Threatson&quot;proxycallbacks&quot;attacksurface"><span style="color: rgb(0,0,0);">&nbsp;</span><span style="color: rgb(0,0,0);line-height: 1.5;">Threats on "proxy callbacks" attack surface</span></h2><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Identifier</div></th><th data-column="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Type</div></th><th data-column="2" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Threat</div></th><th data-column="3" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Mitigation</div></th></tr></thead><tbody><tr><td colspan="1" class="confluenceTd">PC_1</td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Information Disclosure</span></p></td><td class="confluenceTd"><span style="color: rgb(0,0,0);">If HTTPS is not used, the <em>pgtIou</em> and <em>pgtId</em> (=<em>PGT</em>) can be stolen.</span></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Always use HTTPS for proxy callbacks. Hopefully, this is the default in the CAS server.</span></p></td></tr><tr><td colspan="1" class="confluenceTd">PC_2</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Spoofing</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">With a stolen <em>pgtId</em>, the attacker can try to forge <em>proxy tickets</em> by trying various services on /proxy url and discover (more) user's attributes. <span style="color: rgb(0,128,0);">Is it the same threat as PRO_2 ?</span></span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Limit as much as possible the services definition : not a very efficient solution, we should never reach that point !&nbsp;</span></td></tr><tr><td colspan="1" class="confluenceTd">PC_3</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Information Disclosure</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">The </span><em>pgtIou</em><span style="color: rgb(0,0,0);"> and </span><em>pgtId</em><span style="color: rgb(0,0,0);"> are send as GET parameters, which can be a problem as they might be stored in logs or indexed in internal search engines...</span></td><td colspan="1" class="confluenceTd"><p>Never log the GET parameters on the proxy callback url. Though, it might be not sufficient.</p><p>Should we change the CAS protocol in the next revision (v4.0) to POST these parameters ?</p></td></tr><tr><td colspan="1" class="confluenceTd">PC_4</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">DoS</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);">A map with all <em>pgtIou</em> and <em>pgtId</em> must be saved to be able to associate the user's identity (and the <em>pgtIou</em> from /serviceValidate url for example) and <em>PGT</em>.</span></p><p><span style="color: rgb(0,0,0);">Sending a lot of proxy callback calls with fake pgtIou and pgtId can fill the memory and cause the web application to crash.</span></p></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);">Don't use default memory implementation.</span></p><p><span style="color: rgb(0,0,0);">Use more advanced cache systems if they have been implemented to store <em>pgtIou</em> and <em>pgtId</em>.</span></p></td></tr></tbody></table></div><h2 id="CASThreatModeling-Threatson&quot;/proxy&quot;attacksurface"><span style="color: rgb(0,0,0);">Threats on "/proxy" attack surface</span></h2><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Identifier</div></th><th data-column="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Type</div></th><th data-column="2" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Threat</div></th><th data-column="3" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Mitigation</div></th></tr></thead><tbody><tr><td colspan="1" style="text-align: center;" class="confluenceTd">PRO_1</td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Information Disclosure</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">If HTTPS is not used, the <em>PGT</em> can be stolen, which is extremely critical as it represents a SSO identity.</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Always use HTTPS for /proxy url.</span></p></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>PRO_2</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Spoofing</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><span style="line-height: 1.4285715;">The attacker can generate <em>proxy tickets</em></span></span><span style="color: rgb(0,0,0);"><span style="line-height: 1.4285715;"> for other services and discover <em>(more)</em> user's attributes.</span></span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Limit as much as possible the services definition : not a very efficient solution, we should never reach that point !</span></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span>PRO_3</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Information disclosure</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">The <em>targetService</em> and <em>pgtId</em> are send as GET parameters, which can be a problem as they might be stored in logs or indexed in internal search engines...</span></td><td colspan="1" class="confluenceTd"><p>Never log the GET parameters on the <em>/proxy</em> url. Though, it might be not sufficient.</p><p>Should we change the CAS protocol in the next revision (v4.0) to POST these parameters ?</p></td></tr></tbody></table></div><h2 id="CASThreatModeling-DFDofCASticketsstorage"><span style="line-height: 1.5;">DFD of CAS tickets storage</span></h2><ul><li>DIA format :&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/cassecurity_tickets_storage_1.1.dia?version=1&amp;modificationDate=1366896533828&amp;api=v2">cassecurity_tickets_storage_1.1.dia</a></li><li>VDX format :&nbsp;<a href="https://wiki.jasig.org/download/attachments/57575934/cassecurity_tickets_storage_1.1.vdx?version=1&amp;modificationDate=1366896551553&amp;api=v2">cassecurity_tickets_storage_1.1.vdx</a></li></ul><p><img class="confluence-embedded-image" src="CAS%20Threat%20Modeling%20-%20Central%20Authentication%20Service%20-%20Jasig%20Wiki_files/cassecurity_tickets_storage_1.png" data-image-src="/download/attachments/57575934/cassecurity_tickets_storage_1.1.png?version=1&amp;modificationDate=1366896562039&amp;api=v2" width="500"></p><p>&nbsp;</p><h2 id="CASThreatModeling-Threatsonstorage"><span style="color: rgb(51,153,102);">Threats on storage</span></h2><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Identifier</span></div></th><th data-column="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Type</span></div></th><th data-column="2" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Threat</span></div></th><th data-column="3" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Mitigation</span></div></th></tr></thead><tbody><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span style="color: rgb(51,153,102);">STO_1</span></td><td class="confluenceTd"><p><span style="color: rgb(51,153,102);">Information Disclosure</span></p></td><td class="confluenceTd"><p><em><span style="color: rgb(51,153,102);">Attack on network :</span></em></p><p><span style="color: rgb(51,153,102);">For
+ memcached/database (whatever the number of nodes) or Ehcache/JBoss 
+cache (on multinodes), data are transfered between nodes using TCP.</span></p><p><span style="color: rgb(51,153,102);">These data can be intercepted and scanned to know which TGT is linked to which identity.</span></p></td><td class="confluenceTd"><p><span style="color: rgb(51,153,102);">Add
+ an entry to the hardening guide to indicate that single node CAS 
+deployments should prefer to use Ehcache since the communication between
+ CAS and Ehcache will be internal to the JVM. Also, disk persistence 
+should preferably turned off to avoid saving the sensitive data to the 
+disk.</span></p><p><span style="color: rgb(51,153,102);">Add an entry to
+ the hardening guide to indicate that the ehcache/jboss replication or 
+the external database/memcached should either be restricted to a private
+ network, or else run over SSL/TLS to protect the data in transport.</span></p><p>When using ehcache, consider using JGroups for communication which has support for encryption.</p><p><span style="color: rgb(51,153,102);">Encryption/hashing scheme:</span></p><ul><li><span style="color: rgb(51,153,102);">TGT should have a hashed TGTID; other aspects of the TGT should be encrypted with the TGTID.</span></li><li><span style="color: rgb(51,153,102);">ST
+ should have a hashed STID; other aspects of the TGT (e.g. the 
+attributes) should be copied to the ST and encrypted with the STID.</span></li><li><span style="color: rgb(51,153,102);">This will not allow back-channel SLO to work on ticket expiration (see CAS-686).</span></li></ul></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span style="color: rgb(51,153,102);">STO_2</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,153,102);">Information Disclosure</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,153,102);"><em>Attack on disk :</em></span></p><p><span style="color: rgb(51,153,102);">For
+ database/Ehcache cache storage on disk, an attacker can read the 
+content of the stored files and find the identities and their associated
+ TGT.</span></p></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,153,102);"><span style="color: rgb(51,153,102);">Add an entry to the hardening guide to indicate that for single node CAS, </span></span><span style="color: rgb(51,153,102);line-height: 1.4285715;">disk persistence should preferably turned off to avoid saving the sensitive data to the disk.</span></p><p><span style="color: rgb(51,153,102);line-height: 1.4285715;"><span style="color: rgb(51,153,102);">Add
+ an entry to the hardening guide to indicate that the any disk based 
+memory should either be restricted to a private storage, or else encrypt
+ data on disk.</span></span></p><p><span style="color: rgb(51,153,102);line-height: 1.4285715;">Should we really use Ehcache to store data on disks : not really performant and secure ?</span></p><p><span style="color: rgb(51,153,102);">For database, some encryption mechanism can be enabled on disk stored data.</span></p></td></tr><tr><td colspan="1" class="confluenceTd">STO_3</td><td colspan="1" class="confluenceTd">Information Disclosure</td><td colspan="1" class="confluenceTd"><p>Attack on memory:</p><p>Various
+ tools can scan the memory of other processes. We should try to do 
+things to protect the data in memory and hash and encrypt data as soon 
+as possible. This may involve interactions with the garbage collector, 
+including removing sensitive data in the clear so that the young garbage
+ collector can handle this sensitive data rather than relying on the 
+full garbage collection to remove this data.</p><p>&nbsp;</p></td><td colspan="1" class="confluenceTd">Use best practices to remove unencrypted, unhashed sensitive data from memory as soon as possible.</td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span style="color: rgb(51,153,102);">STO_4</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,153,102);">Spoofing</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,153,102);">The attacker can generate false data and send them to the storage system.</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,153,102);">Use hash / cryptographic algorithm to prevent attackers from being able to forge keys and store data.</span></td></tr></tbody></table></div><p>&nbsp;</p><h2 id="CASThreatModeling-ThreatsonCASinteractionwithauthenticationsources(e.g.LDAPorusername/passwordDB)">Threats on CAS interaction with authentication sources (e.g. LDAP or username/password DB)</h2><p>&nbsp;</p><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Identifier</span></div></th><th data-column="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Type</span></div></th><th data-column="2" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Threat</span></div></th><th data-column="3" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner"><span style="color: rgb(51,153,102);">Mitigation</span></div></th></tr></thead><tbody><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span style="color: rgb(51,153,102);">STO_1</span></td><td class="confluenceTd"><p><span style="color: rgb(51,153,102);">Information Disclosure</span></p></td><td class="confluenceTd"><p><em><span style="color: rgb(51,153,102);">Attack on network :</span></em></p><p><span style="color: rgb(51,153,102);">Username/password can be intercepted in transit</span></p><p><span style="color: rgb(51,153,102);">These data can be intercepted and scanned to know which TGT is linked to which identity.</span></p></td><td class="confluenceTd"><p><span style="color: rgb(51,153,102);">Add an entry to the hardening guide to LDAP deployments should prefer to use ldaps + certification validation unless <span style="color: rgb(51,153,102);">the calls are guaranteed to be traveling over an untrusted network with an internal dns.</span></span></p><p>If
+ a database is being used, recommend to turn on SSL/TLS and certificate 
+validation for the Database endpoint to ensure that the username is not 
+being passed on to an intruder <span style="color: rgb(51,153,102);">the calls are guaranteed to be traveling over an untrusted network with an internal dns.</span></p></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span style="color: rgb(51,153,102);">STO_2</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,153,102);">Information Disclosure</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,153,102);"><em>Attack on disk :</em></span></p><p><span style="color: rgb(51,153,102);">Attacker could steal the list of username/passwords from an insecure database.</span></p></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(255,0,0);">Add
+ an entry to the hardening guide to indicate that for single node CAS, 
+disk persistence should preferably turned off to avoid saving the 
+sensitive data to the disk.</span></p><p><span style="color: rgb(255,0,0);">Add
+ an entry to the hardening guide to indicate that the any disk based 
+memory should either be restricted to a private storage, or else encrypt
+ data on disk.</span></p><p><span style="color: rgb(255,0,0);">Should we really use Ehcache to store data on disks : not really performant and secure ?</span></p><p><span style="color: rgb(255,0,0);">For database, some encryption mechanism can be enabled on disk stored data.</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">STO_3</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">Information Disclosure</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(255,0,0);">Attack on memory:</span></p><p><span style="color: rgb(255,0,0);">Various
+ tools can scan the memory of other processes. We should try to do 
+things to protect the data in memory and hash and encrypt data as soon 
+as possible. This may involve interactions with the garbage collector, 
+including removing sensitive data in the clear so that the young garbage
+ collector can handle this sensitive data rather than relying on the 
+full garbage collection to remove this data.</span></p><p>&nbsp;</p></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">Use best practices to remove unencrypted, unhashed sensitive data from memory as soon as possible.</span></td></tr><tr><td colspan="1" style="text-align: center;" class="confluenceTd"><span style="color: rgb(255,0,0);">STO_4</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">Spoofing</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">The attacker can generate false data and send them to the storage system.</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,0,0);">Use hash / cryptographic algorithm to prevent attackers from being able to forge keys and store data. </span></td></tr></tbody></table></div>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://wiki.jasig.org/display/CAS/CAS+Threat+Modeling"
+    dc:identifier="https://wiki.jasig.org/display/CAS/CAS+Threat+Modeling"
+    dc:title="CAS Threat Modeling"
+    trackback:ping="https://wiki.jasig.org/rpc/trackback/57575934"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="likes-and-labels-container"><div id="likes-section"><span class="like-summary"><a data-user-hover-bound="true" title="" href="https://wiki.jasig.org/display/%7Eawp9" class="confluence-userlink userlink-0" data-username="awp9">Andrew Petro</a> likes this</span></div><div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="57575934" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div></div></div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+    
+    
+    
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+
+    
+            </div>
+    
+    </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/spaces/viewspacesummary.action?key=CAS">Overview</div>
+            <div data-label="Content Tools" data-href="/pages/reorderpages.action?key=CAS">Content Tools</div>
+            <div data-label="Activity" data-href="/spaces/usage/report.action?key=CAS">Activity</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            <div style="margin-left: 285px;" id="footer">
+
+    <section class="footer-body">
+
+                                                <p class="license license-opensource">
+                  Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Java Architectures Special Interest Group. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                        
+    
+
+    
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+<ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id="footer-build-information">5.4.3</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 5.4.3, Team Collaboration Software.</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+    
+
+            <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7467127-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    
+    </section>
+
+</div>
+
+            
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div style="display: none;" id="content-hover-shadow"><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div id="cw-notification-container"></div><div class="qr-notice aui-message warning"></div><div style="position: relative; z-index: 0;" id="fileuploadShim"></div><div class="plupload html5" style="position: absolute; background: none repeat scroll 0% 0% transparent; width: 1349px; height: 0px; overflow: hidden; z-index: -1; opacity: 0; top: 7735px; left: 0px;" id="p1926llkc61fqg1gb161t184vacv0_html5_container"><input id="p1926llkc61fqg1gb161t184vacv0_html5" style="font-size: 999px; position: absolute; width: 100%; height: 100%;" accept="" multiple="multiple" type="file"></div><div style="display: none;" id="content-hover-0" class="ajs-content-hover"><div style="width: 300px;" class="contents"></div></div></body></html>

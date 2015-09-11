@@ -1,0 +1,129 @@
+{
+	"error_header": {
+		"th": "simpleSAMLphp-en errorea",
+	},
+	"report_trackid": {
+		"th": "Mesedez, errore honen berri ematen baduzu, mantendu ezazu jarraipen zenbaki hau, honek sistemaren administratzaileak dituen erregistroetan zure saioa aurkitzea ahalbidetzen baitu:"
+	},
+	"debuginfo_header": {
+		"th": "Arazketa informazioa",
+	},
+	"debuginfo_text": {
+		"th": "Arazketa informazio hau erabilgarria izan daiteke sistemaren administratzailea edo erabiltzailearen arreta zentroarentzat:",
+	},
+	"report_header": {
+		"th": "Erroreen berri eman",
+	},
+	"report_text": {
+		"th": "Nahi izanez gero, zure helbide elektronikoa adierazi ezazu, administratzaileak zurekin harremanetan jar daitezen, eta zure arazoaren datu gehigarriak eskura ditzaten:",
+	},
+	"report_email": {
+		"th": "E-posta:",
+	},
+	"report_explain": {
+		"th": "Azal ezazu zer egin duzun errore honetara iristeko...",
+	},
+	"report_submit": {
+		"th": "Bidal ezazu errorearen txostena",
+	},
+	"howto_header": {
+		"th": "Laguntza nola eskuratu",
+	},
+	"howto_text": {
+		"th": "Errore hau jazo izana simpleSAMLphp-en ezusteko jokaera edo konfigurazio okerra izan da. Jar zaitez harremanetan identifikazio zerbitzu honen administratzailearekin eta bidal iezaiozu lehenagoko errore mezua. "
+	},
+	"title_CREATEREQUEST": {
+		"th": "Errorea eskaera sortzean",
+	},
+	"descr_CREATEREQUEST": {
+		"th": "Errore bat jazo da SAML eskaera sortzen saiatzean.",
+	},
+	"title_DISCOPARAMS": {
+		"th": "Eskaera okerra aurkikuntza zerbitzuari"
+	},
+	"descr_DISCOPARAMS": {
+		"th": "Aurkikuntza zerbitzuari bidalitako prametroak ez dira zehaztapenera doitzen."
+	},
+	"title_GENERATEAUTHNRESPONSE": {
+		"th": "Ezin izan da kautotze erantzuna sortu"
+	},
+	"descr_GENERATEAUTHNRESPONSE": {
+		"th": "Identitatearen hornitzaileak errore bat antzeman du kautotze erantzuna sortzean."
+	},
+	"title_LDAPERROR": {
+		"th": "LDAP Errorea",
+	},
+	"descr_LDAPERROR": {
+		"th": "LDAP erabiltzaileen datu basea da, eta sartzea erabakitzen duzunean beharrezkoa da harekin harremanetan jartzea. Sartze ekintza horretan errore bat jazo da."
+	},
+	"title_LOGOUTREQUEST": {
+		"th": "Errorea saioa ixteko eskaera prozesatzean ",
+	},
+	"descr_LOGOUTREQUEST": {
+		"th": "Errore bat jazo da saioa ixteko eskaera prozesatzean.",
+	},
+	"title_METADATA": {
+		"th": "Errorea metadatuak kargatzean"
+	},
+	"descr_METADATA": {
+		"th": "Konfigurazio erroreak daude zure simpleSAMLphp-ren instalazioan. Zerbitzuaren administratzailea bazara, ziurta ezazu metadatuen konfigurazioa zuzena dela."
+	},
+	"title_NOACCESS": {
+		"th": "Sarrera zehaztu gabe"
+	},
+	"descr_NOACCESS": {
+		"th": "Sarbide puntu hau ez dago gaituta. Egiazta itzazu simpleSAMLphp-aren konfigurazioan gaitze aukerak."
+	},
+	"title_NORELAYSTATE": {
+		"th": "RelayState zehaztu gabe"
+	},
+	"descr_NORELAYSTATE": {
+		"th": "Eskaera honen abiarazleak ez du ematen ondoren nora joan adierazten duen RelayState parametroa"
+	},
+	"title_PROCESSASSERTION": {
+		"th": "Errorea IdP-tik datorren erantzuna prozesatzean"
+	},
+	"descr_PROCESSASSERTION": {
+		"th": "Ezin izan da identitatearen hornitzaileak bidalitako erantzuna onartu."
+	},
+	"title_PROCESSAUTHNREQUEST": {
+		"th": "Errorea zerbitzu hornitzailearen eskaera prozesatean "
+	},
+	"descr_PROCESSAUTHNREQUEST": {
+		"th": "IdP honek zerbitzu hornitzaile baten kautotze eskaera jaso du baina errore bat jazo da hau prozesatzen saiatzean."
+	},
+	"title_SLOSERVICEPARAMS": {
+		"th": "SAML mezua falta da"
+	},
+	"descr_SLOSERVICEPARAMS": {
+		"th": "SingleLogoutService interfazera sartu zara baina ez duzu erantsi  SAML LogoutRequest edo LogoutResponse mezurik"
+	},
+	"title_ACSPARAMS": {
+		"th": "SAML erantzuna falta da"
+	},
+	"descr_ACSPARAMS": {
+		"th": "Baieztapen kontsumitzailearen interfazera sartu zara baina ez duzu SAML kautotze erantzun bat erantsi."
+	},
+	"title_CASERROR": {
+		"th": "CAS Errorea"
+	},
+	"descr_CASERROR": {
+		"th": "Errorea CAS zerbitzariarekin komunikatzen saiatzean"
+	},
+	"title_CONFIG": {
+		"th": "Konfigurazio errorea"
+	},
+	"descr_CONFIG": {
+		"th": "Badirudi errore bat jazo dela simpleSAMLphp-en konfigurazioan"
+	},
+	"title_NOTSET": {
+		"th": "Pasahitzik ez da ezarrii"
+	},
+	"descr_NOTSET": {
+		"th": "Ez da aldatu konfigurazio fitxategiaren pasahitzaren (auth.adminpassword) balio lehenetsia. Mesedez, edita ezazu fitxategia"
+	},
+	"title_NOTVALIDCERT": {
+		"th": "Ziurtagiri balio gabea"
+	},
+	"descr_NOTVALIDCERT": {
+		"th": "Ez duzu baliozko ziurtagiri

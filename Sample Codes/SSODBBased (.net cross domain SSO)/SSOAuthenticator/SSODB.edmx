@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SSODBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SSODBModelStoreContainer">
+          <EntitySet Name="SSOAppsToken" EntityType="SSODBModel.Store.SSOAppsToken" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SSOEnabledApps" EntityType="SSODBModel.Store.SSOEnabledApps" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_SSOAppsToken_SSOEnabledApps" Association="SSODBModel.Store.FK_SSOAppsToken_SSOEnabledApps">
+            <End Role="SSOEnabledApps" EntitySet="SSOEnabledApps" />
+            <End Role="SSOAppsToken" EntitySet="SSOAppsToken" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SSOAppsToken">
+          <Key>
+            <PropertyRef Name="TokenId" />
+          </Key>
+          <Property Name="TokenId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="APPId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Token" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LoginId" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Valid" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SSOEnabledApps">
+          <Key>
+            <PropertyRef Name="APPId" />
+          </Key>
+          <Property Name="APPId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="APPName" Type="varchar" MaxLength="50" />
+          <Property Name="APPUrl" Type="varchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_SSOAppsToken_SSOEnabledApps">
+          <End Role="SSOEnabledApps" Type="SSODBModel.Store.SSOEnabledApps" Multiplicity="1" />
+          <End Role="SSOAppsToken" Type="SSODBModel.Store.SSOAppsToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SSOEnabledApps">
+              <PropertyRef Name="APPId" />
+            </Principal>
+            <Dependent Role="SSOAppsToken">
+              <PropertyRef Name="APPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SSODBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SSODBEntities2" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="SSOAppsTokens" EntityType="SSODBModel.SSOAppsToken" />
+          <EntitySet Name="SSOEnabledApps" EntityType="SSODBModel.SSOEnabledApp" />
+          <AssociationSet Name="FK_SSOAppsToken_SSOEnabledApps" Association="SSODBModel.FK_SSOAppsToken_SSOEnabledApps">
+            <End Role="SSOEnabledApps" EntitySet="SSOEnabledApps" />
+            <End Role="SSOAppsToken" EntitySet="SSOAppsTokens" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SSOAppsToken">
+          <Key>
+            <PropertyRef Name="TokenId" />
+          </Key>
+          <Property Name="TokenId" Type="Guid" Nullable="false" />
+          <Property Name="APPId" Type="Guid" Nullable="false" />
+          <Property Name="Token" Type="Guid" Nullable="false" />
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Valid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SSOEnabledApp" Relationship="SSODBModel.FK_SSOAppsToken_SSOEnabledApps" FromRole="SSOAppsToken" ToRole="SSOEnabledApps" />
+        </EntityType>
+        <EntityType Name="SSOEnabledApp">
+          <Key>
+            <PropertyRef Name="APPId" />
+          </Key>
+          <Property Name="APPId" Type="Guid" Nullable="false" />
+          <Property Name="APPName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="APPUrl" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedDate" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SSOAppsTokens" Relationship="SSODBModel.FK_SSOAppsToken_SSOEnabledApps" FromRole="SSOEnabledApps" ToRole="SSOAppsToken" />
+        </EntityType>
+        <Association Name="FK_SSOAppsToken_SSOEnabledApps">
+          <End Role="SSOEnabledApps" Type="SSODBModel.SSOEnabledApp" Multiplicity="1" />
+          <End Role="SSOAppsToken" Type="SSODBModel.SSOAppsToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SSOEnabledApps">
+              <PropertyRef Name="APPId" />
+            </Principal>
+            <Dependent Role="SSOAppsToken">
+              <PropertyRef Name="APPId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SSODBModelStoreContainer" CdmEntityContainer="SSODBEntities2">
+          <EntitySetMapping Name="SSOAppsTokens">
+            <EntityTypeMapping TypeName="SSODBModel.SSOAppsToken">
+              <MappingFragment StoreEntitySet="SSOAppsToken">
+                <ScalarProperty Name="TokenId" ColumnName="TokenId" />
+                <ScalarProperty Name="APPId" ColumnName="APPId" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="Valid" ColumnName="Valid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSOEnabledApps">
+            <EntityTypeMapping TypeName="SSODBModel.SSOEnabledApp">
+              <MappingFragment StoreEntitySet="SSOEnabledApps">
+                <ScalarProperty Name="APPId" ColumnName="APPId" />
+                <ScalarProperty Name="APPName" ColumnName="APPName" />
+                <ScalarProperty Name="APPUrl" ColumnName="APPUrl" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

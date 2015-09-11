@@ -1,0 +1,23 @@
+{
+	"selectidp": {
+		"th": "Hauta ezazu zure identitate hornitzailea",
+	},
+	"selectidp_full": {
+		"th": "Mesedez, non kautotu nahi duzun identifikazio hornitzailea hauta ezazu ",
+	},
+	"select": {
+		"th": "Hautatu",
+	},
+	"remember": {
+		"th": "Nire hautaketa gogoratu",
+	},
+	"icon_prefered_idp": {
+		"th": "[Aukera gogokoena]"
+	},
+	"previous_auth": {
+		"th": "Lehenago, hemen kautotzea hautatu duzu"
+	},
+	"login_at": {
+		"th": "Non identifikatu"
+	}
+}

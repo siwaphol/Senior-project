@@ -1,0 +1,19 @@
+http://security.stackexchange.com/questions/827/how-to-set-up-a-single-sign-on-for-multiple-domains
+http://www.softwaresecured.com/2013/07/16/federated-identities-openid-vs-saml-vs-oauth/
+
+http://openid.net/developers/libraries/
+
+openID vs SAML
+http://identitymeme.org/doc/draft-hodges-saml-openid-compare.html
+
+openid vs SAML with toolkit
+https://onelogin.zendesk.com/hc/en-us/articles/201174894-OpenID-or-SAML-for-enterprise-SSO-
+
+simplesamlphp installation with external module 
+https://www.howtoforge.com/how-to-setup-single-sign-on-with-otp-using-simplesaml-php-and-privacyidea
+
+detailed description for simplesamlphp installation
+http://virtuallyhyper.com/2013/05/set-up-simplesamlphp-as-an-idp-to-be-used-in-an-sp-initiated-sso-with-google-apps/
+
+theory of SAML authen
+http://documentation.pingidentity.com/display/PF72/SAML+2.0+Profiles#SAML2.0Profiles-1074662

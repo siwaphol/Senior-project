@@ -1,0 +1,12 @@
+User ID
+:siwaphol	
+Given name
+:siwaphol
+Surname
+:boonpan
+Mail
+:siwaphol.boonpan@gmail.com
+New password
+:siwaphol01
+Retype new password
+:siwaphol01

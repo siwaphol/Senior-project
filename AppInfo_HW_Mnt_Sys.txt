@@ -1,0 +1,115 @@
+JSON
+=========================================================================================
+//////////////////////////////////// App Info ///////////////////////////////////////////
+=========================================================================================
+
+https://account.cmu.ac.th/v1/api/validateUser?appId=575cb268-e295-40fc-91f3-69e7d239dc24&appSecret=m4Fg4d8ePk&user=siwaphol_boonpan&pw=siwaphol01
+https://account.cmu.ac.th/v1/api/Students/siwaphol_boonpan?appId=575cb268-e295-40fc-91f3-69e7d239dc24&appSecret=m4Fg4d8ePk&accees_token={access_token}
+
+AppName : Development of Authentication Module for Laboratory Homework Management System
+-----------------------------------------------------------
+appID	      :	575cb268-e295-40fc-91f3-69e7d239dc24
+appSecret     :	m4Fg4d8ePk
+k_user	      :	-
+k_token_recive: -
+
+=========================================================================================
+///////////////////////////////////// Route //////////////////////////////////////////
+=========================================================================================
+
+# Route for Authentication #
+-------------------------------
+https://account.cmu.ac.th/v1/api/validateUser?appId={AppID}&appSecret={AppSecret}&user={UserName}&pw={Password}
+=========================================================
+# Route for get Student info #
+-------------------------------
+https://account.cmu.ac.th/v1/api/Students/{userName}?appId={AppID}&appSecret={AppSecret}&accees_token={access_token}
+
+# Logout
+https://account.cmu.ac.th/v1/api/Logout/{UserName}?appId={AppID}&appSecret={AppSecret}&accees_token={accessToken}
+
+=========================================================================================
+///////////////////////////////////// Model //////////////////////////////////////////////
+=========================================================================================
+
+# Ticket Model
+---------------
+public class TicketItemWS
+    {
+        public Boolean success { get; set; }
+        public Ticket ticket { get; set; }
+    }
+
+    public class Ticket
+    {
+        public string access_token { get; set; }
+        public int expires_in { get; set; }
+        public string userName { get; set; }
+        public string issued { get; set; }
+        public string expires { get; set; }
+    }
+
+======================================================================
+# Student Model
+----------------
+public class StdItemWS
+    {
+        public bool success { get; set; }
+        public TicketItemWS ticket { get; set; }
+        public StudentInfo student { get; set; }
+
+    }
+    public class StudentInfo
+    {
+        public string id { get; set; }
+        public PersonType personType { get; set; }
+        public Prefix prefix { get; set; }
+        public FirstName firstName { get; set; }
+        public LastName lastName { get; set; }
+        public string level { get; set; }
+        public string citizen_id { get; set; }
+        public Faculty faculty { get; set; }
+        public Image image { get; set; }
+    }
+
+    public class PersonType
+    {
+        public string th_TH { get; set; }
+        public string en_US { get; set; }
+    }
+
+    public class Image
+    {
+        public string path { get; set; }
+        public Byte[] imageData { get; set; }
+
+    }
+
+    public class Faculty
+    {
+        public string code { get; set; }
+        public string th_TH { get; set; }
+        public string en_US { get; set; }
+    }
+
+    public class Prefix
+    {
+        public string th_TH { get; set; }
+        public string en_US { get; set; }
+    }
+
+    public class FirstName
+    {
+        public string th_TH { get; set; }
+        public string en_US { get; set; }
+    }
+
+    public class LastName
+    {
+        public string th_TH { get; set; }
+        public string en_US { get; set; }
+    }
+
+=========================================================================================
+/////////////////////////////////////////////////////////////////////////////////////////
+=========================================================================================

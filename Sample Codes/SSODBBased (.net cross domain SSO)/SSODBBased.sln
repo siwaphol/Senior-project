@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSOAuthenticator", "SSOAuthenticator\SSOAuthenticator.csproj", "{B13843B3-03A1-41F4-87DE-2AB359494451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceAPP", "WebAPP\FinanceAPP\FinanceAPP\FinanceAPP.csproj", "{40D6E6C6-97AF-4A0F-A950-2A3D06592E1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollApp", "WebAPP\PayrollApp\PayrollApp\PayrollApp.csproj", "{23C12397-F741-41EE-818C-1A818D27F389}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B13843B3-03A1-41F4-87DE-2AB359494451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13843B3-03A1-41F4-87DE-2AB359494451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13843B3-03A1-41F4-87DE-2AB359494451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13843B3-03A1-41F4-87DE-2AB359494451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40D6E6C6-97AF-4A0F-A950-2A3D06592E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40D6E6C6-97AF-4A0F-A950-2A3D06592E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40D6E6C6-97AF-4A0F-A950-2A3D06592E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40D6E6C6-97AF-4A0F-A950-2A3D06592E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C12397-F741-41EE-818C-1A818D27F389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C12397-F741-41EE-818C-1A818D27F389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C12397-F741-41EE-818C-1A818D27F389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C12397-F741-41EE-818C-1A818D27F389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

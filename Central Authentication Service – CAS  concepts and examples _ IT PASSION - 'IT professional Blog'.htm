@@ -1,0 +1,1677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Central Authentication Service – CAS: concepts and examples | IT PASSION - "IT professional Blog"</title>
+	<link rel="pingback" href="http://mauriziostorani.wordpress.com/xmlrpc.php">
+	<link rel="alternate" type="application/rss+xml" title="IT PASSION - &quot;IT professional Blog&quot; » Feed" href="http://mauriziostorani.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="IT PASSION - &quot;IT professional Blog&quot; » Comments Feed" href="http://mauriziostorani.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="IT PASSION - &quot;IT professional Blog&quot; » Central Authentication Service – CAS: concepts and&nbsp;examples Comments Feed" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" id="all-css-0" href="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a.css" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-0" href="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/global-print.css" type="text/css" media="print">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a.js"></script>
+<link rel="stylesheet" id="all-css-0" href="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://mauriziostorani.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Swing Application Framework (JSR-296): new concepts, new&nbsp;features" href="http://mauriziostorani.wordpress.com/2008/08/07/application-framework-jsr-296-new-concepts-new-features/">
+<link rel="next" title="Functional programming: Examples, Methods and&nbsp;Concepts" href="http://mauriziostorani.wordpress.com/2008/08/29/functional-programming-examples-methods-and-concepts/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/">
+<link rel="shortlink" href="http://wp.me/pfSeA-6Q">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Fmauriziostorani.wordpress.com%2F2008%2F08%2F23%2Fcentral-authentication-service-cas-concepts-and-examples%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Fmauriziostorani.wordpress.com%2F2008%2F08%2F23%2Fcentral-authentication-service-cas-concepts-and-examples%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Central Authentication Service - CAS: concepts and examples">
+<meta property="og:url" content="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/">
+<meta property="og:description" content="The Central Authentication Service (CAS) is a single sign-on protocol for the web. Its purpose is to permit a user to log into multiple applications simultaneously and automatically. It also allows...">
+<meta property="article:published_time" content="2008-08-23T14:33:21+00:00">
+<meta property="article:modified_time" content="2008-08-23T15:03:20+00:00">
+<meta property="article:author" content="http://mauriziostorani.wordpress.com/author/mauriziostorani/">
+<meta property="og:site_name" content="IT PASSION - &quot;IT professional Blog&quot;">
+<meta property="og:image" content="http://clc.its.psu.edu/Authentication/securelion.jpg">
+<meta property="og:image" content="http://www.yale.edu/tp/auth/cas.gif">
+<meta property="og:image" content="http://s9.addthis.com/button1-bm.gif">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image" content="http://clc.its.psu.edu/Authentication/securelion.jpg?w=240">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1405977958g" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1405977958g" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1391188133g">
+<link rel="openid.server" href="http://mauriziostorani.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://mauriziostorani.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://mauriziostorani.wordpress.com/osd.xml" title="IT PASSION - &quot;IT professional Blog&quot;">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="IT PASSION - &quot;IT professional Blog&quot;"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Information technologies with passion!"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://mauriziostorani.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Central Authentication Service – CAS: concepts and&nbsp;examples | IT PASSION - &quot;IT professional Blog&quot; on WordPress.com">
+<meta name="description" content="The Central Authentication Service (CAS) is a single sign-on protocol for the web. Its purpose is to permit a user to log into multiple applications simultaneously and automatically. It also allows untrusted web applications to authenticate users without gaining access to a user's security credentials, such as a password. The name CAS also refers to…">
+<style type="text/css">
+#header{
+	background: url(http://mauriziostorani.files.wordpress.com/2008/09/itpassion_logo.jpg) no-repeat;
+}
+#header h1, #header #desc {
+	display: none;
+}
+</style>
+
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/google_service.js">
+</script>
+<script type="text/javascript">
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/google_ads.js"></script>
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/amzn_ads.js"></script>
+<script type="text/javascript">
+try { amznads.getAds("3033","300x250"); } catch(e) { /* ignore */ }
+</script>
+<script type="text/javascript">
+var amznKeys = amznads.getKeys();
+if (typeof amznKeys != "undefined" && amznKeys != "") { for (var i =0; i < amznKeys.length; i++) { var key = amznKeys[i]; GA_googleAddAttr("amzn", key);} }
+document.close();
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post"); }
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 3783400, pt: 'permalink', wa: 0, as: 0, domain: 'mauriziostorani.wordpress.com', url: 'http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/', gid: '', };
+</script>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ga.js" async="" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/services.css"><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a" async="" type="text/javascript"></script><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/link.htm" async="" type="text/javascript"></script><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/track.htm" async="" type="text/javascript"></script></head>
+
+<body class="single single-post postid-424 single-format-standard mp6 highlander-enabled highlander-light">
+<div id="container">
+
+<div id="header">
+	<h1><a sl-processed="1" href="http://mauriziostorani.wordpress.com/">IT PASSION – "IT professional Blog"</a></h1>
+</div>
+
+<div id="navigation">
+
+	<form action="http://mauriziostorani.wordpress.com/" method="get">
+		<fieldset>
+			<input name="s" id="s">
+			<input value="Go!" id="searchbutton" name="searchbutton" type="submit">
+		</fieldset>
+	</form>
+
+	<ul class="menu">
+	<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/">Home</a></li>
+	<li class="page_item page-item-3"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/it-multimedia/">Multimedia</a></li>
+<li class="page_item page-item-2"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/it-about/">About</a></li>
+<li class="page_item page-item-24"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/it-contact-me/">Contact me</a></li>
+<li class="page_item page-item-203"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/it-archive/">Archive</a></li>
+</ul>
+
+</div><!-- /navigation -->
+
+<hr class="low">
+
+<div id="content">
+
+
+
+	<div id="post-424" class="post-424 post type-post status-publish format-standard hentry category-authentication category-cas category-single-sign-on tag-authentication tag-cas tag-single-sign-on entry single">
+
+		<h2>Central Authentication Service – CAS: concepts and&nbsp;examples</h2>
+
+		<p class="info">
+   		<em class="date"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" title="14:33" rel="bookmark">23 August, 2008 at 14:33</a></em>   							<em class="comments-popup">
+			<a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/#comments" class="commentlink" title="Comment on Central Authentication Service – CAS: concepts and&nbsp;examples">14 comments</a>			</em>
+		   		   		</p>
+
+		<p><img class="alignleft" style="margin:3px 8px;" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/securelion.htm" alt="" height="238" width="173">The <strong>Central Authentication Service</strong> (CAS) is a <a sl-processed="1" title="Single sign-on" href="http://mauriziostorani.wordpress.com/2008/07/21/single-sign-on-sso-concepts-methods-and-frameworks/" target="_blank">single sign-on</a>
+ protocol for the web. Its purpose is to permit a user to log into 
+multiple applications simultaneously and automatically. It also allows 
+untrusted web applications to authenticate users without gaining access 
+to a user’s security credentials, such as a password. The name <em>CAS</em> also refers to a software package that implements this protocol.</p>
+<p>The Central Authentication Server (CAS) is designed as a standalone 
+web application.  It is currently implemented as several Java servlets 
+and runs through the HTTPS server on <tt>secure.its.yale.edu</tt>.  It is accessed through three URLs described below:  the <strong>login URL</strong>, the <strong>validation URL</strong>, and the optional <strong>logout URL</strong>.</p>
+<p style="text-align:center;"><a sl-processed="1" href="http://www.yale.edu/tp/auth/cas.gif" target="_blank"><img class="aligncenter" style="margin-top:3px;margin-bottom:3px;" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/cas.gif" alt="" height="238" width="351"></a></p>
+<p>To use the central authentication service, an application redirects its users, or simply creates a hyperlink, to the <strong>login URL</strong>, which for general-purpose Yale users is <strong><tt><a sl-processed="1" href="https://secure.its.yale.edu/cas/servlet/login" rel="nofollow">https://secure.its.yale.edu/cas/servlet/login</a></tt></strong>.  Users may also access this URL manually if they wish to pre-authenticate their sessions.</p>
+<p>The login URL handles actual, “primary” authentication.  That is, it 
+prompts the user for a NetID and a password and validates the pair 
+against Yale’s Kerberos server.  (More specifically, it determines 
+whether or not it can decode a Kerberos IV ticket-granting ticket for 
+the given NetID with a given password; if it can, it accepts the pair 
+and throws away the ticket.)  To allow for the possibility of automatic 
+re-authentication later, the CAS also attempts to send an in-memory 
+cookie (one that expires automatically when the browser closes) back to 
+the browser.  This cookie, which we call a “ticket-granting cookie,” 
+identifies the user as one who has already logged in successfully. (<a sl-processed="1" href="http://www.yale.edu/tp/auth/cas10.html" target="_blank">more</a>)</p>
+<h2>Why Adopt CAS?</h2>
+<p>While the most prominent appeal of CAS that is centralizes the user 
+login implementation and experience, there are many other advantages, 
+including these listed below.</p>
+<ul>
+<li>Participating applications do not touch the end user’s password, and
+ therefore cannot expose this password if they are compromised</li>
+<li>Offers features for proxy authentication</li>
+<li>Ability to enforce uniform enterprise authentication and authorization policies across the system</li>
+<li>End to end user audit sessions to improve security reporting and auditing</li>
+<li>Removes application developers from having to understand and implement identity security in their applications</li>
+<li>Usually results in significant password help desk cost savings</li>
+</ul>
+<iframe src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/536862.htm" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" height="348" width="425"></iframe>
+<h2>How to get CAS up quickly in Windows</h2>
+<p>This tutorial is to demonstrate how to get CAS up quickly in Windows -&gt; and testing it works.</p>
+<p>Pre-requisites:</p>
+<p>1. Apache tomcat is installed and running</p>
+<p>2. Java(JDK) is installed.<br>
+Guide:</p>
+<p>1.&nbsp;&nbsp;&nbsp; Download Apache directory server from <a sl-processed="1" rel="nofollow" href="http://directory.apache.org/" target="_blank">http://directory.apache.org/</a></p>
+<p>Run the setup with all the defaults and test that the server is working on localhost (default is port 10389)</p>
+<p>Alternatively you can test with telnet</p>
+<p>(Start-&gt;Run-&gt;telnet)</p>
+<p>In the telnet console, type open localhost 10389 -&gt; if you get a 
+screen that lets you type (Apache Directory is configured properly), 
+close telnet if you get this screen</p>
+<p>2.&nbsp;&nbsp;&nbsp; Download the CAS installation and find the war 
+file e.g. \cas-server-3.2.1\modules\cas-server-webapp-3.2.1.war</p>
+<p>3.&nbsp;&nbsp; Start the Tomcat server, and after it is started..add 
+the war file (cas-server-webapp-3.2.1.war) to the webapps folder e.g. 
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+C:\apache-tomcat-6.0.14\webapps\cas-server-webapp-3.2.1.war</p>
+<p>Now that CAS is deployed you should have an unpacked directory in 
+your webapps folder&nbsp; e.g. 
+C:\apache-tomcat-6.0.14\webapps\cas-server-webapp-3.2.1</p>
+<p>4. &nbsp;&nbsp;&nbsp; Stop the tomcat server</p>
+<p>5.&nbsp;&nbsp;&nbsp;&nbsp; Now you have to add the following to the <span class="skimlinks-unlinked">pom.xml</span> file in the META-INF folder (e.g. C:\apache-tomcat-6.0.14\webapps\cas-server-webapp-3.2.1\META-INF\maven\<span class="skimlinks-unlinked">org.jasig.cas\cas-server-webapp</span>)</p>
+<div class="code panel" style="border-width:1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">&lt;dependency&gt;
+             &lt;groupId&gt;${project.groupId}&lt;/groupId&gt;
+             &lt;artifactId&gt;cas-server-support-ldap&lt;/artifactId&gt;
+             &lt;version&gt;${project.version}&lt;/version&gt;
+        &lt;/dependency&gt;</pre>
+</div>
+</div>
+<p>6.&nbsp;&nbsp;&nbsp; Add the following to the&nbsp; <span class="skimlinks-unlinked">deployerConfigContext.xml</span>
+ file in the WEB-INF directory e.g. 
+C:\apache-tomcat-6.0.14\webapps\cas-server-webapp-3.2.1\WEB-INF 
+(Connects to the default Apache Directory Server configuration)</p>
+<div class="code panel" style="border-width:1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">&lt;bean id=<span class="code-quote">"contextSource"</span> class=<span class="code-quote">"<span class="skimlinks-unlinked">org.jasig.cas.adaptors.ldap.util.AuthenticatedLdapContextSource</span>"</span>&gt;
+
+              &lt;property name=<span class="code-quote">"pooled"</span> value=<span class="code-quote">"<span class="code-keyword">true</span>"</span>/&gt;
+
+              &lt;property name=<span class="code-quote">"urls"</span>&gt;
+
+                  &lt;list&gt;
+
+                      &lt;value&gt;ldap:<span class="code-comment">//localhost:10389&lt;/value&gt;
+</span>
+                  &lt;/list&gt;
+
+              &lt;/property&gt;
+
+              &lt;property name=<span class="code-quote">"userName"</span> value=<span class="code-quote">"uid=admin,ou=system"</span>/&gt;
+
+              &lt;property name=<span class="code-quote">"password"</span> value=<span class="code-quote">"secret"</span>/&gt;
+
+              &lt;property name=<span class="code-quote">"baseEnvironmentProperties"</span>&gt;
+
+                  &lt;map&gt;
+
+                      &lt;entry&gt;
+
+                          &lt;key&gt;
+
+                              &lt;value&gt;java.naming.security.authentication&lt;/value&gt;
+
+                          &lt;/key&gt;
+
+                          &lt;value&gt;simple&lt;/value&gt;
+
+                      &lt;/entry&gt;
+
+                  &lt;/map&gt;
+
+              &lt;/property&gt;
+
+        &lt;/bean&gt;</pre>
+</div>
+</div>
+<p>7.&nbsp; &nbsp;&nbsp;&nbsp; Add the corresponding AuthenticationHandler to the <span class="skimlinks-unlinked">deployerConfigContext.xml</span> file (Remove the SimpleAuthenticationHandler) and Add the following in it’s place</p>
+<div class="code panel" style="border-width:1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">&lt;bean
+
+            class=<span class="code-quote">"<span class="skimlinks-unlinked">org.jasig.cas.adaptors.ldap.FastBindLdapAuthenticationHandler</span>"</span> &gt;
+
+                                &lt;property name=<span class="code-quote">"filter"</span> value=<span class="code-quote">"uid=%u,ou=system"</span> /&gt;
+
+                                &lt;property name=<span class="code-quote">"contextSource"</span> ref=<span class="code-quote">"contextSource"</span> /&gt;
+
+            &lt;/bean&gt;</pre>
+</div>
+</div>
+<p>(<a sl-processed="1" href="http://www.ja-sig.org/wiki/display/CASUM/CAS+Quickly+%28LDAP%2C+Windows%2C+Apache+Directory+Server%29" target="_blank">more</a>)</p>
+<h2>Acegi as CAS Client</h2>
+<p>The Spring Framework is a popular, layered Java/J2EE application 
+framework, with features including powerful JavaBeans-based 
+configuration management; generic abstraction for transaction 
+management; JDBC abstraction layer; integration with Hibernate, JDO and 
+iBATIS SQL Maps; rich AOP functionality; and a flexible web MVC 
+framework. Spring provides packages that assist in building complex web 
+applications, web services endpoints, and Swing-based rich clients.</p>
+<p>The <a sl-processed="1" rel="nofollow" href="http://acegisecurity.sourceforge.net/" target="_blank">Acegi Security System for Spring</a>
+ provides a wide range of security services for Spring-based 
+applications, including method interception, web request interception 
+and redirection, and rich client (Swing) integration. Acegi Security 
+maintains packages which provide full integration with CAS. The packages
+ also allow (but do not require) Acegi Security’s 
+AuthenticationProviders – which include JDBC, in-memory and JAAS wrapper
+ providers – to be used as CAS PasswordHandlers, easing migration from 
+stand-alone Acegi Security applications to a CAS-managed environment.</p>
+<iframe src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/387303.htm" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" height="348" width="425"></iframe>
+<h2>Ruby on Rails CAS Client</h2>
+<p>A Ruby implementation of the CAS client is now available at <a sl-processed="1" rel="nofollow" href="http://rubyforge.org/projects/rubycas-client/" target="_blank">http://rubyforge.org/projects/rubycas-client/</a></p>
+<p>The library is designed to easily integrate with Rails as an 
+ActionController filter, but may be adapted for other purposes. The 
+easiest way to install the client is via ruby gems, by typing the 
+following at a shell prompt (you will probably need root access):</p>
+<p><tt>gem install rubycas-client</tt></p>
+<p>It can also be installed into a Rails application as a plugin:</p>
+<p><tt>script/plugin install <a sl-processed="1" rel="nofollow" href="http://rubycas-client.googlecode.com/svn/trunk/rubycas-client" target="_blank">http://rubycas-client.googlecode.com/svn/trunk/rubycas-client</a></tt></p>
+<p>Documentation and example usage is available at <a sl-processed="1" rel="nofollow" href="http://rubycas-client.rubyforge.org/" target="_blank">http://rubycas-client.rubyforge.org/</a></p>
+<h2>phpCAS</h2>
+<h3>A simple CAS client</h3>
+<p>phpCAS can be used the simplest way, as a CAS client (<a sl-processed="1" href="http://www.ja-sig.org/wiki/download/attachments/6619639/example_simple.php?version=1">example_simple.php</a>):</p>
+<div class="code panel" style="border-width:1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+
+<span class="code-comment">//
+</span><span class="code-comment">// phpCAS simple client
+</span><span class="code-comment">//
+</span>
+<span class="code-comment">// <span class="code-keyword">import</span> phpCAS lib
+</span>include_once('<span class="skimlinks-unlinked">CAS.php</span>');
+
+phpCAS::setDebug();
+
+<span class="code-comment">// initialize phpCAS
+</span>phpCAS::client(CAS_VERSION_2_0,'<span class="skimlinks-unlinked">sso-cas.univ-rennes1.fr',443</span>;
+
+<span class="code-comment">// no SSL validation <span class="code-keyword">for</span> the CAS server
+</span>phpCAS::setNoCasServerValidation();
+
+<span class="code-comment">// force CAS authentication
+</span>phpCAS::forceAuthentication();
+
+<span class="code-comment">// at <span class="code-keyword">this</span> step, the user has been authenticated by the CAS server
+</span><span class="code-comment">// and the user's login name can be read with phpCAS::getUser().
+</span>
+<span class="code-comment">// logout <span class="code-keyword">if</span> desired
+</span><span class="code-keyword">if</span> (isset($_REQUEST['logout'])) {
+	phpCAS::logout();
+}
+
+<span class="code-comment">// <span class="code-keyword">for</span> <span class="code-keyword">this</span> test, simply print that the authentication was successfull
+</span>?&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;phpCAS simple client&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Successfull Authentication!&lt;/h1&gt;
+    &lt;p&gt;the user's login is &lt;b&gt;&lt;?php echo phpCAS::getUser(); ?&gt;&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;phpCAS version is &lt;b&gt;&lt;?php echo phpCAS::getVersion(); ?&gt;&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=<span class="code-quote">"?logout="</span>&gt;Logout&lt;/a&gt;&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+</div>
+<h3><a name="phpCASexamples-Runtimebehaviourconfiguration"></a>Run-time behaviour configuration</h3>
+<p>When setting up a CAS proxy client, some runtime behaviour can be             easily configured.</p>
+<h4><a name="phpCASexamples-Language(examplelang.php)"></a>Language (<a sl-processed="1" href="http://www.ja-sig.org/wiki/download/attachments/6619639/example_lang.php?version=1" target="_blank">example_lang.php</a>)</h4>
+<div class="code panel" style="border-width:1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+
+<span class="code-comment">//
+</span><span class="code-comment">// phpCAS simple client configured with another language
+</span><span class="code-comment">//
+</span>
+<span class="code-comment">// <span class="code-keyword">import</span> phpCAS lib
+</span>include_once('<span class="skimlinks-unlinked">CAS.php</span>');
+
+<span class="code-comment">// initialize phpCAS
+</span>phpCAS::client(CAS_VERSION_2_0,'<span class="skimlinks-unlinked">sso-cas.univ-rennes1.fr',443</span>;
+
+<span class="code-comment">// no SSL validation <span class="code-keyword">for</span> the CAS server
+</span>phpCAS::setNoCasServerValidation();
+
+<span class="code-comment">// set the language to french
+</span>phpCAS::setLang(PHPCAS_LANG_FRENCH);
+
+<span class="code-comment">// force CAS authentication
+</span>phpCAS::forceAuthentication();
+
+<span class="code-comment">// at <span class="code-keyword">this</span> step, the user has been authenticated by the CAS server
+</span><span class="code-comment">// and the user's login name can be read with phpCAS::getUser().
+</span>
+<span class="code-comment">// moreover, a PGT was retrieved from the CAS server that will
+</span><span class="code-comment">// permit to gain accesses to <span class="code-keyword">new</span> services.
+</span>
+<span class="code-comment">// <span class="code-keyword">for</span> <span class="code-keyword">this</span> test, simply print that the authentication was successfull
+</span>?&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Exemple d'internationalisation de phpCAS&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Authentification r&amp;eacute;ussie&amp;nbsp;!&lt;/h1&gt;
+    &lt;p&gt;L'utilisateur connect&amp;eacute; est &lt;b&gt;&lt;?php echo phpCAS::getUser(); ?&gt;&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;La version de phpCAS est &lt;b&gt;&lt;?php echo phpCAS::getVersion(); ?&gt;&lt;/b&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+</div>
+<h4><a name="phpCASexamples-HTMLoutput(examplehtml.php)"></a>HTML output (<a sl-processed="1" href="http://www.ja-sig.org/wiki/download/attachments/6619639/example_html.php?version=1" target="_blank">example_html.php</a>)</h4>
+<div class="code panel" style="border-width:1px;">
+<div class="codeContent panelContent">
+<pre class="code-java">&lt;?php
+
+<span class="code-comment">//
+</span><span class="code-comment">// phpCAS simple client with HTML output customization
+</span><span class="code-comment">//
+</span>
+<span class="code-comment">// <span class="code-keyword">import</span> phpCAS lib
+</span>include_once('<span class="skimlinks-unlinked">CAS.php</span>');
+
+<span class="code-comment">// initialize phpCAS
+</span>phpCAS::client(CAS_VERSION_2_0,'<span class="skimlinks-unlinked">sso-cas.univ-rennes1.fr',443</span>;
+
+<span class="code-comment">// no SSL validation <span class="code-keyword">for</span> the CAS server
+</span>phpCAS::setNoCasServerValidation();
+
+<span class="code-comment">// customize HTML output
+</span>phpCAS::setHTMLHeader('
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;__TITLE__&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;h1&gt;__TITLE__&lt;/h1&gt;
+');
+phpCAS::setHTMLFooter('
+    &lt;hr&gt;
+    &lt;address&gt;
+      phpCAS __PHPCAS_VERSION__,
+      CAS __CAS_VERSION__ (__SERVER_BASE_URL__)
+    &lt;/address&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+');
+
+<span class="code-comment">// force CAS authentication
+</span>phpCAS::forceAuthentication();
+
+<span class="code-comment">// at <span class="code-keyword">this</span> step, the user has been authenticated by the CAS server
+</span><span class="code-comment">// and the user's login name can be read with phpCAS::getUser().
+</span>
+<span class="code-comment">// <span class="code-keyword">for</span> <span class="code-keyword">this</span> test, simply print that the authentication was successfull
+</span>?&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;phpCAS simple client with HTML output customization&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Successfull Authentication!&lt;/h1&gt;
+    &lt;p&gt;the user's login is &lt;b&gt;&lt;?php echo phpCAS::getUser(); ?&gt;&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;phpCAS version is &lt;b&gt;&lt;?php echo phpCAS::getVersion(); ?&gt;&lt;/b&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>(<a sl-processed="1" href="http://www.ja-sig.org/wiki/display/CASC/phpCAS+examples" target="_blank">more</a>)</p>
+<h2>Background for Developers</h2>
+<h3>How does the user navigate between CAS and your application</h3>
+<p>In order to reach CAS and then your application, a URL must be 
+provided to the browser with a service parameter. The service parameter 
+would be the login location of your application. This would usually be 
+done as a redirect from an application requiring login. For instance, to
+ enter the application <a sl-processed="1" href="https://www.ucalgary.ca/itutil?process=CASMenu" rel="nofollow">https://www.ucalgary.ca/itutil?process=CASMenu</a> with a CAS ticket, the browser would need to open CAS with <a sl-processed="1" href="https://cas.ucalgary.ca/cas/login?service=https://www.ucalgary.ca/itutil?process=CASMenu" rel="nofollow">https://cas.ucalgary.ca/cas/login?service=https://www.ucalgary.ca/itutil?process=CASMenu</a></p>
+<p>When successfully authenticated, the user’s browser will be redirected back with a ticket parameter</p>
+<p><a sl-processed="1" href="https://www.ucalgary.ca/itutil?process=CASMenu&amp;ticket=ST-18988-Ka7nKVnuFQ8s2kScT6WC" rel="nofollow">https://www.ucalgary.ca/itutil?process=CASMenu&amp;ticket=ST-18988-Ka7nKVnuFQ8s2kScT6WC</a></p>
+<h3>Ticket authentication and possible service points</h3>
+<p>Your application can validate a ticket using a few different service 
+URLs on the CAS server depending on the data you need and the client API
+ you are using. To avoid rewriting basic partsin code, a number of 
+client API’s are available for general download at <a sl-processed="1" href="http://www.ja-sig.org/products/cas/client/index.html" rel="nofollow">http://www.ja-sig.org/products/cas/client/index.html</a>
+ with the Java API being the most mature. There is also a local custom 
+client API for .Net developers which can be requested from <a sl-processed="1" href="mailto:cas@ucalgary.ca">cas@ucalgary.ca</a>.
+ In addition you can write your own client API that makes an https 
+request and parses the response. These are the service points available 
+for validating CAS tickets with example responses. The examples show 
+sample responses for eid e.pilgrim with a username of epilgrim. (<a sl-processed="1" href="http://www.ucalgary.ca/it/help/articles/3054" target="_blank">more</a>)</p>
+<h2>Blogs reaction on CAS</h2>
+<h3 class="post-title entry-title"><a sl-processed="1" href="http://blog.mohanjith.net/2008/02/cas-jdbc-service-registry-trouble.html" target="_blank">CAS JDBC Service registry trouble</a></h3>
+<h3><a sl-processed="1" href="http://michele.pupazzo.org/diary/?p=352" target="_blank">mod-auth-cas and slow logins </a></h3>
+<h3><a sl-processed="1" title="OpenID Server Integrated with CAS" href="http://blog.case.edu/jeremy.smith/2007/03/09/openid_server_integrated_with_cas">OpenID Server Integrated with CAS</a></h3>
+<h3 class="entryviewheading"><a sl-processed="1" href="http://blogs.technet.com/morello/archive/2008/07/21/to-cluster-or-not-to-cluster-cas.aspx" target="_blank">To Cluster or Not to Cluster CAs</a></h3>
+</div>
+</div>
+<p style="text-align:right;"><em>[<span class="skimlinks-unlinked">wikipedia.org</span>]<br>
+[<span class="skimlinks-unlinked">http://www.ja-sig.org</span>]<br>
+[<span class="skimlinks-unlinked">http://www.yale.edu/its</span>/]<br>
+[<span class="skimlinks-unlinked">http://www.unicon.net/opensource/cas</span>]<br>
+[<span class="skimlinks-unlinked">http://www.ucalgary.ca/it/help/articles/3054</span>]</em></p>
+<p><!-- AddThis Button BEGIN --> <a sl-processed="1" title="Bookmark and Share" href="http://www.addthis.com/bookmark.php?wt=nw&amp;logo=http://mauriziostorani.files.wordpress.com/2008/07/logo_for_add.jpg&amp;pub=flamel&amp;url=http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples&amp;title=Central%20Authentication%20Service%20-%20CAS:%20concepts%20and%20examples" target="_blank"><img class="alignleft" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/button1-bm.gif" alt="Bookmark and Share" border="0" height="16" width="125"></a><br>
+<!-- AddThis Button END --></p>
+
+<div class="wpcnt">
+<div class="wpa">
+<a sl-processed="1" class="wpa-about" href="http://wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Blix";
+		var wpcom_adclk_slot = "wpcom_below_post";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//pixel.wp.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//pixel.wp.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "mauriziostorani.wordpress.com");
+GA_googleAddAttr("BlogId", "3783400");
+GA_googleAddAttr("PageURL", "http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "authentication");
+GA_googleAddAttr("Tag", "cas");
+GA_googleAddAttr("Tag", "single-sign-on");
+GA_googleAddAttr("Tag", "authentication");
+GA_googleAddAttr("Tag", "cas");
+GA_googleAddAttr("Tag", "single-sign-on");
+GA_googleAddAttr("theme_bg", "ffffff");
+GA_googleAddAttr("theme_text", "414141");
+GA_googleAddAttr("theme_link", "6C8C37");
+GA_googleAddAttr("theme_border", "EDE8E2");
+GA_googleAddAttr("theme_url", "009193");
+GA_googleAddAdSensePageAttr("google_page_url", "http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/");
+GA_googleFillSlot("wpcom_below_post");
+}
+</script><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ads"></script>
+</div>
+</div>
+
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='virool.com']").length > 0 || jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//pixel.wp.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled"><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-3783400-424-5426be37828fa" data-src="//widgets.wp.com/likes/#blog_id=3783400&amp;post_id=424&amp;origin=mauriziostorani.wordpress.com&amp;obj_id=3783400-424-5426be37828fa" data-name="like-post-frame-3783400-424-5426be37828fa"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-3783400-424-5426be37828fa" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a.htm" height="55px" width="100%" frameborder="0"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div style="display: block;" id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal"><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="334" data-post-format="false"><span class="jp-relatedposts-post-title"><a sl-processed="1" data-position="0" data-origin="424" rel="nofollow" title="Single sign-on (SSO): Concepts, Methods and Frameworks
+
+Single sign-on (SSO) is a method of access control that enables a user to log in once and gain access to the resources of multiple software systems without being prompted&amp;hellip;" href="http://mauriziostorani.wordpress.com/2008/07/21/single-sign-on-sso-concepts-methods-and-frameworks/" class="jp-relatedposts-post-a">Single sign-on (SSO): Concepts, Methods and Frameworks</a></span><span class="jp-relatedposts-post-context">In "Java"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="405" data-post-format="false"><span class="jp-relatedposts-post-title"><a sl-processed="1" data-position="1" data-origin="424" rel="nofollow" title="Zend Framework - ZF: Concepts, Methods and Examples
+
+Zend Framework is an open source, object-oriented web application framework implemented in PHP 5 and licensed under the New BSD License. Zend Framework—often referred to as ZF—is developed with the&amp;hellip;" href="http://mauriziostorani.wordpress.com/2008/08/06/zend-framework-zf-concepts-methods-and-examples/" class="jp-relatedposts-post-a">Zend Framework - ZF: Concepts, Methods and Examples</a></span><span class="jp-relatedposts-post-context">In "Ajax"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="53" data-post-format="false"><span class="jp-relatedposts-post-title"><a sl-processed="1" data-position="2" data-origin="424" rel="nofollow" title="Flash Cross-Site Scripting Attacks
+
+Adobe Flash content on numerous web sites contain input validation vulnerabilities. A remote user can conduct cross-site scripting attacks. [Editor's note: This is not a vulnerability in Flash player.] Some&amp;hellip;" href="http://mauriziostorani.wordpress.com/2008/06/13/flash-cross-site-scripting-attacks/" class="jp-relatedposts-post-a">Flash Cross-Site Scripting Attacks</a></span><span class="jp-relatedposts-post-context">In "XHTML"</span></p></div></div></div>		
+		<p id="filedunder">
+			Entry filed under: <a sl-processed="1" href="http://mauriziostorani.wordpress.com/category/authentication/" rel="category tag">Authentication</a>, <a sl-processed="1" href="http://mauriziostorani.wordpress.com/category/cas/" rel="category tag">CAS</a>, <a sl-processed="1" href="http://mauriziostorani.wordpress.com/category/single-sign-on/" rel="category tag">Single sign-on</a>. Tags: <a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/authentication/" rel="tag">Authentication</a>, <a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/cas/" rel="tag">CAS</a>, <a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/single-sign-on/" rel="tag">Single sign-on</a>.		</p>
+
+   </div>
+
+	<p id="entrynavigation">
+		<span class="previous"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/07/application-framework-jsr-296-new-concepts-new-features/">Swing Application Framework (JSR-296): new concepts, new&nbsp;features</a></span>		<span class="next"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/29/functional-programming-examples-methods-and-concepts/">Functional programming: Examples, Methods and&nbsp;Concepts</a></span>	</p>
+
+
+
+<!-- comments ................................. -->
+<div id="comments">
+
+
+	<h2>14 Comments <a sl-processed="1" href="#commentform" class="more">Add your own</a></h2>
+
+	<ul class="commentlist">
+		<li id="comment-133" class="comment even thread-even depth-1 highlander-comment">
+	<div id="div-comment-133">
+	<div class="comment-author vcard">
+		<p class="header"><strong>1.</strong>
+
+		<img id="grav-33f121436d65656f2cc3df45988c94b1-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/33f121436d65656f2cc3df45988c94b1.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://web2.blogtells.com/2008/08/22/the-apache-web-server-a-rich-java-web-site-continue/" rel="external nofollow" class="url">Keegan Apache</a></span> &nbsp;|&nbsp; 24 August, 2008 at 08:48</p>
+	</div>
+		<p>This relates to the actual company you wish to submit detailing for. <a sl-processed="1" href="http://web2.blogtells.com/2008/08/22/the-apache-web-server-a-rich-java-web-site-continue/" rel="nofollow">Keegan Apache</a></p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=133#respond" onclick='return addComment.moveForm("div-comment-133", "133", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-4458" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-4458">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>2.</strong>
+
+		<img id="grav-50531185e85826e39df0567312c0180b-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/50531185e85826e39df0567312c0180b.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn">charef</span> &nbsp;|&nbsp; 17 May, 2010 at 15:58</p>
+	</div>
+		<p>Bonsoir ,<br>
+concernant la partie phpCAS  c’est pas bien détaillé et c’est le cas pour tout les autres sites malheureusement .<br>
+j’ai besoin de modifier l’exemple ci dessus afin que je puisse me 
+rediriger vers mon application développé en php lorsque 
+l’authentification de CAS est vérifier . </p>
+<p>je veux savoir ou modifer et comment . </p>
+<p>                                                        Merci d’avance</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=4458#respond" onclick='return addComment.moveForm("div-comment-4458", "4458", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-8346" class="comment byuser comment-author-phpj2ee even thread-even depth-1 highlander-comment">
+	<div id="div-comment-8346">
+	<div class="comment-author vcard">
+		<p class="header"><strong>3.</strong>
+
+		<img id="grav-d21b76bd05a6cecb5ec57f9a6b676d2a-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/d21b76bd05a6cecb5ec57f9a6b676d2a.jpg" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://phpj2ee.wordpress.com/" rel="external nofollow" class="url">phpj2ee</a></span> &nbsp;|&nbsp; 24 August, 2011 at 05:51</p>
+	</div>
+		<p>Hi,</p>
+<p>   I have successfully installed the cas server. And also php cas 
+client also working fine. But when i installed the java cas client it is
+ not working. That is 2 java applications are not single sign on. Each 
+java application is logging in seperately. That is my problem. Does any 
+body has java client code. If yes please help me.</p>
+<p>Thanks<br>
+J.Antony Jeyaprakash</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=8346#respond" onclick='return addComment.moveForm("div-comment-8346", "8346", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-20047" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-20047">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>4.</strong>
+
+		<img id="grav-d14f35baf405108b1ad4fc836af7f2fd-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/d14f35baf405108b1ad4fc836af7f2fd.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://lccc.edu/" rel="external nofollow" class="url">don</a></span> &nbsp;|&nbsp; 5 September, 2012 at 22:14</p>
+	</div>
+		<p>We have casified the connection between our portal server (hosted 
+by campusEAI) and our banner self service application. Some users<br>
+who login to the portal for the first time, get the same error message 
+one would get if you entered an invalid password. If they attempt to 
+login again the connection is accepted. This occurs whenever the<br>
+connection between the portal and banner self service times out.<br>
+This only happens to a few users, and i was curious to know if anyone 
+had experienced something similar. The banner self service application 
+utilizes oracles weblogic server, and the authentication comes from the 
+oracle wallet.</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=20047#respond" onclick='return addComment.moveForm("div-comment-20047", "20047", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-23582" class="comment even thread-even depth-1 highlander-comment">
+	<div id="div-comment-23582">
+	<div class="comment-author vcard">
+		<p class="header"><strong>5.</strong>
+
+		<img id="grav-ac6967251fe75f32a4fa87b15cc25c8a-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ac6967251fe75f32a4fa87b15cc25c8a.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://www.gdyxls.com/plus/guestbook.php" rel="external nofollow" class="url">property valuations sydney</a></span> &nbsp;|&nbsp; 20 December, 2012 at 11:08</p>
+	</div>
+		<p>Hey there would you mind letting me know which hosting company<br>
+you’re working with? I’ve loaded your blog in 3 different web browsers and I must say this<br>
+blog loads a lot faster then most. Can you suggest a good hosting provider at a fair price?<br>
+Many thanks, I appreciate it!</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=23582#respond" onclick='return addComment.moveForm("div-comment-23582", "23582", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-24154" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-24154">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>6.</strong>
+
+		<img id="grav-2dc3706e3c0cc8c8b56d6e620c0c6b31-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/2dc3706e3c0cc8c8b56d6e620c0c6b31.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://4seoprojects.com/" rel="external nofollow" class="url">seo companies derby</a></span> &nbsp;|&nbsp; 14 January, 2013 at 17:43</p>
+	</div>
+		<p>you’re in reality a just right webmaster. The web site loading velocity is amazing. It seems that you’re doing any<br>
+distinctive trick. Furthermore, The contents are<br>
+masterpiece. you have performed a fantastic task in this matter!</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=24154#respond" onclick='return addComment.moveForm("div-comment-24154", "24154", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-24589" class="comment even thread-even depth-1 highlander-comment">
+	<div id="div-comment-24589">
+	<div class="comment-author vcard">
+		<p class="header"><strong>7.</strong>
+
+		<img id="grav-e356230e53494df97003dc6375c976a3-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/e356230e53494df97003dc6375c976a3.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://www.gather.com/viewArticle.action?articleId=281474981823014" rel="external nofollow" class="url">Millard</a></span> &nbsp;|&nbsp; 4 February, 2013 at 10:58</p>
+	</div>
+		<p>Thanks for a marvelous posting! I certainly enjoyed reading it, you can be a great author.<br>
+I will make sure to bookmark your blog and will eventually come back down the road.<br>
+I want to encourage that you continue your great work, have a<br>
+nice afternoon!</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=24589#respond" onclick='return addComment.moveForm("div-comment-24589", "24589", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-26763" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-26763">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>8.</strong>
+
+		<img id="grav-99be6f355a49e374216d25c6e51777ab-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/99be6f355a49e374216d25c6e51777ab.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn">Priya M</span> &nbsp;|&nbsp; 26 April, 2013 at 08:52</p>
+	</div>
+		<p>Hi al. I’ve done with the cas server with backend mysql setup! Now i
+ want my php application to interact with cas server.I got stuck here. 
+Can anyone help me ? <span class="wp-smiley emoji emoji-sad" title=":(">:(</span></p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=26763#respond" onclick='return addComment.moveForm("div-comment-26763", "26763", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-28753" class="comment even thread-even depth-1 highlander-comment">
+	<div id="div-comment-28753">
+	<div class="comment-author vcard">
+		<p class="header"><strong>9.</strong>
+
+		<img id="grav-ed1556798a62650d723eb0b1c31d6976-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ed1556798a62650d723eb0b1c31d6976.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://fogbugz.odin.co.uk/default.asp?automation.2.120422.0" rel="external nofollow" class="url">musclepharm assault review</a></span> &nbsp;|&nbsp; 6 July, 2013 at 20:27</p>
+	</div>
+		<p>Hi there to all, the contents existing at this web site are in fact<br>
+remarkable for people experience, well, keep up the nice work fellows.</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=28753#respond" onclick='return addComment.moveForm("div-comment-28753", "28753", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-29349" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-29349">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>10.</strong>
+
+		<img id="grav-4bf725bf791421bd639b96e5a2227252-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/4bf725bf791421bd639b96e5a2227252.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://wiki.magentium.com/index.php/%EF%BB%BFThe_Key_To_Offshore_Bank" rel="external nofollow" class="url">Offshore Banks</a></span> &nbsp;|&nbsp; 2 August, 2013 at 13:30</p>
+	</div>
+		<p>Greetings,<br>
+I’ve been reading your weblog for some time now and finally got the 
+courage to go ahead and give you a shout out! Just wanted to mention 
+keep up the great job!</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=29349#respond" onclick='return addComment.moveForm("div-comment-29349", "29349", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-33845" class="comment even thread-even depth-1 highlander-comment">
+	<div id="div-comment-33845">
+	<div class="comment-author vcard">
+		<p class="header"><strong>11.</strong>
+
+		<img id="grav-cc5fdc6342d0d1202b07620e419f9f26-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/cc5fdc6342d0d1202b07620e419f9f26.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn">mitesh</span> &nbsp;|&nbsp; 10 June, 2014 at 10:06</p>
+	</div>
+		<p>I want to add Central Authentication without SSO. is there any way&gt;</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=33845#respond" onclick='return addComment.moveForm("div-comment-33845", "33845", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-35509" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-35509">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>12.</strong>
+
+		<img id="grav-38eeb2b271c371a33d814dd6969592cf-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/38eeb2b271c371a33d814dd6969592cf.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://www.incaradvancements.co.uk/" rel="external nofollow" class="url">http://www.incaradvancements.co.uk</a></span> &nbsp;|&nbsp; 7 September, 2014 at 13:36</p>
+	</div>
+		<p>Howdy! Would you mind if I share your blog with my myspace group?<br>
+There’s a lot of folks that I think would really enjoy your content.<br>
+Please let me know. Many thanks</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=35509#respond" onclick='return addComment.moveForm("div-comment-35509", "35509", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-35706" class="comment even thread-even depth-1 highlander-comment">
+	<div id="div-comment-35706">
+	<div class="comment-author vcard">
+		<p class="header"><strong>13.</strong>
+
+		<img id="grav-6c672dffb63a18bdefb7e256f35c2a7a-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/6c672dffb63a18bdefb7e256f35c2a7a.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="http://boringabbey250a.blog.com/2014/07/31/understanding-drug-addiction-and-its-life-threatening-effect/" rel="external nofollow" class="url">http://boringabbey250a.blog.com</a></span> &nbsp;|&nbsp; 15 September, 2014 at 15:23</p>
+	</div>
+		<p>Just want to say your article is as astounding. The clarity to your post is<br>
+just great and i can think you’re a professional on this subject.<br>
+Well with your permission let me to grasp your RSS feed to<br>
+stay updated with imminent post. Thanks 1,000,000 and please<br>
+keep up the enjoyable work.</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=35706#respond" onclick='return addComment.moveForm("div-comment-35706", "35706", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+<li id="comment-35826" class="comment odd alt thread-odd thread-alt depth-1 highlander-comment">
+	<div id="div-comment-35826">
+	<div class="comment-author vcard">
+		<p class="header alt"><strong>14.</strong>
+
+		<img id="grav-eacb118cb82f4ccce53b794801426c63-0" alt="" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/eacb118cb82f4ccce53b794801426c63.png" class="avatar avatar-23 grav-hashed grav-hijack" height="23" width="23">
+		<span class="fn"><a sl-processed="1" href="https://isina.kr/stu1_weekly_report/35900" rel="external nofollow" class="url">https://isina.kr/</a></span> &nbsp;|&nbsp; 20 September, 2014 at 12:12</p>
+	</div>
+		<p>What’s up, its pleasant paragraph about media print,<br>
+we all know media is a great source of facts.</p>
+		<span class="reply">
+	<a sl-processed="1" class="comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/?replytocom=35826#respond" onclick='return addComment.moveForm("div-comment-35826", "35826", "respond", "424")'>Reply</a>	</span>
+	</div>
+
+</li><!-- #comment-## -->
+	</ul>
+	<div class="navigation">
+	<div class="alignleft"></div>
+	<div class="alignright"></div>
+	</div>
+
+
+								<div id="respond" class="comment-respond js">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a sl-processed="1" rel="nofollow" id="cancel-comment-reply-link" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://mauriziostorani.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input id="highlander_comment_nonce" name="highlander_comment_nonce" value="aaf0e0d7e9" type="hidden"><input name="_wp_http_referer" value="/2008/08/23/central-authentication-service-cas-concepts-and-examples/" type="hidden">
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea class="autosizejs " tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; word-wrap: break-word; height: 0px ! important; min-height: 0px ! important; overflow: hidden; transition: none 0s ease 0s ; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 16px; width: 433px;">Enter your comment here...</textarea><textarea style="height: 36px; overflow: hidden; word-wrap: break-word; resize: horizontal;" placeholder="Enter your comment here..." id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div style="display: none;" id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a sl-processed="1" href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a sl-processed="1" href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a sl-processed="1" href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a sl-processed="1" href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a_002.htm" scrolling="no" allowtransparency="true" seamless="seamless" height="24" width="24" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a sl-processed="1" href="https://gravatar.com/site/signup/" target="_blank">				<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/wplogo.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" type="hidden">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'googleplus'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a sl-processed="1" href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div style="display: none;" id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+												<p style="display: none;" class="form-submit">
+							<input name="submit" id="comment-submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="424" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+						<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="649187708d" type="hidden"></p>
+<input name="genseq" value="1411825207" type="hidden">
+<p style="display: none;"></p>					<input id="ak_js" name="ak_js" value="1411825205525" type="hidden"></form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>
+	<p><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/trackback/">Trackback this post</a> &nbsp;|&nbsp; <a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/feed/">Subscribe to the comments via RSS Feed</a></p>
+
+</div> <!-- /comments -->
+
+</div> <!-- /content -->
+
+<hr class="low">
+
+<div id="subcontent">
+
+
+<div id="text-170907951" class="widget widget_text">			<div class="textwidget"><div style="margin:0;padding:0;">
+<a style="" sl-processed="1" href="http://www.cafepress.com/ITPassion" target="_blank">
+<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/dikstra2.png" alt="Elegance is not a dispensable 
+luxury but a factor that decides
+ between success and failure" border="0"></a>
+</div></div>
+		</div><div id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h2><em></em></h2><div style="overflow:hidden"><a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/adl/" class="tag-link-240402" title="1 topic" style="font-size: 8pt;">ADL</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/adobe-air/" class="tag-link-1253658" title="2 topics" style="font-size: 10.8pt;">Adobe AIR</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/agile/" class="tag-link-11287" title="2 topics" style="font-size: 10.8pt;">Agile</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/aglets/" class="tag-link-7363297" title="1 topic" style="font-size: 8pt;">Aglets</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/ajax/" class="tag-link-141" title="5 topics" style="font-size: 15.466666666667pt;">Ajax</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/aop/" class="tag-link-16749" title="2 topics" style="font-size: 10.8pt;">AOP</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/aspectj/" class="tag-link-535101" title="3 topics" style="font-size: 12.666666666667pt;">AspectJ</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/aup/" class="tag-link-78791" title="1 topic" style="font-size: 8pt;">AUP</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/authentication/" class="tag-link-44620" title="1 topic" style="font-size: 8pt;">Authentication</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/bundle/" class="tag-link-8517" title="1 topic" style="font-size: 8pt;">Bundle</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/c/" class="tag-link-2426" title="1 topic" style="font-size: 8pt;">C++</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/cas/" class="tag-link-5609" title="1 topic" style="font-size: 8pt;">CAS</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/cryptography/" class="tag-link-25818" title="1 topic" style="font-size: 8pt;">Cryptography</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/css/" class="tag-link-169" title="1 topic" style="font-size: 8pt;">CSS</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/dom/" class="tag-link-8076" title="2 topics" style="font-size: 10.8pt;">DOM</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/ds/" class="tag-link-3265" title="1 topic" style="font-size: 8pt;">DS</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/dtd/" class="tag-link-326021" title="1 topic" style="font-size: 8pt;">DTD</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/eclipse/" class="tag-link-18466" title="5 topics" style="font-size: 15.466666666667pt;">Eclipse</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/equinox/" class="tag-link-227712" title="5 topics" style="font-size: 15.466666666667pt;">Equinox</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/equinox-aspects/" class="tag-link-8268944" title="3 topics" style="font-size: 12.666666666667pt;">Equinox Aspects</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/flash/" class="tag-link-456" title="1 topic" style="font-size: 8pt;">Flash</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/framework/" class="tag-link-7136" title="2 topics" style="font-size: 10.8pt;">Framework</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/groovy-and-grails/" class="tag-link-9089609" title="1 topic" style="font-size: 8pt;">Groovy and Grails</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/gwt/" class="tag-link-173823" title="1 topic" style="font-size: 8pt;">GWT</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/html/" class="tag-link-647" title="5 topics" style="font-size: 15.466666666667pt;">HTML</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/ipojo/" class="tag-link-8394662" title="1 topic" style="font-size: 8pt;">IPOJO</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/jaas/" class="tag-link-249229" title="1 topic" style="font-size: 8pt;">JAAS</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/java/" class="tag-link-1017" title="15 topics" style="font-size: 22pt;">Java</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/java-applet/" class="tag-link-537080" title="1 topic" style="font-size: 8pt;">Java Applet</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/javaee/" class="tag-link-196534" title="1 topic" style="font-size: 8pt;">JavaEE</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/javafx/" class="tag-link-1078878" title="2 topics" style="font-size: 10.8pt;">JavaFX</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/javascript/" class="tag-link-457" title="5 topics" style="font-size: 15.466666666667pt;">JavaScript</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/jee/" class="tag-link-239718" title="2 topics" style="font-size: 10.8pt;">JEE</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/jfx/" class="tag-link-4813606" title="1 topic" style="font-size: 8pt;">JFX</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/jruby/" class="tag-link-17441" title="1 topic" style="font-size: 8pt;">JRuby</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/json/" class="tag-link-72721" title="2 topics" style="font-size: 10.8pt;">JSON</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/junit/" class="tag-link-102270" title="1 topic" style="font-size: 8pt;">Junit</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/kdm/" class="tag-link-592030" title="1 topic" style="font-size: 8pt;">KDM</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/mda/" class="tag-link-46791" title="1 topic" style="font-size: 8pt;">MDA</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/osgi/" class="tag-link-5165" title="12 topics" style="font-size: 20.6pt;">OSGi</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/parleys/" class="tag-link-4065998" title="1 topic" style="font-size: 8pt;">Parleys</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/pgp/" class="tag-link-55756" title="1 topic" style="font-size: 8pt;">PGP</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/php/" class="tag-link-458" title="5 topics" style="font-size: 15.466666666667pt;">PHP</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/plugin/" class="tag-link-3965" title="1 topic" style="font-size: 8pt;">Plugin</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/rest/" class="tag-link-15314" title="1 topic" style="font-size: 8pt;">REST</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/restful/" class="tag-link-697690" title="1 topic" style="font-size: 8pt;">RESTful</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/reverse-engineering/" class="tag-link-49333" title="1 topic" style="font-size: 8pt;">Reverse Engineering</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/ria/" class="tag-link-35888" title="1 topic" style="font-size: 8pt;">RIA</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/ruby/" class="tag-link-4872" title="3 topics" style="font-size: 12.666666666667pt;">Ruby</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/security/" class="tag-link-801" title="4 topics" style="font-size: 14.222222222222pt;">Security</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/seo/" class="tag-link-1958" title="2 topics" style="font-size: 10.8pt;">SEO</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/seradio-interview/" class="tag-link-8917888" title="1 topic" style="font-size: 8pt;">SERadio interview</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/single-sign-on/" class="tag-link-148060" title="1 topic" style="font-size: 8pt;">Single sign-on</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/soap/" class="tag-link-8791" title="3 topics" style="font-size: 12.666666666667pt;">SOAP</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/spring/" class="tag-link-9486" title="2 topics" style="font-size: 10.8pt;">Spring</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/spring-dynamic-modules/" class="tag-link-8235557" title="1 topic" style="font-size: 8pt;">Spring Dynamic Modules</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/sql/" class="tag-link-10346" title="1 topic" style="font-size: 8pt;">SQL</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/sso/" class="tag-link-325304" title="1 topic" style="font-size: 8pt;">SSO</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/swing/" class="tag-link-8688" title="1 topic" style="font-size: 8pt;">Swing</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/swing-application-framework/" class="tag-link-4139631" title="1 topic" style="font-size: 8pt;">Swing Application Framework</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/tdd/" class="tag-link-76604" title="2 topics" style="font-size: 10.8pt;">TDD</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/testing/" class="tag-link-12" title="1 topic" style="font-size: 8pt;">Testing</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/testng/" class="tag-link-1275410" title="2 topics" style="font-size: 10.8pt;">TestNG</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/tools/" class="tag-link-1981" title="1 topic" style="font-size: 8pt;">Tools</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/uml/" class="tag-link-3616" title="2 topics" style="font-size: 10.8pt;">UML</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/unit-testing/" class="tag-link-3882" title="2 topics" style="font-size: 10.8pt;">Unit testing</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/web-services/" class="tag-link-2358" title="4 topics" style="font-size: 14.222222222222pt;">Web Services</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/wsdl/" class="tag-link-12954" title="1 topic" style="font-size: 8pt;">WSDL</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/xhtml/" class="tag-link-1248" title="3 topics" style="font-size: 12.666666666667pt;">XHTML</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/xml/" class="tag-link-6852" title="3 topics" style="font-size: 12.666666666667pt;">XML</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/xp/" class="tag-link-805" title="1 topic" style="font-size: 8pt;">XP</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/xpath/" class="tag-link-99556" title="1 topic" style="font-size: 8pt;">XPath</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/xquey/" class="tag-link-8882527" title="1 topic" style="font-size: 8pt;">XQuey</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/zend-framework/" class="tag-link-325465" title="1 topic" style="font-size: 8pt;">Zend Framework</a>
+<a sl-processed="1" href="http://mauriziostorani.wordpress.com/tag/zf/" class="tag-link-373761" title="1 topic" style="font-size: 8pt;">ZF</a></div></div><div id="top-posts-2" class="widget widget_top-posts"><h2><em>Top Posts</em></h2><ul><li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/12/06/enterprise-resource-planning-erp-concepts-methods-and-frameworks/" class="bump-view" data-bump-view="tp">Enterprise resource planning (ERP) - Concepts, Methods and Frameworks</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" class="bump-view" data-bump-view="tp">Central Authentication Service - CAS: concepts and examples</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/07/21/single-sign-on-sso-concepts-methods-and-frameworks/" class="bump-view" data-bump-view="tp">Single sign-on (SSO): Concepts, Methods and Frameworks</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/07/09/unit-testing-examples-concepts-and-frameworks/" class="bump-view" data-bump-view="tp">Unit Testing: Examples, Concepts and Frameworks</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/10/09/differences-and-similarities-between-design-patterns-and-architectural-styles/" class="bump-view" data-bump-view="tp">Differences and Similarities between Design Patterns and Architectural Styles</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/07/31/simple-object-access-protocol-soap-methods-concepts-and-examples/" class="bump-view" data-bump-view="tp">Simple Object Access Protocol - SOAP: Methods, Concepts and Examples</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/07/22/json-javascript-object-notation-concepts-methods-examples-and-security-threats/" class="bump-view" data-bump-view="tp">JSON (JavaScript Object Notation): Concepts, Methods, Examples and Security Threats</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/29/functional-programming-examples-methods-and-concepts/" class="bump-view" data-bump-view="tp">Functional programming: Examples, Methods and Concepts</a></li>
+</ul></div>	<h2><em>Recent Posts</em></h2>
+
+	<ul class="posts">
+	<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/12/10/revision-control-concepts-revision-control-system-rcs-concurrent-versions-system-cvs-and-subversion/">Revision control concepts - Revision Control System (RCS), Concurrent Versions System (CVS) and Subversion</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/12/06/enterprise-resource-planning-erp-concepts-methods-and-frameworks/">Enterprise resource planning (ERP) - Concepts, Methods and Frameworks</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/11/19/se-radionet-bran-selic-on-uml-2/">Se-Radio.net: Bran Selic on UML 2</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/10/09/differences-and-similarities-between-design-patterns-and-architectural-styles/">Differences and Similarities between Design Patterns and Architectural Styles</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/10/06/turing-test-on-six-machine-loebner-prize-in-artificial-intelligence/">Turing Test on six machine: Loebner Prize in Artificial Intelligence</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/09/18/new-episode-from-se-radionet-basic-introduction-to-aop-aspect-oriented-programming/">New episode from SE-Radio.net: Basic Introduction to AOP (Aspect Oriented Programming)</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/09/18/mashup-hybrid-web-application-new-generation-of-web-based-applications/">Mashup (hybrid web application): new generation of Web-based applications</a></li>
+<li><a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/09/07/javafx-tutorials-and-demos/">JavaFX: Tutorials and Demos</a></li>
+	</ul>
+<div id="recent-comments-2" class="widget widget_recent_comments"><h2><em>Recent Comments</em></h2>				<ul id="recentcomments">
+											<li class="recentcomments">
+							<a sl-processed="1" href="https://isina.kr/stu1_weekly_report/35900" rel="external nofollow" class="url">https://isina.kr/</a> on <a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/#comment-35826">Central Authentication Service – CAS: concepts and&nbsp;examples</a>						</li>
+
+												<li class="recentcomments">
+							<a sl-processed="1" href="http://seofxs.com/" rel="external nofollow" class="url">professional seo training</a> on <a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/12/06/enterprise-resource-planning-erp-concepts-methods-and-frameworks/#comment-35817">Enterprise resource planning (ERP) – Concepts, Methods and&nbsp;Frameworks</a>						</li>
+
+												<li class="recentcomments">
+							<a sl-processed="1" href="https://twitter.com/aclysformacion" rel="external nofollow" class="url">aclys academia</a> on <a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/06/10/seo-search-engine-optimization/#comment-35809">SEO (Search Engine&nbsp;Optimization)</a>						</li>
+
+												<li class="recentcomments">
+							<a sl-processed="1" href="http://public.fotki.com/reklamachojnow/reklama_chojnow/gadzety-upominki.html" rel="external nofollow" class="url">chojnow</a> on <a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/07/24/google-web-toolkit-gwt-create-ajax-applications-in-java-examples-and-concepts/#comment-35779">Google Web Toolkit (GWT) – Create Ajax applications in Java: Examples and&nbsp;Concepts</a>						</li>
+
+												<li class="recentcomments">
+							<a sl-processed="1" href="http://boringabbey250a.blog.com/2014/07/31/understanding-drug-addiction-and-its-life-threatening-effect/" rel="external nofollow" class="url">http://boringabbey250a.blog.com</a> on <a sl-processed="1" href="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/#comment-35706">Central Authentication Service – CAS: concepts and&nbsp;examples</a>						</li>
+
+										</ul>
+				</div><div id="linkcat-493610" class="widget widget_links"><h2><em>1356</em></h2>
+	<ul class="xoxo blogroll">
+<li><a sl-processed="1" href="http://innovationstartups.wordpress.com/">InnovationStartups</a></li>
+
+	</ul>
+</div>
+<div id="linkcat-2200" class="widget widget_links"><h2><em>Links</em></h2>
+	<ul class="xoxo blogroll">
+<li><a sl-processed="1" href="http://www.schneier.com/" title="Bruce Schneier is an internationally renowned security technologist and author. Described by The Economist as a “security guru,” he is best known as a refreshingly candid and lucid security critic and commentator. When people want to know how security rea" target="_blank">Bruce Schneier on Security</a></li>
+<li><a sl-processed="1" href="http://epic.org/crypto/" title="Electronic Privacy Information Center" target="_blank">Epic.org</a></li>
+<li><a sl-processed="1" href="http://www.eclipse.org/equinox/" title="More generally, the goal of the Equinox project is to be a first class OSGi community and foster the vision of Eclipse as a landscape of bundles. As part of this, it is responsible for developing and delivering the OSGi framework implementation used for a" target="_blank">Equinox</a></li>
+<li><a sl-processed="1" href="http://www.glasbergen.com/" title="Cartoons for newsletters, presentations, websites, intranets, advertising, blogs, and more." target="_blank">Glasbergen.com</a></li>
+<li><a sl-processed="1" href="http://www.javapassion.com/" title="http://www.javapassion.com" target="_blank">javapassion.com</a></li>
+<li><a sl-processed="1" href="http://osgi.org/" target="_blank">OSGi.com</a></li>
+<li><a sl-processed="1" href="http://osgi.dzone.com/" title="Community resources for OSGi developers and users" target="_blank">osgi.dzone.com</a></li>
+<li><a sl-processed="1" href="http://www.owasp.org/index.php/Main_Page" title="The Open Web Application Security Project (OWASP) is a worldwide free and open community focused on improving the security of application software. Our mission is to make application security “visible,” so that people and organizations can make informed d" target="_blank">OWASP – Open Web Application Security Project</a></li>
+<li><a sl-processed="1" href="http://www.parleys.com/" title="Parleys.com is a BeJUG initiative where the different recorded talks from JavaPolis, BeJUG, SpringOne, JaZoon, JavaZone and EclipseCon get published on a regular basis." target="_blank">Parleys.com</a></li>
+<li><a sl-processed="1" href="http://www.se-radio.net/" title="Software Engineering Radio is a podcast targeted at the professional software developer. The goal is to be a lasting educational resource, not a newscast. Every ten days, a new episode is published that covers all topics software engineering. Episodes are" target="_blank">Software Engineering radio</a></li>
+<li><a sl-processed="1" href="http://www.theserverside.com/" title="www.theserverside.com" target="_blank">Theserverside.com</a></li>
+
+	</ul>
+</div>
+<div id="text-244228031" class="widget widget_text"><h2><em>IT Passion’s Store</em></h2>			<div class="textwidget"><div align="center">
+<a style="" sl-processed="1" href="http://www.cafepress.com/ITPassion" target="_blank">
+<img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/support2.png" alt="IT Passion's Store" border="0"></a>
+
+</div></div>
+		</div><div id="archives-2" class="widget widget_archive"><h2><em>Archives</em></h2>		<select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			<option selected="selected" value="">Select Month</option>
+
+				<option value="http://mauriziostorani.wordpress.com/2008/12/"> December 2008 &nbsp;(2)</option>
+	<option value="http://mauriziostorani.wordpress.com/2008/11/"> November 2008 &nbsp;(1)</option>
+	<option value="http://mauriziostorani.wordpress.com/2008/10/"> October 2008 &nbsp;(2)</option>
+	<option value="http://mauriziostorani.wordpress.com/2008/09/"> September 2008 &nbsp;(5)</option>
+	<option value="http://mauriziostorani.wordpress.com/2008/08/"> August 2008 &nbsp;(4)</option>
+	<option value="http://mauriziostorani.wordpress.com/2008/07/"> July 2008 &nbsp;(20)</option>
+	<option value="http://mauriziostorani.wordpress.com/2008/06/"> June 2008 &nbsp;(29)</option>
+		</select>
+</div><div id="text-154426161" class="widget widget_text"><h2><em>Feeds</em></h2>			<div class="textwidget"><div style="background:#FAFAFA url('http://mauriziostorani.files.wordpress.com/2008/06/fedback2.jpg');border-color:#F3F4F4;margin:0;padding:0;">
+<ul class="feeds">
+<li>
+<a sl-processed="1" href="http://feeds.feedburner.com/ItPassion-itProfessionalBlog" rel="alternate" target="_blank">
+Entries (RSS)</a>
+</li>
+<li>
+<a sl-processed="1" href="http://feeds.feedburner.com/CommentsForItPassion-itProfessionalBlog" rel="alternate" target="_blank">Comments (RSS)</a>
+</li>
+<li>
+<a sl-processed="1" href="http://www.feedburner.com/fb/a/emailverifySubmit?feedId=2156589&amp;loc=en_US" target="_blank">Subscribe  by Email</a>
+</li>
+</ul>
+</div></div>
+		</div><div id="text-151879111" class="widget widget_text"><h2><em>Communities</em></h2>			<div class="textwidget"><div align="center">
+<a sl-processed="1" href="http://www.sun.com/software/opensource/java/getinvolved.jsp" target="_blank"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/dukesource110.htm" style="padding:4px;" alt="Get the Source" align="middle" border="0"></a>
+<br>
+
+<a sl-processed="1" href="http://www.osgi.org/" target="_blank"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/osgi_logos_supporter_final.png" style="padding:4px;" alt="OSGi supporter" align="middle" border="0" height="63" width="110"></a>
+<br>
+
+<a sl-processed="1" href="http://www.jugmilano.it/" target="_blank"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/Wiki.htm" style="padding:4px;" alt="JUG Milano" align="middle" border="0" height="110" width="110"></a>
+<br>
+</div></div>
+		</div><div id="text-135513191" class="widget widget_text"><h2><em>Upcoming Events</em></h2>			<div class="textwidget">
+
+<br><br>
+....
+<br><br>
+
+</div>
+		</div><div id="blog-stats-2" class="widget widget_blog-stats"><h2><em>Blog Stats</em></h2>		<ul>
+			<li>244,703 hits</li>
+		</ul>
+		</div><div id="text-245904431" class="widget widget_text"><h2><em>My PageRank</em></h2>			<div class="textwidget"><a sl-processed="1" href="http://pagerankzone.com/" target="_blank"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/domainrank.htm" alt="What's My Google PageRank?" border="0"></a>
+</div>
+		</div><div id="text-244224931" class="widget widget_text"><h2><em>My Flickr</em></h2>			<div class="textwidget"><div align="center">
+<a sl-processed="1" href="http://flickr.com/photos/24896397@N00/"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/24896397N00.jpg" alt="St.Maurizio. Get yours at bighugelabs.com" title="St.Maurizio. Get yours at bighugelabs.com" border="0"></a>
+<br>
+<br>
+<br>
+<hr>
+<br>
+
+<a sl-processed="1" href="http://creativecommons.org/licenses/by-nc-nd/2.5/" target="_blank"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/somerights20.png"></a> <br>
+2010 <a sl-processed="1" href="http://mauriziostorani.wordpress.com/contact-me/">Storani Maurizio's IT Passion Blog</a><br> 
+<a sl-processed="1" href="http://www.linkedin.com/in/mauriziostorani" target="_blank"><img src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/btn_liprofile_blue_80x15.gif" alt="View Maurizio Storani's profile on LinkedIn" border="0" height="15" width="80"></a>
+<br>
+
+</div></div>
+		</div>
+</div> <!-- /subcontent -->
+
+
+<hr class="low">
+
+<div id="footer">
+
+	<p><a sl-processed="1" href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com</a>. <a sl-processed="1" href="https://wordpress.com/themes/blix/" title="Learn more about this theme">The Blix Theme</a>.</p>
+
+</div> <!-- /footer -->
+
+</div> <!-- /container -->
+
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-33f121436d65656f2cc3df45988c94b1">
+	</div>
+	<div class="grofile-hash-map-50531185e85826e39df0567312c0180b">
+	</div>
+	<div class="grofile-hash-map-d21b76bd05a6cecb5ec57f9a6b676d2a">
+	</div>
+	<div class="grofile-hash-map-d14f35baf405108b1ad4fc836af7f2fd">
+	</div>
+	<div class="grofile-hash-map-ac6967251fe75f32a4fa87b15cc25c8a">
+	</div>
+	<div class="grofile-hash-map-2dc3706e3c0cc8c8b56d6e620c0c6b31">
+	</div>
+	<div class="grofile-hash-map-e356230e53494df97003dc6375c976a3">
+	</div>
+	<div class="grofile-hash-map-99be6f355a49e374216d25c6e51777ab">
+	</div>
+	<div class="grofile-hash-map-ed1556798a62650d723eb0b1c31d6976">
+	</div>
+	<div class="grofile-hash-map-4bf725bf791421bd639b96e5a2227252">
+	</div>
+	<div class="grofile-hash-map-cc5fdc6342d0d1202b07620e419f9f26">
+	</div>
+	<div class="grofile-hash-map-38eeb2b271c371a33d814dd6969592cf">
+	</div>
+	<div class="grofile-hash-map-6c672dffb63a18bdefb7e256f35c2a7a">
+	</div>
+	<div class="grofile-hash-map-eacb118cb82f4ccce53b794801426c63">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"http:\/\/mauriziostorani.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/mauriziostorani.wordpress.com\/wp-login.php?action=logout&_wpnonce=03d59d8470","homeURL":"http:\/\/mauriziostorani.wordpress.com\/","postID":"424","gravDefault":"mystery","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a_002.js"></script>
+
+	<div style="bottom: -231px;" id="bit" class="loggedout-follow-normal">
+		<a sl-processed="1" class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “IT PASSION - "IT professional Blog"”</label></h3>
+
+			<form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+			
+			<p><input name="email" value="Enter your email address" onfocus='this.value=(this.value=="Enter your email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter email address" : this.value;' id="loggedout-follow-field" type="email"></p>
+
+			<input name="action" value="subscribe" type="hidden">
+			<input name="blog_id" value="3783400" type="hidden">
+			<input name="source" value="http://mauriziostorani.wordpress.com/2008/08/23/central-authentication-service-cas-concepts-and-examples/" type="hidden">
+			<input name="sub-type" value="loggedout-follow" type="hidden">
+
+			<input id="_wpnonce" name="_wpnonce" value="70e6ace5da" type="hidden"><input name="_wp_http_referer" value="/2008/08/23/central-authentication-service-cas-concepts-and-examples/" type="hidden">
+			<p id="bsub-subscribe-button"><input value="Sign me up" type="submit"></p>
+			</form>
+					<div id="bsub-credit"><a sl-processed="1" href="https://wordpress.com/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+		<iframe src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/master.htm" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' ),
+								isRtl: ( 'rtl' == jQuery( '#wpadminbar' ).css( 'direction' ) )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'clickReblogFlair' == event.event ) {
+					wpcom_reblog.toggle_reblog_box_flair( event.obj_id );
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/form.js"></script>
+<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/a_003.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "mauriziostorani.wordpress.com";
+	</script>
+	<script type="text/javascript" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/725X1342.js"></script><script src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'3783400','v':'wpcom','tz':'1','user_id':'0','post':'424','subd':'mauriziostorani'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRWjZhNWhIRkllQ2lmNE8lUXxoa25FW1ZIVEhZdmxIcnVqZHpFRTlhRkNjQ2hTRmw3alBYR0dtQTRNalRbdWJHQ1pYQkhmKzkxejVPTz8rVnx3R0FGSlZpdU9YRTNGfEhdcUYzNDQwNnxBbXJdOFV0XTJBUT1UaVVFLTFbYT9MYnUyMyYxMnBvMTdHa05KQTBJU2hKb3lbaDZGWThRSC9yW3ZaW3FfRX4teDlCQ2pnVWhwWls1Vi4xOWI3eGtbX214ZUtIeFlnUFg9RkZIMlo3ZmM0UVFvcU51SW1WM1V4RUpHazA1dms3TG49dUlZb19afFFFZnhkeno5SnJUQ0NLaU9HMzc4aE11fnlJSH5ELFdbPX5iLjddTTNIRGlRTC96Jg=='});
+addLoadEvent(function(){linktracker_init('3783400',424);});
+	</script><img id="wpstats" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/g.gif" alt=""><img id="wpstats2" src="Central%20Authentication%20Service%20%E2%80%93%20CAS%20%20concepts%20and%20examples%20_%20IT%20PASSION%20-%20%27IT%20professional%20Blog%27_files/g_002.gif" alt="" style="display:none">
+<noscript><img src="http://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body></html>

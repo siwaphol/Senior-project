@@ -1,0 +1,5 @@
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\bin\Debug\SSODB-New.dacpac
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\bin\Debug\SSODB_New.dll
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\bin\Debug\SSODB_New.pdb
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\obj\Debug\SSODB_New.dll
+E:\Karthik\Samples\SSO\SSODBBased\SSODB-New\obj\Debug\SSODB_New.pdb

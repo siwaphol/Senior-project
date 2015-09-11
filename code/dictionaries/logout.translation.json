@@ -1,0 +1,55 @@
+{
+	"title": {
+		"th": "Saioa itxita.",
+	},
+	"logged_out_text": {
+		"th": "Saioa itxi da.",
+	},
+	"default_link_text": {
+		"th": "Itzuli simpleSAMLphp instalazio orrira "
+	},
+	"hold": {
+		"th": "Itxaroten"
+	},
+	"completed": {
+		"th": "Amaitua"
+	},
+	"progress": {
+		"th": "Saioa ixten...",
+	},
+	"failed": {
+		"th": "Saioa ixteko prozesuak huts egin du"
+	},
+	"return": {
+		"th": "Itzuli zerbitzura",
+	},
+	"success": {
+		"th": "Hemen adierazten den zerrendako zerbitzu guztietako saioak zuzen itxi dira"
+	},
+	"loggedoutfrom": {
+		"th": "%SP% saioa zuzen itxi da."
+	},
+	"also_from": {
+		"th": "Zerbitzu hauetan ere kautotuta zaude:"
+	},
+	"logout_all_question": {
+		"th": "Goian agertzen diren zerbitzu guztietako saioak itxi nahi al dituzu?",
+	},
+	"logout_all": {
+		"th": "Bai, zerbitzu guztiak",
+	},
+	"logout_only": {
+		"th": "Ez, %SP% bakarrik",
+	},
+	"incapablesps": {
+		"th": "Kautotuta zauden zerbitzu bat edo batzuk <i>ez dute uzten saioa ixten<\/i>. Zure saio guztiak ixten direla ziurtatzeko, <i>zure nabigatzaileko leiho guztiak ixtea<\/i> gomendatzen da."
+	},
+		"th": "Ez",
+	},
+	"logging_out_from": {
+		"th": "Honako zerbitzu hauen saioak itxi:"
+	},
+	"failedsps": {
+		"th": "Ezinezkoa da zerbitzu bat edo batzuen saioak ixtea. Zure saio guztiak itxi direla ziurtatzeko, <i>zure web nabigatzailea ixtea<\/i> gomendatzen da.  "
+	}
+}
